@@ -1,8 +1,14 @@
-
 import Image from "next/image";
 import Link from "next/link";
 
 export default function AxiomCTASection() {
+    const services = [
+        { name: "DIGITAL SOLUTIONS", percentage: 87 },
+        { name: "WEB & APP DEVELOPMENT", percentage: 99 },
+        { name: "DEVOPS SOLUTIONS", percentage: 90 },
+        { name: "CYBERSECURITY SOLUTIONS", percentage: 80 },
+        { name: "BUSINESS PROCESS ", percentage: 95 },
+    ];
     return (
         <section className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
             <div className="container px-4 mx-auto">
@@ -22,30 +28,20 @@ export default function AxiomCTASection() {
                 </div>
             </div>
 
-            {/* <div className="container text-xl px-4 mt-10 mx-auto grid grid-cols-5 divide-x border-b border-x">
-                <div className="font-semibold pl-4 space-y-5">
-                    <h3 className="">Digital Solutions</h3>
-                    <p className="">80%</p>
-                </div>
-                <div className="font-semibold pl-4 space-y-5">
-                    <h3 className="">Digital Solutions</h3>
-                    <p className="">80%</p>
-                </div>
-                <div className="font-semibold pl-4 space-y-5">
-                    <h3 className="">Digital Solutions</h3>
-                    <p className="">80%</p>
-                </div>
-                <div className="font-semibold pl-4 space-y-5">
-                    <h3 className="">Digital Solutions</h3>
-                    <p className="">80%</p>
-                </div>
-                <div className="font-semibold pl-4 space-y-5">
-                    <h3 className="">Digital Solutions</h3>
-                    <p className="">80%</p>
-                </div>
-                
-                
-            </div> */}
+            <div className="container text-xl text-black  mt-10 mx-auto grid grid-cols-5 divide-x border-b border-x">
+                {services.map((service, index) => (
+                    <div key={index} className="">
+                        <div className="px-4 min-h-[100px] flex flex-col justify-between py-3">
+                            <h3 className="font-bold text-base">{service.name}</h3>
+                            <p className="text-[32px] font-bold" >{service.percentage}%</p>
+                        </div>
+
+                        <div className={`h-[240px] ${index % 2 === 0 ? "bg-[#D4E0FA]" : "bg-[#CDD9F3]"} relative overflow-hidden`}>
+                            <div className={`absolute bottom-0 left-0 rounded-tl-[20px] right-0 ${index % 2 === 0 ? "bg-blue-500" : "bg-blue-900"}`} style={{ height: `${(service.percentage / 100) * 240}px` }} />
+                        </div>
+                    </div>
+                ))}
+            </div>
         </section>
     );
 }
