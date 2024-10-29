@@ -42,29 +42,29 @@ const About = () => {
                     {/* w-[450px] h-[300px] sm:w-[650px] sm:h-[400px] lg:w-[500px] lg:h-[400px] */}
                     <div className="grid grid-cols-2  bg-blue-100  p-6 rounded-3xl shadow-md gap-5">
                         <div className="flex flex-col text-center justify-center   items-center">
-                            <p className="text-[56px] font-bold text-black">
+                            <p className="text-4xl md:text-[56px] font-bold text-black">
                                 70K<span className="text-[var(--Blue-Color)]">+</span>
                             </p>
-                            <p className="text-base xl:text-lg text-black font-medium -mt-3">Years of Experience</p>
+                            <p className="text-base xl:text-lg text-black font-medium md:mt-2">Years of Experience</p>
                         </div>
 
                         <div className="flex flex-col text-center justify-center  items-center ">
-                            <p className="text-[56px] font-bold text-black">
+                            <p className="text-4xl md:text-[56px]  font-bold text-black">
                                 140K<span className="text-[var(--Blue-Color)]">+</span>
                             </p>
-                            <p className="text-base xl:text-lg text-black font-medium -mt-3">Satisfied Clients</p>
+                            <p className="text-base xl:text-lg text-black font-medium md:mt-2">Satisfied Clients</p>
                         </div>
                         <div className="flex flex-col text-center justify-center items-center">
-                            <p className="text-[56px] font-bold text-black">
+                            <p className="text-4xl md:text-[56px]  font-bold text-black">
                                 98.9<span className="text-[var(--Blue-Color)]">%</span>
                             </p>
-                            <p className="text-base xl:text-lg text-black font-medium -mt-3">Satisfaction Rate</p>
+                            <p className="text-base xl:text-lg text-black font-medium md:mt-2">Satisfaction Rate</p>
                         </div>
                         <div className="flex flex-col text-center justify-center  items-center ">
-                            <p className="text-[56px] font-bold text-black">
+                            <p className="text-4xl md:text-[56px] font-bold text-black">
                                 900M<span className="text-[var(--Blue-Color)]">+</span>
                             </p>
-                            <p className=" text-base xl:text-lg text-black font-medium -mt-3">Candidate Database</p>
+                            <p className=" text-base xl:text-lg text-black font-medium md:mt-2">Candidate Database</p>
                         </div>
                     </div>
                 </div>

@@ -1,8 +1,10 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 const Navbar = () => {
+    const [menuOpen, setmenuOpen] = useState<boolean>(false);
     return (
         <nav className="absolute top-0 left-0 right-0 bg-transparent text-white  z-10">
             <nav className="flex items-center justify-between container px-5 mx-auto h-16">
