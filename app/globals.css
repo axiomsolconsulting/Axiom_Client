@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --Blue-Color: #1C85FF;
+  --Gray-Color: #D1D1D1;
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-red-hat-display), Arial, Helvetica, sans-serif;;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-1 * var(--scroll-width) / 2));
+  }
+}
+
+.animate-scroll {
+  animation: scroll var(--animation-duration) linear infinite;
+}
+
+.container {
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .container {
+      max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+      max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+      max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+      max-width: 1280px;
+  }
+}
+@media (min-width: 1440px) {
+  .container {
+      max-width: 1440px;
+  }
+}
+
+
+.bg-gradient{
+  background: conic-gradient(from 230.85deg at 83.43% 95.28%, #000814 0deg, #06387A 180deg, #16253A 360deg);
+}
+
+.box-gradient{
+  background: conic-gradient(from 230.85deg at 83.43% 95.28%, #000814 0deg, #06387A 180deg, #16253A 360deg);
+}
+
+.service-gradient{
+  background: radial-gradient(at 50% 50%, #041424, transparent 80%), linear-gradient(45deg, #040c1c, #040c24, #04142c);
+}
+
+.gradient-border-bottom {
+  border-bottom: 1px solid transparent;
+  border-image-source: linear-gradient(90deg, #E5EBF8 0%, #BCC5D9 44.5%, #E5EBF8 100%);
+  border-image-slice: 1;
+}
+
+
+.gradient-border-right {
+  border-right: 1px solid transparent;
+  border-image-source: linear-gradient(90deg, #E5EBF8 0%, #BCC5D9 44.5%, #E5EBF8 100%);
+  border-image-slice: 1;
+}
+
+/* styles.css */
+.gradient-border {
+  border: 1px solid transparent;
+  border-image-source: linear-gradient(90deg, #E5EBF8 0%, #BCC5D9 49%, #E5EBF8 100%);
+  border-image-slice: 1;
+}
+
