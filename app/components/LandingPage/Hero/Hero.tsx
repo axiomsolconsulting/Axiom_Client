@@ -27,8 +27,7 @@ const Hero = () => {
             {/* Scroll indicator */}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white text-center">
                 <p className="text-sm mb-2">Scroll to Explore</p>
-                <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730135026/Group_4_1_fpbhf3.png" width={72} height={72} alt="Axiom Logo" className="mx-auto"></Image>
-
+                <Image  src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730135026/Group_4_1_fpbhf3.png" width={72} height={72} alt="Axiom Logo" className="mx-auto"></Image>
             </div>
         </section>
     );

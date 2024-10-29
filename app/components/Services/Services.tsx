@@ -1,4 +1,4 @@
-// import Image from "next/image";
+import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 
 export default function Services() {
@@ -119,7 +119,16 @@ export default function Services() {
                             <div key={index} className={`relative p-6 text-white rounded-[20px] shadow-lg min-h-[424px] box-gradient ${[2, 5, 8].includes(index) ? "md:col-span-2" : ""} ${[2, 3, 8].includes(index) ? "lg:col-span-2" : ""} ${index === 5 ? "lg:col-span-1" : ""}`}>
                                 <h4 className="text-2xl font-bold">{service.title}</h4>
                                 <p className="text-[var(--Gray-Color)] text-base mt-7">{service.description}</p>
-                                <img src={service.image} alt={service.title} className="absolute bottom-6 right-6 object-cover" />
+                                <div className="absolute bottom-6 right-6 max-w-[calc(100%-3rem)]">
+                                    <Image
+                                        src={service.image}
+                                        alt={service.title}
+                                        width={400}
+                                        height={400}
+                                        className="object-cover w-full h-auto"
+                                        priority={index < 4} // Load first 4 images immediately
+                                    />
+                                </div>
                                 {[2, 3, 8].includes(index) && (
                                     <p className="absolute bottom-6 flex items-center">
                                         Learn more <ChevronRight size={16} className="text-[var(--Blue-Color)]" />
