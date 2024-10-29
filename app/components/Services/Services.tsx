@@ -120,13 +120,15 @@ export default function Services() {
                                 <h4 className="text-2xl font-bold">{service.title}</h4>
                                 <p className="text-[var(--Gray-Color)] text-base mt-7">{service.description}</p>
                                 <div className="absolute bottom-6 right-6 max-w-[calc(100%-3rem)]">
+                                {/* max-w-[calc(100%-3rem)] */}
                                     <Image
                                         src={service.image}
                                         alt={service.title}
-                                        width={400}
-                                        height={400}
-                                        className="object-cover w-full h-auto"
+                                        width={250}
+                                        height={200}
+                                        className="object-cover "
                                         priority={index < 4} // Load first 4 images immediately
+                                        quality={80}
                                     />
                                 </div>
                                 {[2, 3, 8].includes(index) && (
@@ -136,7 +138,7 @@ export default function Services() {
                                 )}
                             </div>
                         ))}
-                    </div>
+                    </div>                
                 </div>
             </div>
         </section>

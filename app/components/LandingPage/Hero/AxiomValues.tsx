@@ -6,7 +6,7 @@ export default function AxiomValues() {
         <section className="bg-white py-24">
             <div className="container mx-auto px-4">
                 <h2 className="text-[var(--Blue-Color)] text-sm font-semibold tracking-wide uppercase text-center mb-4">AXIOM&apos;S VALUES</h2>
-                <h3 className="text-3xl sm:text-[44px] leading-[60px] font-semibold text-center mb-4 max-w-4xl mx-auto text-black">Provides Custom Software For Optimized Processes, Innovation, and Growth.</h3>
+                <h3 className="text-3xl sm:text-[44px] sm:leading-[60px] font-semibold text-center mb-4 max-w-4xl mx-auto text-black">Provides Custom Software For Optimized Processes, Innovation, and Growth.</h3>
                 <p className="text-gray-600 text-center mb-12 max-w-4xl mx-auto text-lg leading-[30px]">At the heart of our mission lies a dedication to excellence, integrity, and collaboration. By upholding the highest standards in all our endeavors, we foster a culture of trust and innovation. Our relentless pursuit of customer satisfaction drives us to deliver transformative solutions, while our commitment to teamwork ensures seamless collaboration both internally and with our valued clients.</p>
 
                 {/* Card Box */}
