@@ -34,12 +34,14 @@ export default function AxiomValues() {
                             </svg>
                         </div>
                     </div> */}
-                    
-                    <div className="">
-                        {/* <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730201205/Group_44_pt3ibu.png" width={450} height={450}></Image> */}
-                        <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730201398/Group_442_ygdafq.png" width={450} height={450} className="rotate-90 lg:rotate-0 duration-300" alt=""></Image>
-                    </div>
 
+                    {/* Center Rotating Arrows + Logo */}
+                    <div className="relative w-full max-w-lg mx-auto">
+                        <div className="relative mx-auto">
+                            <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730201398/Group_442_ygdafq.png" width={450} height={450} className="rotate-90 lg:rotate-0 duration-300 mx-auto" alt="" />
+                            <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730201032/Group_19_tfcrlo.png" width={100} height={200} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" alt="" />
+                        </div>
+                    </div>
                     {/* Right Card */}
                     <div className={`rounded-lg p-9 max-w-[460px] bg-gradient text-white space-y-5`}>
                         <div className="">
