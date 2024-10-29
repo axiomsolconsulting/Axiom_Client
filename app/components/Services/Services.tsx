@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 
 export default function Services() {

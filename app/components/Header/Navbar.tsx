@@ -14,7 +14,7 @@ const Navbar = () => {
                     {/* <img src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1728063186/Axiom_Logo_copy_n4y5vv.png" width={160} height={100} alt='Axiom Logo' className="" /> */}
                 </Link>
                 {/* 2 */}
-                <ul className="lg:flex items-center justify-between gap-x-7 hidden text-white">
+                <ul className="lg:flex items-center justify-between gap-x-7 hidden text-white text-lg font-medium">
                     <li className="">
                         <Link href="/services" className="hover:text-gray-300">
                             Services
