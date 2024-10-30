@@ -138,8 +138,8 @@ export default function Services() {
                                 {/* <div className="absolute bottom-6 right-6 max-w-[calc(100%-3rem)] h-[180px] w-[275px]">
                                     <Image src={service.image} alt={service.title} fill={true} className="object-contain w-full h-full" priority={index < 4} quality={80} />
                                 </div> */}
-                                <div className="pl-12">
-                                    <Image src={service.image} alt={service.title} className="absolute object-contain bottom-6 right-6  " />
+                                <div className="">
+                                    <Image src={service.image} alt={service.title} className="absolute object-contain bottom-6 right-6 max-w-full pl-12 sm::pl-0" />
                                 </div>
 
                                 {[2, 3, 8].includes(index) && (
