@@ -80,7 +80,7 @@ const Navbar = () => {
 
             {/* Mobile Nav Bar */}
             <div ref={navRef} className={`lg:hidden bg-gradient absolute top-14 left-0 right-0 overflow-hidden transition-all duration-300 ease-in-out z-20 ${isMobileMenuOpen ? "max-h-fit opacity-100 visible" : "max-h-0 opacity-0 invisible"}`}>
-                <nav className="container mx-auto px-5 py-4  flex flex-col">
+                <nav className="container mx-auto px-5 py-4  flex flex-col text-white">
                     <Link href="/" className="hover:text-gray-300 py-2">
                         Services
                     </Link>
