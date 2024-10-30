@@ -38,7 +38,7 @@ export default function Footer() {
                     </div>
                     <hr className="my-3" />
                     {/* Footer Nav Menu */}
-                    <div className="flex flex-wrap  justify-between gap-y-3  ">
+                    <div className="flex flex-wrap  justify-between gap-y-3  text-[20px]">
                         <div className="flex flex-wrap justify-center gap-4 mx-auto md:mx-0">
                             {["Services", "About", "Careers", "Insights", "Contact", "FAQs"].map((item) => (
                                 <a key={item} href="#" className=" hover:underline">

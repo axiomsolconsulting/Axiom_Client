@@ -1,5 +1,14 @@
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
+import digital from "@/public/services/digital.svg";
+import DevOps from "@/public/services/DevOps.svg";
+import mobile from "@/public/services/mobile.svg";
+import game from "@/public/services/game.svg";
+import cms from "@/public/services/cms.svg";
+import ssl from "@/public/services/ssl.svg";
+import Cloud from "@/public/services/Cloud.svg";
+import avator from "@/public/services/avator.svg";
+import Bussiness from "@/public/services/Business.svg";
 
 export default function Services() {
     const services = [
@@ -8,7 +17,7 @@ export default function Services() {
             id: "web",
             link: "/services/web-development",
             description: "Digital Consulting and Strategy: Tailored guidance and planning to maximize your digital presence.",
-            image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730183673/_%C3%83_%C3%83_%C3%83_%C3%83__1_yjljhh.png",
+            image: digital,
             // icon: <Code className="h-10 w-10 text-primary" />,
         },
         {
@@ -16,7 +25,7 @@ export default function Services() {
             id: "web",
             link: "/services/web-development",
             description: "Streamlining development processes, enhancing collaboratio.",
-            image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730184035/Interface_smytie.png",
+            image: DevOps,
             // icon: <Code className="h-10 w-10 text-primary" />,
         },
         {
@@ -24,7 +33,7 @@ export default function Services() {
             id: "web",
             link: "/services/web-development",
             description: "Crafting engaging and user-friendly mobile applications seamlessly across platforms.",
-            image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730183997/Frame_dfcnkv.png",
+            image: mobile,
             // icon: <Code className="h-10 w-10 text-primary" />,
         },
         {
@@ -32,7 +41,7 @@ export default function Services() {
             id: "web",
             link: "/services/web-development",
             description: "Immersive and captivating game development leveraging augmented reality and virtual reality technologies.",
-            image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730183995/Illustration_jztt00.png",
+            image: game,
             // icon: <Code className="h-10 w-10 text-primary" />,
         },
         {
@@ -40,7 +49,7 @@ export default function Services() {
             id: "web",
             link: "/services/web-development",
             description: "Custom Web Development: Building responsive, intuitive websites tailored to your unique.",
-            image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730183673/_%C3%83_%C3%83_%C3%83_%C3%83__1_yjljhh.png",
+            image: cms,
             // icon: <Code className="h-10 w-10 text-primary" />,
         },
         {
@@ -48,7 +57,7 @@ export default function Services() {
             id: "web",
             link: "/services/web-development",
             description: "Custom Web Development: Building responsive, intuitive websites tailored to your unique.",
-            image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730183994/Frame_1_bs0nqo.png",
+            image: ssl,
             // icon: <Code className="h-10 w-10 text-primary" />,
         },
         {
@@ -56,7 +65,7 @@ export default function Services() {
             id: "web",
             link: "/services/web-development",
             description: "Cloud Operations and Migration: Smooth transition and efficient management of cloud.",
-            image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730183989/Frame_2_zgdktr.png",
+            image: Cloud,
             // icon: <Code className="h-10 w-10 text-primary" />,
         },
         {
@@ -64,7 +73,7 @@ export default function Services() {
             id: "web",
             link: "/services/web-development",
             description: "Staff Augmentation: Augmenting your workforce with skilled professionals to meet evolving.",
-            image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730183992/Group_13_c2yfjm.png",
+            image: avator,
             // icon: <Code className="h-10 w-10 text-primary" />,
         },
         {
@@ -72,7 +81,7 @@ export default function Services() {
             id: "web",
             link: "/services/web-development",
             description: "Developing scalable and robust applications tailored to your business needs.",
-            image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730183991/Business_nlxexk.png",
+            image: Bussiness,
             // icon: <Code className="h-10 w-10 text-primary" />,
         },
     ];
@@ -114,38 +123,33 @@ export default function Services() {
                             <p className="text-gray-500 ">We build custom web applications that are scalable, secure, and easy to manage.</p>
                         </div>
                     </div> */}
-                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[30px]">
-      {services.map((service, index) => (
-        <div 
-          key={index} 
-          className={`relative p-6 text-white rounded-[20px] shadow-lg min-h-[424px] box-gradient 
-            ${[2, 5, 8].includes(index) ? "md:col-span-2" : ""} 
-            ${[2, 3, 8].includes(index) ? "lg:col-span-2" : ""} 
-            ${index === 5 ? "lg:col-span-1" : ""}`}
-        >
-          <h4 className="text-2xl font-bold">{service.title}</h4>
-          <p className="text-[var(--Gray-Color)] text-base mt-7">{service.description}</p>
-          
-          {/* Image container with fixed height */}
-          <div className="absolute bottom-6 right-6 max-w-[calc(100%-3rem)] h-[200px] w-[350px]">
-            <Image
-              src={service.image}
-              alt={service.title}
-              fill={true}
-              className="object-contain"
-              priority={index < 4}
-              quality={80}
-            />
-          </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[30px]">
+                        {services.map((service, index) => (
+                            <div
+                                key={index}
+                                className={`relative p-6 text-white rounded-[20px] shadow-lg min-h-[424px] box-gradient 
+                                ${[2, 5, 8].includes(index) ? "md:col-span-2" : ""} 
+                                ${[2, 3, 8].includes(index) ? "lg:col-span-2" : ""} 
+                                ${index === 5 ? "lg:col-span-1" : ""}`}>
+                                <h4 className="text-2xl font-bold">{service.title}</h4>
+                                <p className="text-[var(--Gray-Color)] text-base mt-7">{service.description}</p>
 
-          {[2, 3, 8].includes(index) && (
-            <p className="absolute bottom-6 flex items-center">
-              Learn more <ChevronRight size={16} className="text-[var(--Blue-Color)]" />
-            </p>
-          )}
-        </div>
-      ))}
-    </div>
+                                {/* Image container with fixed height */}
+                                {/* <div className="absolute bottom-6 right-6 max-w-[calc(100%-3rem)] h-[180px] w-[275px]">
+                                    <Image src={service.image} alt={service.title} fill={true} className="object-contain w-full h-full" priority={index < 4} quality={80} />
+                                </div> */}
+                                <div>
+                                    <Image src={service.image} alt={service.title} className="absolute bottom-6 right-6" />
+                                </div>
+
+                                {[2, 3, 8].includes(index) && (
+                                    <p className="absolute bottom-6 flex items-center">
+                                        Learn more <ChevronRight size={16} className="text-[var(--Blue-Color)]" />
+                                    </p>
+                                )}
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

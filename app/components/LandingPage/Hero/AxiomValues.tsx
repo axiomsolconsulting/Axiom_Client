@@ -5,7 +5,7 @@ export default function AxiomValues() {
     return (
         <section className="bg-white py-24">
             <div className="container mx-auto px-4">
-                <h2 className="text-[var(--Blue-Color)] text-sm font-semibold tracking-wide uppercase text-center mb-4">AXIOM&apos;S VALUES</h2>
+                <h2 className="text-[var(--Blue-Color)] text-lg font-semibold tracking-wide uppercase text-center mb-4">AXIOM&apos;S VALUES</h2>
                 <h3 className="text-3xl sm:text-[44px] sm:leading-[60px] font-semibold text-center mb-4 max-w-4xl mx-auto text-black">Provides Custom Software For Optimized Processes, Innovation, and Growth.</h3>
                 <p className="text-gray-600 text-center mb-12 max-w-4xl mx-auto text-lg leading-[30px]">At the heart of our mission lies a dedication to excellence, integrity, and collaboration. By upholding the highest standards in all our endeavors, we foster a culture of trust and innovation. Our relentless pursuit of customer satisfaction drives us to deliver transformative solutions, while our commitment to teamwork ensures seamless collaboration both internally and with our valued clients.</p>
 
@@ -19,7 +19,7 @@ export default function AxiomValues() {
                         </div>
                         <h4 className="text-4xl font-bold">Axiom&apos;s Vision</h4>
                         <p className="font-semibold text-[22px] leading-[34px]">Transforming businesses with digital solutions.</p>
-                        <p className="text-sm text-[var(--Gray-Color)] text-[18px] leading-[30px]">To be the foremost innovator, revolutionizing industries with groundbreaking software solutions that drive efficiency, agility, and sustainable growth on a global scale.</p>
+                        <p className="text-[var(--Gray-Color)] text-[18px] leading-[30px]">To be the foremost innovator, revolutionizing industries with groundbreaking software solutions that drive efficiency, agility, and sustainable growth on a global scale.</p>
                     </div>
 
                     {/* <div className="relative w-48 h-48">
@@ -49,7 +49,7 @@ export default function AxiomValues() {
                         </div>
                         <h4 className="text-4xl font-bold ">Axiom&apos;s Mission</h4>
                         <p className="font-semibold text-[22px] leading-[34px]">Driving digital innovation for thriving businesses</p>
-                        <p className="text-sm text-[var(--Gray-Color)] text-[18px] leading-[30px]">To engineer innovative software solutions that redefine industry standards, empower businesses to thrive, and drive sustainable growth in a dynamic digital world.</p>
+                        <p className="text-[var(--Gray-Color)] text-[18px] leading-[30px]">To engineer innovative software solutions that redefine industry standards, empower businesses to thrive, and drive sustainable growth in a dynamic digital world.</p>
                     </div>
                 </div>
             </div>
