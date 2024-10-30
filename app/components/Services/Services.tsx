@@ -6,7 +6,7 @@ import mobile from "@/public/services/mobile.svg";
 import game from "@/public/services/game.svg";
 import cms from "@/public/services/cms.svg";
 import ssl from "@/public/services/ssl.svg";
-import Cloud from "@/public/services/Cloud.svg";
+import Cloud from "@/public/services/cloud.svg";
 import avator from "@/public/services/avator.svg";
 import Bussiness from "@/public/services/Business.svg";
 
