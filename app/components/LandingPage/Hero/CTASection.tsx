@@ -28,16 +28,31 @@ export default function AxiomCTASection() {
                 </div>
             </div>
 
-            <div className="container text-xl text-black  mt-10 mx-auto grid grid-cols-5 divide-x border-b border-x">
+            {/* Desktop Stats */}
+            <div className="container hidden text-xl text-black  mt-10 mx-auto lg:grid grid-cols-5 divide-x border-b border-x">
                 {services.map((service, index) => (
                     <div key={index} className="">
                         <div className="px-4 min-h-[100px] flex flex-col justify-between py-3">
                             <h3 className="font-bold text-base">{service.name}</h3>
-                            <p className="text-[32px] font-bold" >{service.percentage}%</p>
+                            <p className="text-[32px] font-bold">{service.percentage}%</p>
                         </div>
 
-                        <div className={`h-[240px] ${index % 2 === 0 ? "bg-[#D4E0FA]" : "bg-[#CDD9F3]"} relative overflow-hidden`}>
-                            <div className={`absolute bottom-0 left-0 rounded-tl-[20px] right-0 ${index % 2 === 0 ? "bg-blue-500" : "bg-blue-900"}`} style={{ height: `${(service.percentage / 100) * 240}px` }} />
+                        <div className={`h-[290px] ${index % 2 === 0 ? "bg-[#D4E0FA]" : "bg-[#CDD9F3]"} relative overflow-hidden`}>
+                            <div className={`absolute bottom-0 left-0 rounded-tl-[20px] right-0 ${index % 2 === 0 ? "bg-blue-500" : "bg-blue-900"}`} style={{ height: `${(service.percentage / 100) * 290}px` }} />
+                        </div>
+                    </div>
+                ))}
+            </div>
+            
+            {/* Mobile Stats */}
+            <div className="container lg:hidden text-xl text-black  mt-10 mx-auto ">
+                {services.map((service, index) => (
+                    <div key={index} className={` ${index % 2 === 0 ? "bg-[#D4E0FA]" : "bg-[#CDD9F3]"} relative overflow-hidden `}>
+                        <div className={` bottom-0 left-0 h-full right-0 rounded-r-full  ${index % 2 === 0 ? "bg-blue-500" : "bg-blue-900"}`} style={{ width: `${service.percentage}%` }}>
+                            <div className="px-4 py-2 text-white">
+                                <h3 className="font-bold text-base">{service.name}</h3>
+                                <p className="text-2xl font-bold">{service.percentage}%</p>
+                            </div>
                         </div>
                     </div>
                 ))}
