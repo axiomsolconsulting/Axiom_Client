@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Hero = () => {
     return (
-        <section className="relative h-screen flex items-center justify-center overflow-hidden ">
+        <section className="relative h-svh flex items-center justify-center overflow-hidden ">
             {/* Particle effect background */}
             <div className="absolute top-0 left-0 w-full h-full ">
                 <video src="https://res.cloudinary.com/ddmanxpsb/video/upload/v1730133449/covervideo_mxojrk.mov" loop autoPlay muted className="w-full h-full object-cover"></video>
