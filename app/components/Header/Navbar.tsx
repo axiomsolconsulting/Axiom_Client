@@ -66,7 +66,7 @@ const Navbar = () => {
                             {/* <Link href="/contact" className="bg-white text-black font-semibold py-2 px-4 rounded-md hover:bg-[var(--Blue-Color)] hover:text-white hover:border border transition-colors duration-300">
                                Book a Call
                             </Link> */}
-                            <Link href="/contact" className="animated-border bg-transparent  py-2 px-4 text-lg font-medium">
+                            <Link href="/contact" className="animated-border bg-transparent  py-2 px-6 text-lg font-medium">
                                Book a Call
                             </Link>
                         </div>
