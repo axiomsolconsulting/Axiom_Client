@@ -21,8 +21,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-    title: "Axiom",
-    description: "Digital Solution provides full-stack development, QA engineering, and Unity expertise.",
+    title: "Top IT Consulting Company for Innovative Digital Solutions",
+    description: "Leading IT consulting company offering advanced digital solutions to optimize business performance with expert consulting and technology innovations.",
 };
 
 export default function RootLayout({

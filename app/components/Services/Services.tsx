@@ -127,7 +127,7 @@ export default function Services() {
                         {services.map((service, index) => (
                             <div
                                 key={index}
-                                className={`relative  p-8 text-white rounded-[20px] shadow-lg min-h-[424px] box-gradient 
+                                className={`relative overflow-hidden p-8 text-white rounded-[20px] shadow-lg min-h-[424px] box-gradient 
                                 ${[2, 5, 8].includes(index) ? "md:col-span-2" : ""} 
                                 ${[2, 3, 8].includes(index) ? "lg:col-span-2" : ""} 
                                 ${index === 5 ? "lg:col-span-1" : ""}`}>
@@ -138,8 +138,9 @@ export default function Services() {
                                 {/* <div className="absolute bottom-6 right-6 max-w-[calc(100%-3rem)] h-[180px] w-[275px]">
                                     <Image src={service.image} alt={service.title} fill={true} className="object-contain w-full h-full" priority={index < 4} quality={80} />
                                 </div> */}
-                                <div className="">
-                                    <Image src={service.image} alt={service.title} className="absolute object-contain bottom-6 right-6 pl-12 sm:pl-0" />
+                                <div className="absolute  bottom-6 right-6 pl-6">
+                                    {/* <Image src={service.image} alt={service.title} className="absolute object-contain bottom-6 right-6 pl-12 sm:pl-0" /> */}
+                                    <Image src={service.image} alt={service.title} className=" "   />
                                 </div>
 
                                 {[2, 3, 8].includes(index) && (
