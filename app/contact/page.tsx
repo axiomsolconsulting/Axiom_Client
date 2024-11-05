@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import {  Facebook, Instagram, Linkedin,ChevronDown, Twitter } from "lucide-react";
-import Email from "/socialmedia/email.svg";
-import Phone from "/socialmedia/phone.svg";
-import Location from "/socialmedia/location.svg";
+// import Email from "@/public/socialmedia/email.svg";
+// import Phone from "@/public/socialmedia/phone.svg";
+// import Location from "@/public/socialmedia/location.svg";
 import Image from "next/image";
 
 export default function Page() {
@@ -39,19 +39,19 @@ export default function Page() {
                         <div className="space-y-10">
                             <a href="mailto:connect@axiomsolic.com" className="flex items-center gap-x-[20px] text-2xl font-medium text-white hover:text-blue-300 transition-colors">
                                 {/* <Mail className="w-5 h-5" /> */}
-                                <Image src={Email} alt="Email Icon"></Image>
+                                <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730818630/Email_xqv6jt.svg" alt="Email Icon"></Image>
                                 connect@axiomsolic.com
                             </a>
 
                             <a href="tel:+19095598113" className="flex items-center gap-x-[20px] text-2xl font-medium text-white hover:text-blue-300 transition-colors">
                                 {/* <Phone className="w-5 h-5" /> */}
-                                <Image src={Phone} alt="Phone Icon"></Image>
+                                <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730818630/Phone_gvqxiq.svg" alt="Phone Icon"></Image>
                                 +1 (909) 559-8113
                             </a>
 
                             <div className="flex items-center gap-x-[20px] text-2xl font-medium text-white hover:text-blue-300">
                                 {/* <MapPin className="w-5 h-5 flex-shrink-0" /> */}
-                                <Image src={Location} alt="Location"></Image>
+                                <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730818630/Location_dnix0g.svg" alt="Location"></Image>
                                 <span>
                                     2372 Morse Ave#968
                                     <br />

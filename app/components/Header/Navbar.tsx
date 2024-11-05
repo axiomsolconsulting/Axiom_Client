@@ -22,7 +22,7 @@ const Navbar = () => {
     }, []);
     return (
         <>
-            <nav className="absolute top-0 left-0 right-0 bg-transparent text-white  z-10 mix-blend-difference">
+            <nav className="absolute top-0 left-0 right-0 bg-transparent text-white  z-10 ">
                 <nav className="flex items-center justify-between container px-5 mx-auto h-20">
                     {/* 1 */}
 
