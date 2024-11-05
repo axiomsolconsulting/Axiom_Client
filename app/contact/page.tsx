@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, MapPin, Facebook, Instagram, Linkedin, Youtube, Dribbble, ChevronDown, Twitter } from "lucide-react";
+import {  Facebook, Instagram, Linkedin, ChevronDown, Twitter } from "lucide-react";
 import Email from "@/public/socialmedia/email.svg";
 import Phone from "@/public/socialmedia/phone.svg";
 import Location from "@/public/socialmedia/location.svg";
 import Image from "next/image";
 
-export default function ContactSection() {
+export default function Page() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -39,19 +39,19 @@ export default function ContactSection() {
                         <div className="space-y-10">
                             <a href="mailto:connect@axiomsolic.com" className="flex items-center gap-x-[20px] text-2xl font-medium text-white hover:text-blue-300 transition-colors">
                                 {/* <Mail className="w-5 h-5" /> */}
-                                <Image src={Email}></Image>
+                                <Image src={Email} alt="Email Icon"></Image>
                                 connect@axiomsolic.com
                             </a>
 
                             <a href="tel:+19095598113" className="flex items-center gap-x-[20px] text-2xl font-medium text-white hover:text-blue-300 transition-colors">
                                 {/* <Phone className="w-5 h-5" /> */}
-                                <Image src={Phone}></Image>
+                                <Image src={Phone} alt="Phone Icon"></Image>
                                 +1 (909) 559-8113
                             </a>
 
                             <div className="flex items-center gap-x-[20px] text-2xl font-medium text-white hover:text-blue-300">
                                 {/* <MapPin className="w-5 h-5 flex-shrink-0" /> */}
-                                <Image src={Location}></Image>
+                                <Image src={Location} alt="Location"></Image>
                                 <span>
                                     2372 Morse Ave#968
                                     <br />
@@ -86,7 +86,7 @@ export default function ContactSection() {
                         <h2 className="text-3xl font-bold mb-4">
                             We will be happy to tell you more about what <span className="text-blue-400 italic">WE CAN DO</span> for you
                         </h2>
-                        <p className="text-gray-400">We'd love to connect with you and learn more about what we can build together. Tell us a few details and we'll be in touch.</p>
+                        <p className="text-gray-400">We&apos;d love to connect with you and learn more about what we can build together. Tell us a few details and we&apos;ll be in touch.</p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-6">
