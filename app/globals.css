@@ -3,24 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
   --Blue-Color: #1C85FF;
   --Gray-Color: #D1D1D1;
   
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   font-family: var(--font-red-hat-display), Arial, Helvetica, sans-serif;;
 }
@@ -161,3 +150,15 @@ body {
   border-image-slice: 1;
 }
 
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  
+  }
+  
+}
+
+
+.faq-shadow{
+  box-shadow: 0px 0px 0px 7px #E3F0FF;
+}

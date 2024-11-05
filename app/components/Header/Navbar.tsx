@@ -1,5 +1,5 @@
 "use client";
-import React, { useState,useRef,useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
@@ -22,7 +22,7 @@ const Navbar = () => {
     }, []);
     return (
         <>
-            <nav className="absolute top-0 left-0 right-0 bg-transparent text-white  z-10">
+            <nav className="absolute top-0 left-0 right-0 bg-transparent text-white  z-10 mix-blend-difference">
                 <nav className="flex items-center justify-between container px-5 mx-auto h-20">
                     {/* 1 */}
 
@@ -54,7 +54,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li className="">
-                            <Link href="/careers" className="hover:text-gray-300">
+                            <Link href="/faq" className="hover:text-gray-300">
                                 FAQs
                             </Link>
                         </li>
@@ -67,7 +67,7 @@ const Navbar = () => {
                                Book a Call
                             </Link> */}
                             <Link href="/contact" className="animated-border bg-transparent  py-2 px-6 text-lg font-medium">
-                               Book a Call
+                                Book a Call
                             </Link>
                         </div>
                         <button
@@ -84,7 +84,7 @@ const Navbar = () => {
             {/* Mobile Nav Bar */}
             <div ref={navRef} className={`lg:hidden bg-gradient absolute top-14 left-0 right-0 overflow-hidden transition-all duration-300 ease-in-out z-20 ${isMobileMenuOpen ? "max-h-fit opacity-100 visible" : "max-h-0 opacity-0 invisible"}`}>
                 <nav className="container mx-auto px-5 py-4  flex flex-col text-white">
-                    <Link href="/" className="hover:text-gray-300 py-2">
+                    <Link href="/services" className="hover:text-gray-300 py-2">
                         Services
                     </Link>
 
@@ -97,7 +97,7 @@ const Navbar = () => {
                     <Link href="/blogs" className="hover:text-gray-300 py-2">
                         Insights
                     </Link>
-                    <Link href="/blogs" className="hover:text-gray-300 py-2">
+                    <Link href="/faqs" className="hover:text-gray-300 py-2">
                         FAQs
                     </Link>
                     <div className="flex items-center justify-between pt-4 border-t border-gray-700">
