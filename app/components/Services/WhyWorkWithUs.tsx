@@ -34,7 +34,7 @@ const WhyWorkWithUs = () => {
                     </div>
 
                     <div className="bg-[#EDF3FF] rounded-3xl p-8 space-y-4 mt-10 border md:mr-[17px] border-[var(--Blue-Color)]">
-                        <h3 className="text-2xl font-bold">Book a discovery call to discuss your needs.</h3>
+                        <h3 className="text-2xl font-bold text-black">Book a discovery call to discuss your needs.</h3>
                         <p className="text-gray-600">Ready to take the next step? Let&apos;s connect! We invites you to book a discovery call.</p>
                         <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md transition-colors">Book a Call</button>
                     </div>
