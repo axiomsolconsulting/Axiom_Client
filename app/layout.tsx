@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Red_Hat_Display } from "next/font/google";
+import dynamic from "next/dynamic";
+
+const Header = dynamic(() => import("./components/Header/Header"));
+const Footer = dynamic(() => import("./components/Footer/Footer"));
 
 const Red = Red_Hat_Display({
     subsets: ["latin"],
@@ -61,17 +65,22 @@ export default function RootLayout({
                             },
                             contactPoint: {
                                 "@type": "ContactPoint",
-                                telephone:  "+92-XXX-XXXXXXX",
+                                telephone: "+92-XXX-XXXXXXX",
                                 contactType: "Customer Support",
                                 areaServed: "PK and US",
                                 availableLanguage: ["English", "Urdu"],
                             },
-                            sameAs: [ "https://www.facebook.com/decimalsolution", "https://www.instagram.com/decimalsolution", "https://www.linkedin.com/company/decimalsolution", "https://www.youtube.com/@decimalsolution"],
+                            sameAs: ["https://www.facebook.com/decimalsolution", "https://www.instagram.com/decimalsolution", "https://www.linkedin.com/company/decimalsolution", "https://www.youtube.com/@decimalsolution"],
                         }),
                     }}
                 />
             </head>
-            <body className={`${geistSans.variable} ${geistMono.variable} ${Red.variable} antialiased`}>{children}</body>
+
+            <body className={`${geistSans.variable} ${geistMono.variable} ${Red.variable} antialiased`}>
+                <Header />
+                {children}
+                <Footer />
+            </body>
         </html>
     );
 }

@@ -7,7 +7,7 @@
   --foreground: #171717;
   --Blue-Color: #1C85FF;
   --Gray-Color: #D1D1D1;
-
+  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -37,6 +37,10 @@ body {
 
 .animate-scroll {
   animation: scroll var(--animation-duration) linear infinite;
+}
+
+.custom-container{
+  @apply container mx-auto px-4 
 }
 
 .container {
@@ -73,12 +77,19 @@ body {
   background: conic-gradient(from 230.85deg at 83.43% 95.28%, #000814 0deg, #06387A 180deg, #16253A 360deg);
 }
 
+.gray-gradient{
+  background: linear-gradient(180deg, #E5EBF8 0%, #FFFFFF 100%);
+}
+
 .box-gradient{
   background: conic-gradient(from 230.85deg at 83.43% 95.28%, #000814 0deg, #06387A 180deg, #16253A 360deg);
 }
 
 .service-gradient{
   background: radial-gradient(at 50% 50%, #041424, transparent 80%), linear-gradient(45deg, #040c1c, #040c24, #04142c);
+}
+.service-scrollbar-gradient{
+  background: linear-gradient(270deg, #000814 -4.56%, #06387A 49.24%, #16253A 103.05%);
 }
 
 .gradient-border-bottom {

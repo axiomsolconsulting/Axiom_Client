@@ -1,9 +1,9 @@
 // import { Eye, Rocket } from "lucide-react";
 import Image from "next/image";
 
-export default function AxiomValues() {
+export default function AxiomValues({ className = "" }) {
     return (
-        <section className="bg-white py-24">
+        <section className={`bg-white py-24 ${className}`}>
             <div className="container mx-auto px-4">
                 <h2 className="text-[var(--Blue-Color)] text-lg font-semibold tracking-wide uppercase text-center mb-4">AXIOM&apos;S VALUES</h2>
                 <h3 className="text-3xl sm:text-[44px] sm:leading-[60px] font-semibold text-center mb-4 max-w-4xl mx-auto text-black">Provides Custom Software For Optimized Processes, Innovation, and Growth.</h3>
