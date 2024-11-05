@@ -19,7 +19,7 @@ const jobListings: JobListing[] = [
     },
     {
         title: "Business Analyst",
-        location: "Houston, Texas",
+        location: "Houston, New York",
         type: "Full-Time",
         applyLink: "/",
     },
@@ -37,12 +37,13 @@ const Jobs = () => {
                 <div className="px-4 lg:px-[124px] mt-14 divide-y-[1px] border-2">
                     {jobListings.map((job, index) => (
                         <div key={index} className="   hover:bg-white transition-colors duration-100 px-6 py-8 ">
-                            <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-6 lg:gap-8 ">
+                          {/* grid grid-cols-1 lg:grid-cols-3 */}
+                            <div className="flex justify-between gap-6 lg:gap-8 ">
                                 {/* Job Title */}
                                 <h3 className="text-2xl font-semibold text-[#000915]">{job.title}</h3>
 
                                 {/* Location and Job Type */}
-                                <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-8 mx-auto lg:mx-0 text-[#000915]">
+                                <div className="hidden lg:flex flex-col lg:flex-row items-center gap-4 lg:gap-8 mx-auto lg:mx-0 text-[#000915]">
                                     <div className="flex items-center gap-2">
                                         <MapPin className="w-5 h-5 text-[#000915]" />
                                         <span className="text-lg font-semibold">{job.location}</span>

@@ -119,15 +119,15 @@ export default async function Page() {
             <div className="relative ">
                 <div className="bg-black">
                     {/* <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-transparent opacity-50"></div> */}
-                    <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="About Picture" width={1920} height={650} className="min-h-[450px] md:in-h-[650px] max-h-[650px] w-full object-fill" />
+                    <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="About Picture" width={1920} height={650} className="min-h-[650px] md:in-h-[650px] max-h-[752px] w-full object-fill" />
                     {/* <img className="max-h-[650px] w-full object-cover" src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="" /> */}
                     {/* <Image src={contactHero.src} alt="logo" width={120} height={400} layout="responsive" /> */}
                 </div>
-                <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center lg:gap-y-5 items-center text-white px-3">
+                <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center gap-y-5 items-center text-white px-3">
                     <h1 className="text-base font-medium text-center uppercase text-[var(--Blue-Color)]">SERVICES</h1>
                     <p className="text-center text-3xl md:text-6xl md:leading-[80px] font-medium max-w-[824px]">A One Stop Shop for Your Digital Products</p>
                     <p className="text-center text-lg md:text-xl md:leading-[32px] max-w-2xl"> Through our tailored solutions, we harness the power of technology to drive efficiency, innovation, and lasting success for your enterprise.</p>
-                    <div className="md:mt-5 flex justify-center">
+                    <div className="mt-5 flex justify-center">
                         <Link href="/contact" className="bg-[var(--Blue-Color)] text-lg text-white font-medium py-3 px-6 rounded-md hover:bg-white hover:text-black hover:border-red-500 transition-colors duration-300">
                             Work With Us
                         </Link>
@@ -180,8 +180,8 @@ export default async function Page() {
             <ServicesSrollBar />
 
             {/* Services */}
-            <section className="bg-[#000409]">
-                <div className="custom-container mx-auto divide-y-2 ">
+            <section className="bg-[#000409] relative">
+                <div className=" custom-container mx-auto divide-y-2 ">
                     {services.map((service, index) => (
                         <div key={index} className="relative grid grid-cols-1 lg:grid-cols-2 gap-x-[180px] gap-y-10 items-center py-[120px]">
                             <div className="">
@@ -198,6 +198,10 @@ export default async function Page() {
                         </div>
                     ))}
                 </div>
+                {/* <div className="">
+                    <div className="absolute top-0 left-0 bg-red-400 w-20 h-20"></div>
+                    <div className="absolute bottom-0 right-0 bg-red-400 w-20 h-20"></div>
+                </div> */}
             </section>
 
             {/* Why Work With Us */}

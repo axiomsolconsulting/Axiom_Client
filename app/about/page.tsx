@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import AxiomValues from "../components/LandingPage/Hero/AxiomValues";
 import Industries from "../components/LandingPage/Hero/Industries";
-import { Linkedin } from "lucide-react";
-// import Linkedin from "@/public/Linkedin.svg";
+// import { Linkedin } from "lucide-react";
+import Linkedin from "@/public/socialmedia/Linkedin.svg";
 import Jobs from "../components/Jobs/Jobs";
 
 export default function Page() {
@@ -81,18 +81,19 @@ export default function Page() {
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-[30px] mt-[50px] mb-16">
                     {Team.map((member, index) => (
                         <div key={index} className="space-y-[30px]">
-                            <div className=" ">
+                            <div className="relative">
                                 {/* <img src={member.image} alt={member.name} className="rounded-3xl" /> */}
-                                <Image src={member.image} alt={member.name} width={300} height={300} className="rounded-3xl" />
-                                <Linkedin className="w-6 h-6 text-[#007EBB] mx-auto mt-2" />
+                                <Image src={member.image} alt={member.name} width={500} height={300} className="rounded-3xl" />
+                                <Link href={member.linkedin} className="absolute bottom-4 right-4">
+                                    <Image src={Linkedin} alt="Right Arrow" className=""></Image>
+                                </Link>
+
+                                {/* <Linkedin className="w-6 h-6 text-[#007EBB] mx-auto mt-2" /> */}
                             </div>
                             <div className="space-y-2">
                                 <h3 className="text-[#1E1E1E] font-semibold text-[26px]">{member.name}</h3>
                                 <p className="text-[#007EBB] text-lg">{member.role}</p>
                             </div>
-                            <Link href={member.linkedin} className="text-[#454545] hover:underline">
-                                LinkedIn
-                            </Link>
                         </div>
                     ))}
                 </div>
