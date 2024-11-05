@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import {  Facebook, Instagram, Linkedin, ChevronDown, Twitter } from "lucide-react";
-import Email from "@/public/socialmedia/email.svg";
-import Phone from "@/public/socialmedia/phone.svg";
-import Location from "@/public/socialmedia/location.svg";
+import {  Facebook, Instagram, Linkedin,ChevronDown, Twitter } from "lucide-react";
+import Email from "/socialmedia/email.svg";
+import Phone from "/socialmedia/phone.svg";
+import Location from "/socialmedia/location.svg";
 import Image from "next/image";
 
 export default function Page() {
