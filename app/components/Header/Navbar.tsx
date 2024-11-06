@@ -82,7 +82,7 @@ const Navbar = () => {
             </nav>
 
             {/* Mobile Nav Bar */}
-            <div ref={navRef} className={`lg:hidden bg-gradient absolute top-14 left-0 right-0 overflow-hidden transition-all duration-300 ease-in-out z-20 ${isMobileMenuOpen ? "max-h-fit opacity-100 visible" : "max-h-0 opacity-0 invisible"}`}>
+            <div ref={navRef} className={`lg:hidden bg-gradient absolute top-16 left-0 right-0 overflow-hidden transition-all duration-300 ease-in-out z-20 ${isMobileMenuOpen ? "max-h-fit opacity-100 visible" : "max-h-0 opacity-0 invisible"}`}>
                 <nav className="container mx-auto px-5 py-4  flex flex-col text-white">
                     <Link href="/services" className="hover:text-gray-300 py-2">
                         Services
@@ -91,7 +91,7 @@ const Navbar = () => {
                     <Link href="/about" className="hover:text-gray-300  py-2">
                         About
                     </Link>
-                    <Link href="/careers" className="hover:text-gray-300  py-2">
+                    <Link href="/careers" className="hover:text-gray-300 py-2">
                         Careers
                     </Link>
                     <Link href="/blogs" className="hover:text-gray-300 py-2">

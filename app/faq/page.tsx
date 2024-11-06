@@ -33,8 +33,8 @@ export default function Page() {
     return (
         <>
             {/* Hero Section */}
-            <div className="relative ">
-                <div className="bg-white h-[450px] max-h-[650px] w-full">
+            <div className="relative hero-section">
+                <div className="bg-white h-[450px] max-h-[650px] w-full hero-section">
                     {/* <img className="max-h-[650px] w-full object-cover" src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="" /> */}
                     {/* <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="About Picture" width={1920} height={650} className="min-h-[450px] md:in-h-[650px] max-h-[650px] w-full object-fill" /> */}
                     {/* <Image src={contactHero.src} alt="logo" width={120} height={400} layout="responsive" /> */}

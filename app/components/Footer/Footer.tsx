@@ -4,6 +4,32 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer() {
+    const navlist = [
+        {
+            title: "Services",
+            link: "/services",
+        },
+        {
+            title: "About",
+            link: "/about",
+        },
+        {
+            title: "Careers",
+            link: "/careers",
+        },
+        {
+            title: "Insights",
+            link: "/insights",
+        },
+        {
+            title: "Contact",
+            link: "/contact",
+        },
+        {
+            title: "FAQs",
+            link: "/faq",
+        },
+    ];
     return (
         <footer className="bg-gradient text-white pt-[60px] pb-[30px] ">
             <div className="container px-4 mx-auto">
@@ -40,10 +66,10 @@ export default function Footer() {
                     {/* Footer Nav Menu */}
                     <div className="flex flex-wrap  justify-between gap-y-3  text-[20px]">
                         <div className="flex flex-wrap justify-center gap-4 mx-auto md:mx-0">
-                            {["Services", "About", "Careers", "Insights", "Contact", "FAQs"].map((item) => (
-                                <a key={item} href="#" className=" hover:underline">
-                                    {item}
-                                </a>
+                            {navlist.map((item, index) => (
+                                <Link key={index} href={item.link} className=" hover:underline">
+                                    {item.title}
+                                </Link>
                             ))}
                         </div>
 

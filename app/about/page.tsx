@@ -55,16 +55,17 @@ export default function Page() {
                 <div className="Left ">
                     <h3 className="text-[var(--Blue-Color)] uppercase font-medium ">Our Story</h3>
                     <h4 className="font-semibold text-[44px] text-[#1E1E1E] mt-1">Empowering Business Success</h4>
-                    <h5 className="text-[26px] font-semibold text-[#1E1E1E] mt-2">We aim to give businesses the best tools and resources to tackle unforeseen challenges and succeed in their industry.</h5>
-                    <p className="text-[#454545] mt-3 mb-11">Axiom Consulting launched in 2021 after the founding partners recognized a growing need for more effective management of large dispersed cross-functional teams to drive results for businesses and organizations. With Axiom by your side, you can feel confident in your ability to navigate any obstacle and come out on top.</p>
+                    <h5 className="text-[26px] font-semibold text-[#1E1E1E] mt-2 max-w-xl">We aim to give businesses the best tools and resources to tackle unforeseen challenges and succeed in their industry.</h5>
+                    <p className="text-[#454545] mt-3 mb-11 max-w-xl">Axiom Consulting launched in 2021 after the founding partners recognized a growing need for more effective management of large dispersed cross-functional teams to drive results for businesses and organizations. With Axiom by your side, you can feel confident in your ability to navigate any obstacle and come out on top.</p>
                     <div className="">
                         <Link href="/contact" className="bg-[var(--Blue-Color)] text-lg text-white font-medium  py-3 px-6 rounded-md hover:bg-[#011633] hover:text-white hover:border-red-500 transition-colors duration-300">
                             Work With Us
                         </Link>
                     </div>
                 </div>
-                <div className="Right  border-red-400">
-                    <img className=" object-cover rounded-3xl border-[3px] border-white" src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730787467/About_Us_dzqwdx.png" alt="storyImage" />
+                <div className="Right w-full flex items-center ">
+                  <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730787467/About_Us_dzqwdx.png" alt="storyImage" width={600} height={600}  className="mx-auto rounded-3xl border-[3px] border-white  "></Image>
+                    {/* <img className=" object-cover rounded-3xl border-[3px] border-white" src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730787467/About_Us_dzqwdx.png" alt="storyImage" /> */}
                 </div>
             </div>
 

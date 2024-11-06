@@ -1,4 +1,4 @@
-import { MapPin, Clock, } from "lucide-react";
+import { MapPin, Clock } from "lucide-react";
 import RightArrow from "@/public/RightArrow.svg";
 import Link from "next/link";
 import Image from "next/image";
@@ -34,16 +34,16 @@ const Jobs = () => {
                 </div>
                 <h3 className="text-[44px] font-semibold text-[#000915] text-center">This Could be Your Job</h3>
                 <p className="text-lg text-[#000915] text-center max-w-[946px] mx-auto mt-3">Creating solid teams is more than hiring skilled people. We believe it’s essential to develop a culture where everyone can feel heard, supported, and able to do their best, most innovative work.i</p>
-                <div className="px-4 lg:px-[124px] mt-14 divide-y-[1px] border-2">
+                <div className=" lg:px-[124px] mt-14 divide-y-[1px] border-2">
                     {jobListings.map((job, index) => (
                         <div key={index} className="   hover:bg-white transition-colors duration-100 px-6 py-8 ">
-                          {/* grid grid-cols-1 lg:grid-cols-3 */}
-                            <div className="flex justify-between gap-6 lg:gap-8 ">
+                            {/* grid grid-cols-1 lg:grid-cols-3 */}
+                            <div className="flex justify-between gap-6 lg:gap-8 flex-wrap">
                                 {/* Job Title */}
-                                <h3 className="text-2xl font-semibold text-[#000915]">{job.title}</h3>
+                                <h3 className="text-2xl font-semibold text-[#000915] order-1">{job.title}</h3>
 
                                 {/* Location and Job Type */}
-                                <div className="hidden lg:flex flex-col lg:flex-row items-center gap-4 lg:gap-8 mx-auto lg:mx-0 text-[#000915]">
+                                <div className="order-3 flex flex-row items-center gap-4 lg:gap-8 mx-auto lg:mx-0 text-[#000915]">
                                     <div className="flex items-center gap-2">
                                         <MapPin className="w-5 h-5 text-[#000915]" />
                                         <span className="text-lg font-semibold">{job.location}</span>
@@ -55,9 +55,9 @@ const Jobs = () => {
                                 </div>
 
                                 {/* Apply Now Button */}
-                                <Link href={job.applyLink} className="flex items-center gap-1 text-[var(--Blue-Color)] font-semibold text-lg underline underline-offset-4 hover:text-blue-600 transition-colors justify-self-end">
+                                <Link href={job.applyLink} className="order-2 md:order-3 flex items-center gap-1 text-[var(--Blue-Color)] font-semibold text-lg underline underline-offset-4 hover:text-blue-600 transition-colors justify-self-end">
                                     Apply Now
-                                   <Image src={RightArrow} alt="Right Arrow" className="w-4 h-4"></Image>
+                                    <Image src={RightArrow} alt="Right Arrow" className="w-4 h-4"></Image>
                                 </Link>
                             </div>
                         </div>
