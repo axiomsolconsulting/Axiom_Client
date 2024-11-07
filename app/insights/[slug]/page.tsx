@@ -1,6 +1,7 @@
-"use client";
+// "use client";
 import React from "react";
 import axios from "axios";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 // import { FaFacebookF } from "react-icons/fa";
 // import { FaTwitter } from "react-icons/fa";
 // import { FaInstagram } from "react-icons/fa";
@@ -10,6 +11,7 @@ import { backendUrl } from "@/app/constants/constants";
 import Link from "next/link";
 import Image from "next/image";
 import PostCard from "@/app/components/Blog/Postcard";
+import { websiteUrl } from "@/app/components/constants/constants";
 // import { websiteUrl } from "@/app/constants/constants";
 // import parse from "html-react-parser";
 
@@ -30,9 +32,8 @@ export interface Params {
 }
 
 const PostView = async ({ params }: Params) => {
-    
-    const {slug} = await params;
-    
+    const { slug } = await params;
+
     //  For Current Blog Post from the backend
     let post: Post | null = null;
     try {
@@ -58,28 +59,6 @@ const PostView = async ({ params }: Params) => {
         console.log("Error fetching blog data:", error);
     }
 
-    // console.log(slug);
-    // const { slug } = useParams();
-    // console.log(post.blogImage);
-
-    // const [post, setPost] = useState<Post | null>(null);
-
-    // useEffect(() => {
-    //   const fetchData = async () => {
-    //     try {
-    //       const response = await axios.get(`${backendUrl}/api/v1/web/blogs/${slug}`);
-    //       console.log(response.data.data);
-    //       if (response.data.data) {
-    //         setPost(response.data.data);
-    //       }
-    //     } catch (error) {
-    //       console.error("Error fetching post:", error);
-    //     }
-    //   };
-    //   fetchData();
-
-    // }, [slug])
-
     if (!post) {
         return <div className="">Loading</div>;
     }
@@ -87,19 +66,30 @@ const PostView = async ({ params }: Params) => {
     return (
         <>
             {/* bg-slate-200 shadow */}
-            <main className="hero-section  container mx-auto py-5 px-5 lg:flex  md:gap-x-3 space-y-5 md:space-y-0  mt-[167px]">
+            <main className="hero-section  container mx-auto py-5 px-5 mt-[167px]">
+                {/* Content */}
                 <div className="max-w-[950px] mx-auto">
-                    <p className="text-[var(--Blue-Color)] ">Back to Blogs</p>
+                    {/* Back Button */}
+                    <Link href="/insights" className="text-[var(--Blue-Color)] flex items-center gap-x-2">
+                        <span className="">
+                            <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.3125 15.6208L2.73364 7.8104L8.3125 0L5.57886 4.77965e-07L1.36561e-06 7.8104L5.57886 15.6208L8.3125 15.6208Z" fill="#1C85FF" />
+                            </svg>
+                        </span>
+                        Back to Blogs
+                    </Link>
                     <h2 className="text-[#1E1E1E] text-[44px] leading-[60px] font-semibold my-5"> {post.blogTitle} </h2>
                     <p className="pb-5">{post.metaDescription}</p>
                     {/* bg-white overflow-hidden rounded-md shadow-lg border */}
-                    <div className="">
+                    <Image className="w-full aspect-video max-h-[450px] object-cover rounded-3xl" src={post.blogImage} width={1200} height={1200} alt=""></Image>
+                    {/* Post Data + Social + Tags */}
+                    <div className="grid  md:grid-cols-[65%_35%] gap-4 mt-10">
                         {/* Thumbnal */}
-                        <div className="">
-                            {/* <img className="w-full aspect-video max-h-96 object-cover" src={post.blogImage} width={100} height={100} alt="" /> */}
+                        {/* <div className="">
+                            <img className="w-full aspect-video max-h-96 object-cover" src={post.blogImage} width={100} height={100} alt="" />
                             <Image className="w-full aspect-video max-h-[450px] object-cover rounded-3xl" src={post.blogImage} width={1200} height={1200} alt=""></Image>
-                        </div>
-                        {/* Content */}
+                        </div> */}
+                        {/* Content Left */}
                         <div className="px-4 py-5">
                             {/* <h2 className="text-2xl font-semibold font-roboto "> {post.blogTitle} </h2> */}
                             <div className="space-x-3 flex items-center pt-1 text-gray-400 text-sm">
@@ -114,56 +104,79 @@ const PostView = async ({ params }: Params) => {
                                     })}
                                 </div>
                             </div>
-                            {/* <p className=" text-gray-500 mt-5"><>{post.postcontent}</></p> */}
-                            {/* <div
-                                className={`mt-5 [&>h1]:text-[32px] [&>h1]:font-bold [&>h1]:mb-2.5 [&>h1]:text-black
-              [&>h2]:text-[24px] [&>h2]:font-bold [&>h2]:mb-2.5 [&>h2]:text-black
-              [&>h3]:text-[18.72px] [&>h3]:font-bold [&>h3]:mb-2.5 [&>h3]:text-black
-              [&>h4]:text-[16px] [&>h4]:font-bold [&>h4]:mb-2.5 [&>h4]:text-black
-              [&>h5]:text-[13.28px] [&>h5]:font-bold [&>h5]:mb-2.5 [&>h5]:text-black
-              [&>h6]:text-[10px] [&>h6]:font-bold [&>h6]:mb-2.5 [&>h6]:text-black
-              md:[&>p]:text-[16px] [&>p]:text-[13px] [&>p]:mb-1.5 [&>p]:text-black
-              [&>ul]:list-disc [&>ul]:ml-[16px] md:[&>ul]:text-[16px] [&>ul]:text-[13px] [&>ul]:mb-1 [&>ul]:text-black
-              [&>ol]:list-decimal md:[&>ol]:text-[16px] [&>ol]:text-[13px] [&>ol]:ml-[16px] [&>li]:mb-10 
-              [&>li]:list-decimal [&>ol]:mb-2 [&>ol]:text-black
-              [&>img]:rounded-lg
-            [&_a]:text-[#A1258F] `}
-                                dangerouslySetInnerHTML={{ __html: post.blogData }}></div> */}
                             <div className="text-gray-500 mt-5" dangerouslySetInnerHTML={{ __html: post.blogData }}></div>
                             {/* <>{parse( post.blogData)}</> */}
-                            <div className="Tags flex gap-2 mt-5 flex-wrap text-sm">
-                                <span className=" border py-1 px-2 hover:bg-blue-500 hover:text-white cursor-pointer duration-300 transition transform">Fashion</span>
-                                <span className=" border py-1 px-2 hover:bg-blue-500 hover:text-white cursor-pointer duration-300 transition transform">Sports</span>
-                                <span className=" border py-1 px-2 hover:bg-blue-500 hover:text-white cursor-pointer duration-300 transition transform">Cricket</span>
-                                <span className=" border py-1 px-2 hover:bg-blue-500 hover:text-white cursor-pointer duration-300 transition transform">Crypto </span>
-                                <span className=" border py-1 px-2 hover:bg-blue-500 hover:text-white cursor-pointer duration-300 transition transform">Football</span>
+                        </div>
+                        {/* Right Side */}
+                        <div className=" ">
+                            <div className="bg-[#EDF3FF] p-10 rounded-3xl divide-y ">
+                                <div className="1 space-y-[6px] py-7">
+                                    <h4 className=" font-bold text-sm text-black">CATEGORY</h4>
+                                    <p className="text-lg text-[#454545]"></p>
+                                </div>
+                                <div className="3 space-y-[6px] py-7">
+                                    <h4 className="font-bold text-sm text-black">DATE</h4>
+                                    <p className=" text-lg text-[#454545]">
+                                        {new Date(post.createdAt).toLocaleDateString("en-GB", {
+                                            day: "2-digit",
+                                            month: "long",
+                                            year: "numeric",
+                                        })}
+                                    </p>
+                                </div>
+                                <div className="3 space-y-[6px] py-7">
+                                    <h4 className="font-bold text-sm text-black">SHARE ON</h4>
+                                    <div className="flex gap-2 ">
+                                        <Link href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${websiteUrl}/${slug}`)}`} className="p-2 cursor-pointer hover:text-[#1877F2]" target="_blank" rel="noopener noreferrer">
+                                            <Facebook />
+                                        </Link>
+                                        <Link href="https://www.instagram.com/yourusername" className=" p-2 cursor-pointer hover:text-[#B430D7]" target="_blank" rel="noopener noreferrer">
+                                            <Instagram />
+                                        </Link>
+                                        <Link href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${websiteUrl}/${slug}`)}`} className=" p-2 cursor-pointer hover:text-[#0270AD]" target="_blank" rel="noopener noreferrer">
+                                            <Linkedin />
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
-                            <hr className="line my-5" />
-                            {/* <div className="Social flex gap-2 mt-2">
-                        <span className="border p-2 cursor-pointer hover:text-[#1877F2] "><FaFacebookF /></span>
-                        <span className="border p-2 cursor-pointer hover:text-[#1C9BE9]"> <FaTwitter /></span>
-                        <span className="border p-2 cursor-pointer hover:text-[#B430D7]"><FaInstagram /></span>
-                        <span className="border p-2 cursor-pointer hover:text-[#0270AD]"><BiLogoLinkedin /></span>
-                    </div> */}
                         </div>
                     </div>
+                </div>
+                {/* End Horizontal Line */}
+                <div className="relative w-full my-20">
+                    {/* Horizontal Line */}
+                    <div className="absolute inset-0 flex items-center">
+                        <div className="w-full border-t border-gray-200"></div>
+                    </div>
 
-                    <div className="flex bg-white border py-2  justify-between px-3 items-center mt-5 shadow">
-                        <h3 className="text-lg font-semibold">Related Articles</h3>
-                        <button>
-                            <Link href="/blogs" className="bg-blue-500 text-white text-sm font-medium py-1 px-2 hover:text-blue-500 hover:bg-white hover:border-blue-500 border transition transform duration-300">
-                                SEE MORE
-                            </Link>
-                        </button>
+                    {/* Centered Logo */}
+                    <div className="relative flex justify-center">
+                        <div className="bg-white px-4">
+                            <svg width="23" height="19" viewBox="0 0 23 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 17.0566H8.95787L11.0988 13.8453M11.0988 13.8453L14.3101 9.02832L20.4651 17.0566H13.7749L11.0988 13.8453Z" stroke="url(#paint0_linear_450_1385)" stroke-width="2" />
+                                <path d="M21 1.00001L14.0421 1.00001L11.9012 4.21133M11.9012 4.21133L8.68992 9.02832L2.53488 1.00001L9.22514 1.00001L11.9012 4.21133Z" stroke="url(#paint1_linear_450_1385)" stroke-width="2" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_450_1385" x1="17.7028" y1="17.0168" x2="11.2646" y2="7.43811" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#70A8EA" />
+                                        <stop offset="1" stop-color="#32649F" />
+                                    </linearGradient>
+                                    <linearGradient id="paint1_linear_450_1385" x1="14.8759" y1="10.2646" x2="7.18157" y2="-0.0992158" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#70A8EA" />
+                                        <stop offset="1" stop-color="#32649F" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
                     </div>
-                    {/* Realated Post */}
-                    <div className="regularpost grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-5 ">
-                        {relatedpost.map((item, index) => (
-                            <div key={index} className="bg-white rounded-md">
-                                <PostCard title={item.blogTitle} category="No Category" imageURL={item.blogImage} slug={item.blogTitle} authorName={item.authorName} />
-                            </div>
-                        ))}
-                    </div>
+                </div>
+                {/* Realated Post */}
+                <h4 className="text-center text-[#1E1E1E] text-[44px] font-semibold">Related Reads You Might Like</h4>
+                <div className="Related-Post grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-5 ">
+                    {relatedpost.map((item, index) => (
+                        <div key={index} className="bg-white rounded-md">
+                            <PostCard title={item.blogTitle} category="No Category" imageURL={item.blogImage} slug={item.blogTitle} authorName={item.authorName} />
+                        </div>
+                    ))}
                 </div>
             </main>
         </>
