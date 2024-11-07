@@ -103,14 +103,14 @@ export default async function Page() {
         if (response.data.data) {
             services = response.data.data;
         } else {
-            console.error("Failed to fetch blog data:", response.statusText);
+            console.error("Failed to fetch Services data:", response.statusText);
         }
     } catch (error) {
-        console.log("Error fetching blog data:", error);
+        console.log("Error fetching Services Data:", error);
     }
 
     if (!services) {
-        return <div className="text-center text-white text-2xl py-10">Loading...</div>;
+        return <div className="text-center text-white text-2xl py-10 bg-red-300">Loading...</div>;
     }
 
     return (
