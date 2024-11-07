@@ -5,7 +5,7 @@ import { backendUrl } from "../components/constants/constants";
 import axios from "axios";
 import RightArrow from "@/public/RightArrow.svg";
 import WhyWorkWithUs from "../components/Services/WhyWorkWithUs";
-import { getLink } from "./GetLink";
+import { getLink } from "./getLink";
 const stats = [
     { value: "70K+", label: "Years of Experience" },
     { value: "140K+", label: "Satisfied Clients" },
