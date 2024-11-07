@@ -11,7 +11,7 @@ import { websiteUrl } from "@/app/components/constants/constants";
 interface Post {
     blogImage: string;
     blogTitle: string;
-
+    slug: string;
     authorName: string;
     blogData: string;
     metaDescription: string;
@@ -171,7 +171,7 @@ const PostView = async ({ params }: Params) => {
                 <div className="Related-Post grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-5 ">
                     {relatedpost.map((item, index) => (
                         <div key={index} className="bg-white rounded-md">
-                            <PostCard title={item.blogTitle} category="No Category" imageURL={item.blogImage} slug={item.blogTitle} authorName={item.authorName} />
+                            <PostCard title={item.blogTitle} category="No Category" imageURL={item.blogImage} slug={item.slug} authorName={item.authorName} />
                         </div>
                     ))}
                 </div>
