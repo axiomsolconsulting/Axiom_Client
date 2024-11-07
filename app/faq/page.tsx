@@ -33,13 +33,9 @@ export default function Page() {
     return (
         <>
             {/* Hero Section */}
-            <div className="relative hero-section">
-                <div className="bg-white h-[450px] max-h-[650px] w-full hero-section">
-                    {/* <img className="max-h-[650px] w-full object-cover" src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="" /> */}
-                    {/* <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="About Picture" width={1920} height={650} className="min-h-[450px] md:in-h-[650px] max-h-[650px] w-full object-fill" /> */}
-                    {/* <Image src={contactHero.src} alt="logo" width={120} height={400} layout="responsive" /> */}
-                </div>
-                <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center  items-center text-white px-3">
+            <div className=" hero-section mt-[180px]">
+               
+                <div className=" top-0 left-0 w-full h-full flex flex-col justify-center  items-center text-white px-3">
                     <h1 className="text-base font-medium text-center uppercase text-[var(--Blue-Color)] mb-2">FAQs</h1>
                     <p className="text-center text-3xl md:text-6xl md:leading-[80px] font-semibold max-w-[824px] mb-10 text-[#000915]">
                         Got Questions? <br /> We’ve Got Answers!
@@ -48,7 +44,7 @@ export default function Page() {
                 </div>
             </div>
 
-            <div className=" max-w-[950px] mx-auto pb-28 pt-5">
+            <div className=" max-w-[950px] mx-auto pb-28 pt-5 mt-10">
                 <Accordion type="single" collapsible className="w-full space-y-4">
                     {faqs.map((faq, index) => (
                         <AccordionItem key={index} value={`item-${index}`} className="border rounded-[8px] px-7 hover:border-[#002FF5] hover:shadow-faq-shadow ">
