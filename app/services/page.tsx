@@ -5,7 +5,7 @@ import { backendUrl } from "../components/constants/constants";
 import axios from "axios";
 import RightArrow from "@/public/RightArrow.svg";
 import WhyWorkWithUs from "../components/Services/WhyWorkWithUs";
-
+import { getLink } from "./GetLink";
 const stats = [
     { value: "70K+", label: "Years of Experience" },
     { value: "140K+", label: "Satisfied Clients" },
@@ -187,10 +187,10 @@ export default async function Page() {
                             <div className="">
                                 <h2 className="text-4xl font-bold text-white">{service.title}</h2>
                                 <p className="leading-relaxed text-[#D1D1D1] mt-5">{service.description}</p>
-                                <a href="#" className="inline-flex items-center text-white gap-x-2 hover:text-blue-300 transition-colors mt-10">
+                                <Link href={getLink(service.title)} className="inline-flex items-center text-white gap-x-2 hover:text-blue-300 transition-colors mt-10">
                                     Learn more
                                     <Image src={RightArrow} alt="Right Arrow" className=""></Image>
-                                </a>
+                                </Link>
                             </div>
                             <div className="mx-auto">
                                 <Image src={service.homeImage} alt={service.title} width={600} height={600} className="rounded-3xl" layout="responsive" objectFit="contain" />
