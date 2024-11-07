@@ -8,6 +8,30 @@ const Navbar = () => {
     const navRef = useRef<HTMLDivElement>(null);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+    const Navbar = [
+        {
+            name: "Services",
+            link: "/services",
+        },
+        {
+            name: "About",
+            link: "/about",
+        },
+        {
+            name: "Careers",
+            link: "/careers",
+        },
+        {
+            name: "Insights",
+            link: "/insights",
+        },
+        {
+            name: "FAQs",
+            link: "/faq",
+        }
+    ];
+
+
     const handleClickOutside = (event: MouseEvent) => {
         if (navRef.current && !navRef.current.contains(event.target as Node)) {
             setIsMobileMenuOpen(false);
@@ -20,6 +44,8 @@ const Navbar = () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
+
+
     return (
         <>
             <nav className="absolute top-0 left-0 right-0 bg-transparent text-white  z-10 ">
@@ -33,7 +59,14 @@ const Navbar = () => {
                     </Link>
                     {/* 2 */}
                     <ul className="lg:flex items-center justify-between gap-x-7 hidden text-white text-lg font-medium">
-                        <li className="">
+                        {Navbar.map((item, index) => (
+                            <li key={index}>
+                                <Link href={item.link} className="hover:text-gray-300">
+                                    {item.name}
+                                </Link>
+                            </li>
+                        ))}
+                        {/* <li className="">
                             <Link href="/services" className="hover:text-gray-300">
                                 Services
                             </Link>
@@ -57,7 +90,7 @@ const Navbar = () => {
                             <Link href="/faq" className="hover:text-gray-300">
                                 FAQs
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                     {/* 3 */}
                     <div className="flex items-center space-x-4">
@@ -84,7 +117,14 @@ const Navbar = () => {
             {/* Mobile Nav Bar */}
             <div ref={navRef} className={`lg:hidden bg-gradient absolute top-16 left-0 right-0 overflow-hidden transition-all duration-300 ease-in-out z-20 ${isMobileMenuOpen ? "max-h-fit opacity-100 visible" : "max-h-0 opacity-0 invisible"}`}>
                 <nav className="container mx-auto px-5 py-4  flex flex-col text-white">
-                    <Link href="/services" className="hover:text-gray-300 py-2">
+                    {
+                        Navbar.map((item, index) => (
+                            <Link key={index} href={item.link} className="hover:text-gray-300 py-2">
+                                {item.name}
+                            </Link>
+                        ))
+                    }
+                    {/* <Link href="/services" className="hover:text-gray-300 py-2">
                         Services
                     </Link>
 
@@ -99,7 +139,7 @@ const Navbar = () => {
                     </Link>
                     <Link href="/faqs" className="hover:text-gray-300 py-2">
                         FAQs
-                    </Link>
+                    </Link> */}
                     <div className="flex items-center justify-between pt-4 border-t border-gray-700">
                         {/* <button className="hover:text-gray-300"> <Search className="w-5 h-5" />  </button> */}
                         <Link href="/contact" className="bg-white text-black font-semibold py-2 px-4 rounded-full hover:bg-[var(--Blue-Color)] hover:text-white hover:border border transition-colors duration-300">
