@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import JobCareer from "./JobCareers";
 
-
 export default function Page() {
     const benefits = [
         {
@@ -229,8 +228,7 @@ export default function Page() {
 
             {/* Pictures */}
             <div className="mt-10 lg:mt-[120px]">
-                <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730967494/Frame_34714_1_vopxqv.png" alt="" width={2400} height={1200} ></Image>
-
+                <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730967494/Frame_34714_1_vopxqv.png" alt="" width={2400} height={1200}></Image>
             </div>
             {/* Offering */}
             <section className="py-16 px-4">
