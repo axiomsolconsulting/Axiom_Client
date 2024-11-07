@@ -132,6 +132,10 @@ const PostView = async ({ params }: Params) => {
                                     </div>
                                 </div>
                             </div>
+                            <div className="tag">
+                                <h4 className="font-bold text-sm text-black mt-6">TAGS</h4>
+
+                            </div>
                         </div>
                     </div>
                 </div>
