@@ -7,30 +7,9 @@ import { backendUrl } from "../components/constants/constants";
 
 
 
-interface JobListing {
-    title: string;
-    location: string;
-    type: string;
-    applyLink: string;
-}
-
-const jobListings: JobListing[] = [
-    {
-        title: "Data Engineer",
-        location: "Houston, New York",
-        type: "Full-Time",
-        applyLink: "/",
-    },
-    {
-        title: "Business Analyst",
-        location: "Houston, New York",
-        type: "Full-Time",
-        applyLink: "/",
-    },
-];
-
 interface Job {
     title: string;
+    type: string;
     jobApplicationDeadline: string;
     minimumExperience: string;
     experience: string;
@@ -41,7 +20,7 @@ interface Job {
 
 const  JobCareer = async () => {
 
-    let jobs = null;
+    let jobs: Job[] | null = null;
     try {
         const response = await axios.get(`${backendUrl}/api/v1/jobs`);
         if (response.data.data) {

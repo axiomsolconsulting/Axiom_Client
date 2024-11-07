@@ -2,18 +2,11 @@
 import React from "react";
 import axios from "axios";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
-// import { FaFacebookF } from "react-icons/fa";
-// import { FaTwitter } from "react-icons/fa";
-// import { FaInstagram } from "react-icons/fa";
-// import { BiLogoLinkedin } from "react-icons/bi";
 import { backendUrl } from "@/app/constants/constants";
-// import { useParams } from 'next/navigation';
 import Link from "next/link";
 import Image from "next/image";
 import PostCard from "@/app/components/Blog/Postcard";
 import { websiteUrl } from "@/app/components/constants/constants";
-// import { websiteUrl } from "@/app/constants/constants";
-// import parse from "html-react-parser";
 
 interface Post {
     blogImage: string;
