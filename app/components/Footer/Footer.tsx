@@ -47,7 +47,7 @@ export default function Footer() {
                 </div>
 
                 {/* Main Footer Content */}
-                <div className="bg-[var(--Blue-Color)] rounded-[20px] p-8">
+                <div className="bg-[var(--Blue-Color)] rounded-[20px] px-2 py-8 md:p-8">
                     <div className="flex flex-col md:flex-row justify-between items-center mb-24">
                         {/* Logo */}
                         <Link href="/" className="text-2xl font-bold">
