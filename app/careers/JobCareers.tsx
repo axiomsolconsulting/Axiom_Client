@@ -39,9 +39,9 @@ const  JobCareer = async () => {
                 </div>
                 <h3 className="text-[44px] font-semibold text-[#000915] text-center">Current Openings</h3>
                 <p className="text-lg text-[#000915] text-center max-w-[946px] mx-auto mt-3">Explore our open positions and find the role that&apos;s right for you. Each opportunity at Axiom is a chance to make an impact and grow your career.</p>
-                <div className=" lg:px-[124px] mt-14 divide-y-[1px] border-2">
+                <div className=" lg:px-[124px] mt-14 divide-y-[1px] border-b ">
                     {jobs ? jobs.map((job, index) => (
-                        <div key={index} className=" hover:bg-white transition-colors duration-100 px-6 py-8 ">
+                        <div key={index} className= {`hover:bg-white transition-colors duration-100 px-6 py-8 ` }>
                             {/* grid grid-cols-1 lg:grid-cols-3 */}
                             {/* flex justify-between gap-6 lg:gap-8 flex-wrap */}
                             <div className="grid grid-cols-2 md:grid-cols-3 gap-y-6">
