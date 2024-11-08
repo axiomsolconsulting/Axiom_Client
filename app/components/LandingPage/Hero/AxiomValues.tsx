@@ -13,13 +13,13 @@ export default function AxiomValues({ className = "" }) {
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
                     {/* Left Card */}
                     {/* <Card title="Axiom's Vision" subtitle="Transforming businesses with digital solutions." description="" icon={} className="bg-blue-600 text-white" /> */}
-                    <div className={`rounded-lg p-9 max-w-[460px] bg-[--Blue-Color] text-white space-y-5`}>
+                    <div className={`rounded-3xl p-9 max-w-[460px] bg-[--Blue-Color] text-white `}>
                         <div className="">
                             <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730187544/_%C3%83_%C3%83_%C3%83_%C3%83__1_txjnej.png" width={78} height={65} alt=""></Image>
                         </div>
-                        <h4 className="text-4xl font-bold">Axiom&apos;s Vision</h4>
-                        <p className="font-semibold text-[22px] leading-[34px]">Transforming businesses with digital solutions.</p>
-                        <p className="text-[var(--Gray-Color)] text-[18px] leading-[30px]">To be the foremost innovator, revolutionizing industries with groundbreaking software solutions that drive efficiency, agility, and sustainable growth on a global scale.</p>
+                        <h4 className="text-4xl font-bold mt-[89px] ">Axiom&apos;s Vision</h4>
+                        <p className="font-semibold text-[22px] leading-[34px] mt-5 ">Transforming businesses with digital solutions.</p>
+                        <p className="text-[#E7E7E7] text-[18px] leading-[30px] mt-[18px]">To be the foremost innovator, revolutionizing industries with groundbreaking software solutions that drive efficiency, agility, and sustainable growth on a global scale.</p>
                     </div>
 
                     {/* <div className="relative w-48 h-48">
@@ -43,13 +43,13 @@ export default function AxiomValues({ className = "" }) {
                         </div>
                     </div>
                     {/* Right Card */}
-                    <div className={`rounded-lg p-9 max-w-[460px] bg-gradient text-white space-y-5`}>
+                    <div className={`rounded-3xl p-9 max-w-[460px] bg-gradient text-white`}>
                         <div className="">
                             <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730187550/Group_20_iudc3e.png" width={71} height={71} alt=""></Image>
                         </div>
-                        <h4 className="text-4xl font-bold ">Axiom&apos;s Mission</h4>
-                        <p className="font-semibold text-[22px] leading-[34px]">Driving digital innovation for thriving businesses</p>
-                        <p className="text-[var(--Gray-Color)] text-[18px] leading-[30px]">To engineer innovative software solutions that redefine industry standards, empower businesses to thrive, and drive sustainable growth in a dynamic digital world.</p>
+                        <h4 className="text-4xl font-bold mt-[89px]">Axiom&apos;s Mission</h4>
+                        <p className="font-semibold text-[22px] leading-[34px] mt-5">Driving digital innovation for thriving businesses</p>
+                        <p className="text-[var(--Gray-Color)] text-[18px] leading-[30px] mt-[18px]">To engineer innovative software solutions that redefine industry standards, empower businesses to thrive, and drive sustainable growth in a dynamic digital world.</p>
                     </div>
                 </div>
             </div>
