@@ -33,7 +33,7 @@ export default function AxiomCTASection() {
                 {services.map((service, index) => (
                     <div key={index} className="">
                         <div className={`px-4 min-h-[100px] flex flex-col justify-between py-3 gap-y-5 border-l  ${index === services.length - 1 ? 'border-r' : ''}`}>
-                            <h3 className="font-bold text-base">{service.name}</h3>
+                            <h3 className="font-bold text-base h-12">{service.name}</h3>
                             <p className="text-[32px] font-bold">{service.percentage}%</p>
                         </div>
                         <div className={`h-10 ${index % 2 === 0 ? "bg-[#D4E0FA]" : "bg-[#CDD9F3]"} relative overflow-hidden`}></div>
