@@ -36,7 +36,7 @@ export default function Footer() {
                 {/* Call to Action Section */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-14 gap-5 flex-wrap">
                     <div>
-                        <h2 className="text-3xl sm:text-[56px] leading-none font-bold mb-6">
+                        <h2 className="text-3xl sm:text-[56px] leading-none font-semibold mb-6">
                             Ready To Work, <span className="border-b-4 italic">Let&apos;s Chat</span>
                         </h2>
                         <p className="text-gray-300 mb-6 md:mb-0 text-[20px]">Let&apos;s take your project to new heights, reach out and see how we can help you.</p>
