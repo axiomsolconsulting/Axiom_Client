@@ -5,7 +5,7 @@ import Competitive from "@/public/careers/Competitive Base Salary.svg";
 import Flexible from "@/public/careers/Flexible Working Hours.svg";
 import Remote from "@/public/careers/Remote Work.svg";
 import Training from "@/public/careers/Trainings & Certifications.svg";
-import Health from "@/public/careers/Health Insurance.svg";
+import Health from "@/public/careers/Health.svg";
 import Loyalty from "@/public/careers/Loyalty Rewards.svg";
 export default function Page() {
     const benefits = [
