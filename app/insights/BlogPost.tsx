@@ -22,10 +22,12 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
     const [searchQuery, setSearchQuery] = useState("");
     const POSTS_PER_PAGE = 6;
 
+    // Filtered posts based on the search query
     const filteredPosts = post.filter(
         (p) => p.blogTitle.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
+    // Calculate total pages for pagination
     const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
     const indexOfLastPost = currentPage * POSTS_PER_PAGE;
     const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE;
@@ -81,8 +83,8 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
                 </div>
             </div>
 
-            {/* Featured Post - The first post from currentPosts */}
-            {currentPosts.length > 0 && (
+            {/* Featured Post - Show only on currentPage === 1 and during search show only post list */}
+            {!searchQuery && currentPage === 1 && currentPosts.length > 0 && (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-5 py-8">
                     <div className="left rounded-3xl overflow-hidden relative">
                         <Image
@@ -111,9 +113,9 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
                 </div>
             )}
 
-            {/* Post List - Exclude the first post */}
+            {/* Post List - Exclude first post if currentPage !== 1 or during search */}
             <div className="posts grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-                {currentPosts.slice(1).map((iteams, index) => (
+                {currentPosts.map((iteams, index) => (
                     <PostCard
                         key={index}
                         title={iteams.blogTitle}
