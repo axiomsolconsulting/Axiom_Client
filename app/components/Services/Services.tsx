@@ -1,15 +1,15 @@
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import axios from "axios";
-import digital from "@/public/services/digital.svg";
-import DevOps from "@/public/services/DevOps.svg";
-import mobile from "@/public/services/mobile.svg";
-import game from "@/public/services/game.svg";
-import cms from "@/public/services/cms.svg";
-import ssl from "@/public/services/ssl.svg";
-import Cloud from "@/public/services/cloud.svg";
-import avator from "@/public/services/avator.svg";
-import Bussiness from "@/public/services/Business.svg";
+// import digital from "@/public/services/digital.svg";
+// import DevOps from "@/public/services/DevOps.svg";
+// import mobile from "@/public/services/mobile.svg";
+// import game from "@/public/services/game.svg";
+// import cms from "@/public/services/cms.svg";
+// import ssl from "@/public/services/ssl.svg";
+// import Cloud from "@/public/services/cloud.svg";
+// import avator from "@/public/services/avator.svg";
+// import Bussiness from "@/public/services/Business.svg";
 import  {backendUrl} from "../constants/constants";
 
 interface Service {
