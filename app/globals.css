@@ -103,7 +103,10 @@ body {
 
 .bg-process{
   background: conic-gradient(from 235.46deg at 80% 106.37%, #000814 0deg, #06387A 180deg, #16253A 360deg);
+}
 
+.bg-CTA{
+  background: linear-gradient(180deg, #E5EBF8 0%, #FFFFFF 100%);
 }
 
 
