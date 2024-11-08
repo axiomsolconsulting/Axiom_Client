@@ -1,5 +1,6 @@
-import Image from "next/image";
-import { ChevronRight } from "lucide-react";
+// import Image from "next/image";
+import Link from "next/link";
+import { ChevronRight  } from "lucide-react";
 import axios from "axios";
 // import digital from "@/public/services/digital.svg";
 // import DevOps from "@/public/services/DevOps.svg";
@@ -11,6 +12,8 @@ import axios from "axios";
 // import avator from "@/public/services/avator.svg";
 // import Bussiness from "@/public/services/Business.svg";
 import  {backendUrl} from "../constants/constants";
+import { getLink } from "@/app/services/getLink";
+
 
 interface Service {
     title: string;
@@ -134,16 +137,19 @@ export default async function Services() {
                                 {/* <div className="absolute bottom-6 right-6 max-w-[calc(100%-3rem)] h-[180px] w-[275px]">
                                     <Image src={service.image} alt={service.title} fill={true} className="object-contain w-full h-full" priority={index < 4} quality={80} />
                                 </div> */}
-                                <div className="absolute  bottom-6 right-6 ">
-                                    {/* <Image src={service.image} alt={service.title} className="absolute object-contain bottom-6 right-6 pl-12 sm:pl-0" /> */}
+                                {/* absolute bottom-6 right-6  */}
+
+                                <div className="absolute bottom-6 right-6">
+                                    <img src={service.coverImage} alt={service.title} />
+                                    {/* <Image src={service.coverImage} alt={service.title} className="absolute object-contain bottom-6 right-6 pl-12 sm:pl-0" /> */}
                                     {/* <Image src={service.coverImage} alt={service.title} className=" "   /> */}
-                                   <Image src={service.coverImage} alt={service.title} width={300} height={300} className="" layout="responsive" objectFit="contain" />
+                                   {/* <Image src={service.coverImage} alt={service.title} width={600} height={600} objectFit="contain" /> */}
                                 </div>
 
                                 {[2, 3, 8].includes(index) && (
-                                    <p className="absolute bottom-6 flex items-center">
+                                    <Link href={getLink(service.title)} className="absolute bottom-6 flex items-center">
                                         Learn more <ChevronRight size={16} className="text-[var(--Blue-Color)]" />
-                                    </p>
+                                    </Link>
                                 )}
                             </div>
                         ))}
