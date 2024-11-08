@@ -186,7 +186,7 @@ export default async function Page() {
             <section className="bg-[#000409] relative">
                 <div className=" custom-container mx-auto divide-y-2 ">
                     {services.map((service, index) => (
-                        <div key={index} className="relative grid grid-cols-1 lg:grid-cols-2 gap-x-[180px] gap-y-10 items-center py-[120px]">
+                        <div key={index} className="relative grid grid-cols-1 lg:grid-cols-2 gap-x-[180px] gap-y-10 items-center py-20 lg:py-[120px]">
                             <div className="">
                                 <h2 className="text-4xl font-bold text-white">{service.title}</h2>
                                 <p className="leading-relaxed text-[#D1D1D1] mt-5">{service.description}</p>
