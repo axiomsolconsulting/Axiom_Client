@@ -20,7 +20,7 @@ const Navbar = () => {
         "/insights", 
         "/", 
         "/contact",
-        "/faq"
+        "/"
     ];
 
     // Check if the current route is allowed or starts with '/services'

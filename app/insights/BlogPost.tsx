@@ -91,7 +91,7 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
                             src={currentPosts[0].blogImage}
                             alt={currentPosts[0].blogTitle}
                             width={600}
-                            height={600}
+                            height={300}
                             layout="responsive"
                         />
                         <span className="absolute top-6 left-6 bg-white py-[10px] px-[16px] rounded-[8px]">FEATURED</span>
