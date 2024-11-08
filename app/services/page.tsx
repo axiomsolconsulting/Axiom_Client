@@ -163,10 +163,13 @@ export default async function Page() {
                 {/* Main Content */}
                 <div className="custom-container ">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mx-auto">
-                        <div className="space-y-6">
+                        <div className="">
                             <h2 className="text-4xl font-bold leading-tight">We transform concepts into strong creative execution that&apos;s driven by both form and function.</h2>
-                            <p className="text-gray-600 leading-relaxed">We believe in more than just ideas – we bring them to life with precision and purpose. By blending form with function, we transform your concepts into robust solutions that are not only visually compelling but strategically crafted to drive tangible results. Our expertise ensures that every execution is anchored in creativity and engineered for impact.</p>
-                            {/* <Button className="bg-blue-500 hover:bg-blue-600 text-white">Learn More</Button> */}
+                            <p className="text-gray-600 leading-relaxed mb-10 mt-5">We believe in more than just ideas – we bring them to life with precision and purpose. By blending form with function, we transform your concepts into robust solutions that are not only visually compelling but strategically crafted to drive tangible results. Our expertise ensures that every execution is anchored in creativity and engineered for impact.</p>
+
+                            <Link href="/insights" className="bg-[var(--Blue-Color)] text-lg text-white font-medium py-3 px-6 rounded-md hover:bg-white hover:text-black hover:border-red-500 transition-colors duration-300">
+                                Load More
+                            </Link>
                         </div>
 
                         <div className="relative h-[400px] rounded-2xl overflow-hidden">
