@@ -148,7 +148,7 @@ export default async function Page() {
                                     const prefix = stat.value.replace(/[0-9KkMm.]/g, ""); // Extract prefix (e.g., "+")
                                     return (
                                         <div key={stat.label} className="text-center text-[#1E1E1E] ">
-                                            <div className="text-[56px] leading-[50px] font-bold mb-3">
+                                            <div className="text-3xl md:text-[56px] md:leading-[50px] font-bold mb-3">
                                                 {mainValue}
                                                 <span className="text-blue-500">{prefix}</span>
                                             </div>
