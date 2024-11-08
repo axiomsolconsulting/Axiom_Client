@@ -5,8 +5,33 @@ import Industries from "../components/LandingPage/Hero/Industries";
 // import { Linkedin } from "lucide-react";
 import Linkedin from "@/public/socialmedia/Linkedin.svg";
 import Jobs from "../components/Jobs/Jobs";
+import { backendUrl } from "../constants/constants";
+import axios from "axios";
 
-export default function Page() {
+interface TeamMember {
+    teamMemberImage: string;
+    teamMemberName: string;
+    teamMemberTitle: string;
+    teamMemberFacebookLink: string;
+    teamMemberTwitterLink: string;
+    teamMemberLinkedInLink: string;
+    teamMemberEmail: string;
+}
+
+export default async function  Page() {
+    let teamMember: TeamMember[] | null = null
+    try {
+        const response = await axios.get(`${backendUrl}/api/v1/teamMember`);
+        if (response.data.data) {
+          teamMember = response.data.data
+        }
+        else{
+            console.error("Failed to fetch team Members data:", response.statusText);
+        }
+    } catch (error) {
+        console.log("Error fetching Team Members:", error);
+    }
+
     const Team = [
         {
             name: "Sal Mahmood",
@@ -80,23 +105,25 @@ export default function Page() {
                 <h2 className="text-center text-[44px] font-semibold text-[#1E1E1E]">Meet Our Team</h2>
                 <p className="text-center text-lg">Alone we can do so little, together we can do so much.</p>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-[30px] mt-[50px] mb-16">
-                    {Team.map((member, index) => (
+                    {teamMember ? teamMember.map((member, index) => (
                         <div key={index} className="space-y-[30px]">
-                            <div className="relative">
+                            <div className="relative h-[300px] md:h-[350px] lg:[400px] xl:h-[432px]">
                                 {/* <img src={member.image} alt={member.name} className="rounded-3xl" /> */}
-                                <Image src={member.image} alt={member.name} width={500} height={300} className="rounded-3xl" />
-                                <Link href={member.linkedin} className="absolute bottom-4 right-4">
+                                <Image src={member.teamMemberImage} alt={member.teamMemberName}  objectFit="cover"  layout="fill"  className="rounded-3xl " />
+                                <Link href={member.teamMemberTwitterLink} className="absolute bottom-4 right-4">
                                     <Image src={Linkedin} alt="Right Arrow" className=""></Image>
                                 </Link>
 
                                 {/* <Linkedin className="w-6 h-6 text-[#007EBB] mx-auto mt-2" /> */}
                             </div>
                             <div className="space-y-2">
-                                <h3 className="text-[#1E1E1E] font-semibold text-[26px]">{member.name}</h3>
-                                <p className="text-[#007EBB] text-lg">{member.role}</p>
+                                <h3 className="text-[#1E1E1E] font-semibold text-[26px]">{member.teamMemberName}</h3>
+                                <p className="text-[#007EBB] text-lg">{member.teamMemberTitle}</p>
                             </div>
                         </div>
-                    ))}
+                    ))
+                    : <p className="">No Team Member Found!</p>
+                    }
                 </div>
                 <Jobs />
             </section>
