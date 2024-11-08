@@ -62,7 +62,7 @@ const Navbar = () => {
 
                     <Link href="/" className="text-2xl font-bold">
                         {/* <span className="text-purple-600">&#62;</span>  */}
-                        <Image src={Light ?"https://res.cloudinary.com/ddmanxpsb/image/upload/v1728063186/Axiom_Logo_copy_n4y5vv.png" : "https://res.cloudinary.com/ddmanxpsb/image/upload/v1728063186/Axiom_Logo_gmpzzo.png" } width={160} height={100} alt="Axiom Logo"></Image>
+                        <Image src={Light ?"https://res.cloudinary.com/ddmanxpsb/image/upload/v1731071967/Group_1018_1_aee90q.png" : "https://res.cloudinary.com/ddmanxpsb/image/upload/v1731071968/Group_1018_1_1_trvhrh.png" } width={155} height={38} alt="Axiom Logo"></Image>
                         {/* <img src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1728063186/Axiom_Logo_copy_n4y5vv.png" width={160} height={100} alt='Axiom Logo' className="" /> */}
                     </Link>
                     {/* 2 */}
