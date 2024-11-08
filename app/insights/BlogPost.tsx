@@ -61,7 +61,7 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
             </div>
 
             {/* Feature Post */}
-            {currentPage === 1 && (
+            {currentPage === 1 &&  (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-5 py-8">
                 <div className="left rounded-3xl overflow-hidden relative ">
                     <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730894813/1585b73b41a6996e086d5a4dbba08cbe_peigez.png" alt="" width={600} height={600} layout="responsive" ></Image>
@@ -83,18 +83,10 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
                 </div>
             </div>)
             }
-
-            {/* grid grid-cols-3 gap-x-[30px] gap-y-12 pb-[140px] */}
             <div className="posts grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-                {/* {posts.map((iteams, index) => {
-                    return <PostCard key={index} title={iteams.title} category={iteams.category} imageURL={iteams.imageURL} />
-                })} */}
                 {currentPosts ? (
                     currentPosts.map((iteams, index) => {
-                        // const categoryTitle = iteams.categoryID ? iteams.categoryID.categoryTitle : 'No Category';
-                        // console.log("category iD", categoryTitle);
                         return <PostCard key={index} title={iteams.blogTitle} category={iteams.categoryID ? iteams.categoryID.categoryTitle : "No Category"} imageURL={iteams.blogImage} slug={iteams.slug} authorName={iteams.authorName} />;
-                        // postslug={iteams.postslug}
                     })
                 ) : (
                     <p className="">No Post Found!</p>
