@@ -11,7 +11,7 @@ const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     
     const pathname = usePathname(); // Get current route
-    const allowedRoutes = ["/services", "/about", "/careers", "/insights", '/', "/services/web-development", "/services/mobile-app-development", "/contact"];
+    const allowedRoutes = ["/services", "/about", "/careers", "/insights", '/', "/services/web-development", "/services/mobile-app-development","/services/digital-solutions","","", "/contact"];
     // Check if the current route is allowed
     const Light = allowedRoutes.includes(pathname);
 
