@@ -32,32 +32,32 @@ export default async function  Page() {
         console.log("Error fetching Team Members:", error);
     }
 
-    const Team = [
-        {
-            name: "Sal Mahmood",
-            role: "CEO",
-            image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730725495/Sal-Mahmood-1_uusojr.jpg",
-            linkedin: "https://www.linkedin.com/in/sal-mahmood-1a1b1b1b/",
-        },
-        {
-            name: "Akmal Ahmed",
-            role: "COO",
-            image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730725496/Akmal-Ahmed_ax3le8.jpg",
-            linkedin: "https://www.linkedin.com/in/sal-mahmood-1a1b1b1b/",
-        },
-        {
-            name: "Ammara Chaudhry",
-            role: "Customer Relationship Manager",
-            image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730725499/Ammara-Chaudhry_mu3zzm.jpg",
-            linkedin: "https://www.linkedin.com/in/sal-mahmood-1a1b1b1b/",
-        },
-        {
-            name: "Riz Abid",
-            role: "Talent Acquisition Lead",
-            image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730725498/Riz-Abid-1_ockdqo.jpg",
-            linkedin: "https://www.linkedin.com/in/sal-mahmood-1a1b1b1b/",
-        },
-    ];
+    // const Team = [
+    //     {
+    //         name: "Sal Mahmood",
+    //         role: "CEO",
+    //         image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730725495/Sal-Mahmood-1_uusojr.jpg",
+    //         linkedin: "https://www.linkedin.com/in/sal-mahmood-1a1b1b1b/",
+    //     },
+    //     {
+    //         name: "Akmal Ahmed",
+    //         role: "COO",
+    //         image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730725496/Akmal-Ahmed_ax3le8.jpg",
+    //         linkedin: "https://www.linkedin.com/in/sal-mahmood-1a1b1b1b/",
+    //     },
+    //     {
+    //         name: "Ammara Chaudhry",
+    //         role: "Customer Relationship Manager",
+    //         image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730725499/Ammara-Chaudhry_mu3zzm.jpg",
+    //         linkedin: "https://www.linkedin.com/in/sal-mahmood-1a1b1b1b/",
+    //     },
+    //     {
+    //         name: "Riz Abid",
+    //         role: "Talent Acquisition Lead",
+    //         image: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730725498/Riz-Abid-1_ockdqo.jpg",
+    //         linkedin: "https://www.linkedin.com/in/sal-mahmood-1a1b1b1b/",
+    //     },
+    // ];
 
     return (
         <>
