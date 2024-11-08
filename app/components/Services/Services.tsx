@@ -94,35 +94,6 @@ export default function Services() {
                     Provides Custom Software For Optimized <br /> Processes, Innovation, and Growth.
                 </h3>
                 <div className="services">
-                    {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div className="service bg-blue-100 p-8 rounded-[20px] shadow-lg min-h-96 box-gradient">
-                            <h4 className="text-2xl font-bold text-blue-800 ">Digital Solution</h4>
-                            <p className="text-gray-500 ">We build custom web applications that are scalable, secure, and easy to manage.</p>
-                        </div>
-                        <div className="service bg-blue-100 p-8 rounded-lg shadow-lg min-h-96">
-                            <h4 className="text-2xl font-bold text-blue-800 ">Digital Solution</h4>
-                            <p className="text-gray-500 ">We build custom web applications that are scalable, secure, and easy to manage.</p>
-                        </div>
-
-                        <div className="service col-span-2 bg-blue-100 p-8 rounded-lg shadow-lg min-h-96">
-                            <h4 className="text-2xl font-bold text-blue-800 ">Digital Solution</h4>
-                            <p className="text-gray-500 ">We build custom web applications that are scalable, secure, and easy to manage.</p>
-                        </div>
-
-                        <div className="service col-span-2 bg-blue-100 p-8 rounded-lg shadow-lg min-h-96">
-                            <h4 className="text-2xl font-bold text-blue-800 ">Digital Solution</h4>
-                            <p className="text-gray-500 ">We build custom web applications that are scalable, secure, and easy to manage.</p>
-                        </div>
-                        <div className="service bg-blue-100 p-8 rounded-lg shadow-lg min-h-96">
-                            <h4 className="text-2xl font-bold text-blue-800 ">Digital Solution</h4>
-                            <p className="text-gray-500 ">We build custom web applications that are scalable, secure, and easy to manage.</p>
-                        </div>
-
-                        <div className="service  bg-blue-100 p-8 rounded-lg shadow-lg min-h-96">
-                            <h4 className="text-2xl font-bold text-blue-800 ">Digital Solution</h4>
-                            <p className="text-gray-500 ">We build custom web applications that are scalable, secure, and easy to manage.</p>
-                        </div>
-                    </div> */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[30px]">
                         {services.map((service, index) => (
                             <div

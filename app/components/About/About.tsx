@@ -40,7 +40,7 @@ const About = () => {
 
                     {/* Right side: Stats */}
                     {/* w-[450px] h-[300px] sm:w-[650px] sm:h-[400px] lg:w-[500px] lg:h-[400px] */}
-                    <div className="grid grid-cols-2  bg-blue-100  p-6 rounded-3xl shadow-md gap-5">
+                    <div className="grid grid-cols-2  bg-[#E5EBF8]  p-6 rounded-3xl shadow-md gap-5">
                         <div className="flex flex-col text-center justify-center   items-center">
                             <p className="text-4xl md:text-[56px] font-bold text-black">
                                 70K<span className="text-[var(--Blue-Color)]">+</span>
