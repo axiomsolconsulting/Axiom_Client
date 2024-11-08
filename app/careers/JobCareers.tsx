@@ -32,7 +32,7 @@ const  JobCareer = async () => {
     }
     return (
         <>
-            <section className="py-12 bg-[#EDF3FF] rounded-3xl mx-auto container">
+            <section className="py-12 bg-[#EDF3FF] rounded-3xl mx-auto container mb-20">
                 <div className="relative">
                     <img src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730727057/Vector_2_kn8ozn.png" alt="" className="absolute left-0" />
                     <img src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730727056/Vector_3_tepnz4.png" alt="" className="absolute right-0" />
