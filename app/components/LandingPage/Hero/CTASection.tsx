@@ -32,7 +32,7 @@ export default function AxiomCTASection() {
             <div className="container hidden text-xl text-black  mt-10 mx-auto lg:grid grid-cols-5 border-b  ">
                 {services.map((service, index) => (
                     <div key={index} className="">
-                        <div className={`px-4 min-h-[100px] flex flex-col justify-between py-3 gap-y-5 border-l  ${index === services.length - 1 ? 'border-r' : ''}`}>
+                        <div className={`px-4 min-h-[100px] flex flex-col justify-between pt-3 pb-8 gap-y-5 border-l  ${index === services.length - 1 ? 'border-r' : ''}`}>
                             <h3 className="font-bold text-base h-12">{service.name}</h3>
                             <p className="text-[32px] font-bold">{service.percentage}%</p>
                         </div>

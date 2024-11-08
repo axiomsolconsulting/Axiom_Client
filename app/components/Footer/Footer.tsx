@@ -31,7 +31,7 @@ export default function Footer() {
         },
     ];
     return (
-        <footer className="bg-gradient text-white pt-[60px] pb-[30px] ">
+        <footer className="bg-gradient text-white pt-[60px] lg:pt-[80px] pb-[30px] ">
             <div className="container px-4 mx-auto">
                 {/* Call to Action Section */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-14 gap-5 flex-wrap">
@@ -47,7 +47,7 @@ export default function Footer() {
                 </div>
 
                 {/* Main Footer Content */}
-                <div className="bg-[var(--Blue-Color)] rounded-lg p-8">
+                <div className="bg-[var(--Blue-Color)] rounded-[20px] p-8">
                     <div className="flex flex-col md:flex-row justify-between items-center mb-24">
                         {/* Logo */}
                         <Link href="/" className="text-2xl font-bold">
@@ -62,7 +62,8 @@ export default function Footer() {
                             <Link href="" className="text-white hover:text-gray-200 transition-colors"><Dribbble size={26} /></Link>
                         </div>
                     </div>
-                    <hr className="my-3" />
+                    <hr className="mt-3 mb-8 bg-[#479CFF] h-[1px] border-0" />
+
                     {/* Footer Nav Menu */}
                     <div className="flex flex-wrap  justify-between gap-y-3  text-[20px]">
                         <div className="flex flex-wrap justify-center gap-4 mx-auto md:mx-0">
