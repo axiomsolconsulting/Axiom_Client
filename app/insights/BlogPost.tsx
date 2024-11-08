@@ -11,6 +11,8 @@ interface Post {
     blogImage: string;
     authorName: string;
     slug: string;
+    blogCategory: string;
+    
 }
 
 interface BlogPostsProps {
@@ -119,7 +121,7 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
                     <PostCard
                         key={index}
                         title={iteams.blogTitle}
-                        category={iteams.categoryID ? iteams.categoryID.categoryTitle : "No Category"}
+                        category={iteams.blogCategory ? iteams.blogCategory : "No Category"}
                         imageURL={iteams.blogImage}
                         slug={iteams.slug}
                         authorName={iteams.authorName}
