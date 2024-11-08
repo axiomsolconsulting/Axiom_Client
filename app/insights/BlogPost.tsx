@@ -12,16 +12,18 @@ interface Post {
     authorName: string;
     slug: string;
 }
+
 interface BlogPostsProps {
     post: Post[];
 }
+
 const BlogPosts = ({ post }: BlogPostsProps) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState("");
     const POSTS_PER_PAGE = 6;
-    const filteredPosts = post.filter((p) =>
-        p.blogTitle.toLowerCase().includes(searchQuery.toLowerCase()) 
-    // || p.authorName.toLowerCase().includes(searchQuery.toLowerCase())
+
+    const filteredPosts = post.filter(
+        (p) => p.blogTitle.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
@@ -50,9 +52,14 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
                 </div>
 
                 <div className="relative">
-                    <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="w-full sm:w-48 px-4 py-3 rounded-lg border border-gray-200 bg-white flex items-center justify-between">
+                    <button
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        className="w-full sm:w-48 px-4 py-3 rounded-lg border border-gray-200 bg-white flex items-center justify-between"
+                    >
                         <span className="text-gray-700">{selectedCategory}</span>
-                        <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`} />
+                        <ChevronDown
+                            className={`w-5 h-5 text-gray-400 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
+                        />
                     </button>
 
                     {isDropdownOpen && (
@@ -64,7 +71,8 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
                                         setSelectedCategory(category);
                                         setIsDropdownOpen(false);
                                     }}
-                                    className="w-full px-4 py-2 text-left hover:bg-gray-50 text-gray-700">
+                                    className="w-full px-4 py-2 text-left hover:bg-gray-50 text-gray-700"
+                                >
                                     {category}
                                 </button>
                             ))}
@@ -73,17 +81,23 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
                 </div>
             </div>
 
-            {/* Feature Post */}
-            {currentPage === 1 && (
+            {/* Featured Post - The first post from currentPosts */}
+            {currentPosts.length > 0 && (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-5 py-8">
-                    <div className="left rounded-3xl overflow-hidden relative ">
-                        <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730894813/1585b73b41a6996e086d5a4dbba08cbe_peigez.png" alt="" width={600} height={600} layout="responsive" />
+                    <div className="left rounded-3xl overflow-hidden relative">
+                        <Image
+                            src={currentPosts[0].blogImage}
+                            alt={currentPosts[0].blogTitle}
+                            width={600}
+                            height={600}
+                            layout="responsive"
+                        />
                         <span className="absolute top-6 left-6 bg-white py-[10px] px-[16px] rounded-[8px]">FEATURED</span>
                     </div>
                     <div className="right flex flex-col justify-center">
-                        <p className="text-sm text-black font-semibold">AI & ML</p>
-                        <h3 className="text-[#1E1E1E] text-3xl font-semibold mt-3">The Role of AI In Software Development</h3>
-                        <p className="text-[#454545] text-lg mt-5">Since exploding onto the scene in late 2022, Generative AI (GenAI) in software development has helped create innovative solutions that have accelerated production across almost every industry. Gen AI has even caused a major technological shift in custom software development.</p>
+                        <p className="text-sm text-black font-semibold">{currentPosts[0].categoryID?.categoryTitle}</p>
+                        <h3 className="text-[#1E1E1E] text-3xl font-semibold mt-3">{currentPosts[0].blogTitle}</h3>
+                        <p className="text-[#454545] text-lg mt-5">{currentPosts[0].blogTitle}</p>
                         <div className="flex items-center text-[var(--Blue-Color)] gap-x-1 py-1 mt-10">
                             <p className="Readmore font-semibold w-fit text-lg text-[var(--Blue-Color)] inline-block group">
                                 Read More
@@ -96,18 +110,21 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
                     </div>
                 </div>
             )}
-            
-            {/* Post List */}
+
+            {/* Post List - Exclude the first post */}
             <div className="posts grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-                {currentPosts.length > 0 ? (
-                    currentPosts.map((iteams, index) => (
-                        <PostCard key={index} title={iteams.blogTitle} category={iteams.categoryID ? iteams.categoryID.categoryTitle : "No Category"} imageURL={iteams.blogImage} slug={iteams.slug} authorName={iteams.authorName} />
-                    ))
-                ) : (
-                    <p className="">No Post Found!</p>
-                )}
+                {currentPosts.slice(1).map((iteams, index) => (
+                    <PostCard
+                        key={index}
+                        title={iteams.blogTitle}
+                        category={iteams.categoryID ? iteams.categoryID.categoryTitle : "No Category"}
+                        imageURL={iteams.blogImage}
+                        slug={iteams.slug}
+                        authorName={iteams.authorName}
+                    />
+                ))}
             </div>
-            
+
             {/* Pagination */}
             {filteredPosts.length > POSTS_PER_PAGE && (
                 <Pagination className="mt-8">
@@ -130,7 +147,8 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
                                         e.preventDefault();
                                         setCurrentPage(i + 1);
                                     }}
-                                    isActive={currentPage === i + 1}>
+                                    isActive={currentPage === i + 1}
+                                >
                                     {i + 1}
                                 </PaginationLink>
                             </PaginationItem>
