@@ -37,7 +37,7 @@ const PostCard: React.FC<PostCardProps> = (props) => {
                                 {/* Read More */}
                                 <div className="flex items-center text-[var(--Blue-Color)] gap-x-1 py-1">
                                     <p className="Readmore font-semibold w-fit text-lg text-[var(--Blue-Color)] inline-block group">
-                                        Read More
+                                        Read Full Blog
                                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[var(--Blue-Color)]"></span>
                                     </p>
                                     <span className="">
