@@ -73,8 +73,7 @@ const  JobCareer = async () => {
                 </div>
                 <div className="mt-[60px] text-center bg-gradient lg:mx-[124px] rounded-3xl space-y-5 pt-[75px] pb-[95px] px-4 md:px-0">
                     <h3 className="text-white text-4xl font-semibold">Can&apos;t see a position that interests you?</h3>
-                    <p className="text-lg text-white max-w-3xl mx-auto">Didn&apos;t see the right opening for you? Send your resume and cover letter to <span className="font-bold underline underline-offset-2"> careers@axiom.com</span> and tell us what you&apos;re looking for.</p>
-                </div>
+                    <p className="text-lg text-white max-w-3xl mx-auto"> Didn&apos;t see the right opening for you? Send your resume and cover letter to <a href="mailto:careers@axiom.com" className="font-bold underline underline-offset-2">careers@axiom.com</a> and tell us what you&apos;re looking for. </p>                </div>
             </section>
         </>
     );
