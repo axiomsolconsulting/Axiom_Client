@@ -1,24 +1,36 @@
 "use client";
 
-
-import { Facebook, Instagram, Linkedin,  Twitter } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 // import Email from "@/public/socialmedia/email.svg";
 // import Phone from "@/public/socialmedia/phone.svg";
 // import Location from "@/public/socialmedia/location.svg";
 import Image from "next/image";
 import Form from "./form";
 import { socialMedia } from "../constants/constants";
+import { useEffect } from "react";
 
 export default function Page() {
-    
+    useEffect(() => {
+        // Load the Calendly script dynamically only on the client side
+        const script = document.createElement("script");
+        script.src = "https://assets.calendly.com/assets/external/widget.js";
+        script.async = true;
+        document.body.appendChild(script);
+
+        // Cleanup script when the component is unmounted
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
+
     return (
         <>
             <section className="bg-[#010b1d] text-white pt-48 px-4">
                 {/* 1st Section Form + Details */}
-                <div className="custom-container mx-auto grid lg:grid-cols-2 gap-x-12 xl:gap-x-[100px]  gap-y-10">
+                <div className="custom-container  mx-auto grid lg:grid-cols-2 gap-x-12 xl:gap-x-[100px]  gap-y-10">
                     {/* Left Column */}
-                    <div className="order-2 lg:order-1">
-                        <h2 className="text-[90px] leading-[100px] font-semibold mb-5">
+                    <div className="order-2 lg:order-1 mb-6 ">
+                        <h2 className="text-[50px] lg:text-[70px] xl:text-[90px]  font-semibold mb-5">
                             Lets Get in
                             <br />
                             Touch
@@ -143,25 +155,28 @@ export default function Page() {
 
             {/* 2nd Section Map +  Calendar */}
             <section className="py-[120px]">
-                <div className="custom-container mx-auto grid lg:grid-cols-2 gap-12">
-                    {/* Left Column */}
-                    <div className="">
-                        <div className="space-y-5">
-                            <h2 className="text-[44px] leading-[60px] font-semibold max-w-md">Book Your Discovery Call Today</h2>
-                            <p className="text-[#454545] text-lg max-w-lg">Take the first step toward innovative, tailored tech solutions with Axiom. Schedule a discovery call with our team to discuss your business needs, goals, and challenges.</p>
+                <div className="custom-container mx-auto p-6 ">
+                    {/* Wrapper for columns */}
+                    <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-10">
+                        {/* Left Column */}
+                        <div className="space-y-6  p-6 max-w-lg">
+                            <h2 className="text-3xl md:text-4xl font-semibold leading-tight">Book Your Discovery Call Today</h2>
+                            <p className="text-gray-700 text-base md:text-lg">Take the first step toward innovative, tailored tech solutions with Axiom. Schedule a discovery call with our team to discuss your business needs, goals, and challenges.</p>
                         </div>
 
-                        <div className="space-y-4 mt-12">
-                            <h3 className="text-xl font-bold text-[#1E1E1E]">Where to Find Us?</h3>
-                            <div className="rounded-lg overflow-hidden h-[300px] bg-gray-100 border">
-                                {/* Replace with actual map implementation */}
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.9335074874345!2d-117.8491615!3d33.6814852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcde8dfbdf5d1b%3A0x83c90b8312321f84!2s2372%20Morse%20Ave%20%23968%2C%20Irvine%2C%20CA%2092614%2C%20USA!5e0!3m2!1sen!2sus!4v1698931200000!5m2!1sen!2sus" width="100%" height="100%" loading="lazy"></iframe>
+                        {/* Right Column */}
+                        <div className="space-y-6 p-6 w-full max-w-lg">
+                            <h3 className="text-2xl font-bold text-gray-900">Where to Find Us?</h3>
+                            <div className="rounded-lg overflow-hidden bg-gray-100 border border-gray-300 h-64 w-full">
+                                {/* Embedded Google Map */}
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.9335074874345!2d-117.8491615!3d33.6814852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcde8dfbdf5d1b%3A0x83c90b8312321f84!2s2372%20Morse%20Ave%20%23968%2C%20Irvine%2C%20CA%2092614%2C%20USA!5e0!3m2!1sen!2sus!4v1698931200000!5m2!1sen!2sus" width="100%" height="100%" loading="lazy" style={{ border: 0 }} allowFullScreen aria-hidden="false"></iframe>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    {/* Right Column - Calendar */}
-                    <div className="">Right Side</div>
+                <div className="calendly-inline-widget-container">
+                    <div className="calendly-inline-widget flex flex-row" data-url="https://calendly.com/annibaba009/start-your-project-with-axiom" style={{ minWidth: "320px", height: "700px" }}></div>
                 </div>
             </section>
         </>
