@@ -170,9 +170,9 @@ export default function Page() {
             <section className="custom container mx-auto mb-20">
                 {/* Building Future + content  */}
                 <div className="grid md:grid-cols-2 py-20 gap-y-5 px-4">
-                    <div className="left mb-5">
-                        <h3 className=" mb-[50px] text-black text-2xl lg:text-[44px] font-semibold max-w-lg">
-                            Building The Future Of <span className="text-3xl lg:text-[60px] font-bold">Mobile App Together</span>
+                <div className="left mb-5">
+                        <h3 className=" mb-[50px] text-black text-2xl md:text-5xl  font-semibold lg:max-w-lg">
+                            Building The Future Of <span className="text-3xl md:text-6xl font-bold">Web Together</span>
                         </h3>
                         <Link href="/contact" className="bg-[var(--Blue-Color)] text-lg text-white font-medium py-5 px-6 rounded-md hover:bg-[#011633] transition-colors duration-300">
                             Book a Call

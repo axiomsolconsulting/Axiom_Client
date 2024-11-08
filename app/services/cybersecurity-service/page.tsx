@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import {  ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import WebProcessSection from "./WebProcessSection";
 import FAQs from "./FAQs";
 
@@ -161,7 +161,7 @@ export default function Page() {
                     {/* <Image src={contactHero.src} alt="logo" width={120} height={400} layout="responsive" /> */}
                 </div>
                 <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-white px-3">
-                    <h1 className="text-base font-medium text-center uppercase text-[var(--Blue-Color)]">WEB DEVELOPMENT</h1>
+                    <h1 className="text-base font-medium text-center uppercase text-[var(--Blue-Color)]">CyberSercurity Service</h1>
                     <p className="text-center text-3xl md:text-6xl md:leading-[80px] font-semibold max-w-[884px] mt-[10px] mb-[20px]">Custom-Built Websites for Modern Businesses</p>
                     <p className="text-center text-lg md:text-xl md:leading-[32px] max-w-2xl">We offer a comprehensive suite of web development services designed to meet your unique needs.</p>
                 </div>
@@ -171,8 +171,8 @@ export default function Page() {
                 {/* Building Future + content  */}
                 <div className="grid md:grid-cols-2 py-20 gap-y-5 px-4">
                     <div className="left mb-5">
-                        <h3 className=" mb-[50px] text-black text-2xl lg:text-[44px] lg:leading-[70px] font-semibold max-w-lg">
-                            Building The Future Of <span className="text-3xl lg:text-[60px] font-bold">Mobile App Together</span>
+                        <h3 className=" mb-[50px] text-black text-2xl md:text-5xl  font-semibold lg:max-w-lg">
+                            Building The Future Of <span className="text-3xl md:text-6xl font-bold">Mobile App Together</span>
                         </h3>
                         <Link href="/contact" className="bg-[var(--Blue-Color)] text-lg text-white font-medium py-5 px-6 rounded-md hover:bg-[#011633] transition-colors duration-300">
                             Book a Call
