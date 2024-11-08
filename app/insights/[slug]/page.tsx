@@ -6,7 +6,7 @@ import { backendUrl } from "@/app/constants/constants";
 import Link from "next/link";
 import Image from "next/image";
 import PostCard from "@/app/components/Blog/Postcard";
-import { websiteUrl } from "@/app/components/constants/constants";
+import {websiteUrl} from "@/app/constants/constants";
 
 interface Post {
     blogImage: string;

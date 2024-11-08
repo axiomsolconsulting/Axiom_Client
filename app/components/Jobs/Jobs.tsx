@@ -3,7 +3,7 @@ import RightArrow from "@/public/RightArrow.svg";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
-import { backendUrl } from "../constants/constants";
+import { backendUrl } from "@/app/constants/constants";
 
 // interface JobListing {
 //     title: string;

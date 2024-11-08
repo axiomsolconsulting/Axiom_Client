@@ -2,7 +2,7 @@
 import { Facebook, Instagram, Linkedin, Youtube, Dribbble } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-
+import { socialMedia } from "@/app/constants/constants";
 export default function Footer() {
     const navlist = [
         {
@@ -55,11 +55,21 @@ export default function Footer() {
                         </Link>
                         {/* Social Media Icons */}
                         <div className="flex space-x-4 mt-4 md:mt-0">
-                            <Link href="" className="text-white hover:text-gray-200 transition-colors"><Facebook size={26} /></Link>
-                            <Link href="" className="text-white hover:text-gray-200 transition-colors"><Instagram size={26} /></Link>
-                            <Link href="" className="text-white hover:text-gray-200 transition-colors"><Linkedin size={26} /></Link>
-                            <Link href="" className="text-white hover:text-gray-200 transition-colors"><Youtube size={26} /></Link>
-                            <Link href="" className="text-white hover:text-gray-200 transition-colors"><Dribbble size={26} /></Link>
+                            <Link href={socialMedia.facebook} className="text-white hover:text-gray-200 transition-colors">
+                                <Facebook size={26} />
+                            </Link>
+                            <Link href="" className="text-white hover:text-gray-200 transition-colors">
+                                <Instagram size={26} />
+                            </Link>
+                            <Link href="" className="text-white hover:text-gray-200 transition-colors">
+                                <Linkedin size={26} />
+                            </Link>
+                            <Link href="" className="text-white hover:text-gray-200 transition-colors">
+                                <Youtube size={26} />
+                            </Link>
+                            <Link href="" className="text-white hover:text-gray-200 transition-colors">
+                                <Dribbble size={26} />
+                            </Link>
                         </div>
                     </div>
                     <hr className="mt-3 mb-8 bg-[#479CFF] h-[1px] border-0" />
@@ -93,5 +103,3 @@ export default function Footer() {
         </footer>
     );
 }
-
-

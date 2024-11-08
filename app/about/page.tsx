@@ -5,8 +5,8 @@ import Industries from "../components/LandingPage/Hero/Industries";
 // import { Linkedin } from "lucide-react";
 import Linkedin from "@/public/socialmedia/Linkedin.svg";
 import Jobs from "../components/Jobs/Jobs";
-import { backendUrl } from "../constants/constants";
 import axios from "axios";
+import { backendUrl } from "../constants/constants";
 
 interface TeamMember {
     teamMemberImage: string;
@@ -19,6 +19,7 @@ interface TeamMember {
 }
 
 export default async function  Page() {
+
     let teamMember: TeamMember[] | null = null
     try {
         const response = await axios.get(`${backendUrl}/api/v1/teamMember`);

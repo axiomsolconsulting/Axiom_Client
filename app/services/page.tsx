@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ServicesSrollBar from "../components/Services/ServicesSrollBar";
-import { backendUrl } from "../components/constants/constants";
+import { backendUrl } from "../constants/constants";
 import axios from "axios";
 import RightArrow from "@/public/RightArrow.svg";
 import WhyWorkWithUs from "../components/Services/WhyWorkWithUs";

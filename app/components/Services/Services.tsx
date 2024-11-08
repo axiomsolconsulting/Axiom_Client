@@ -11,7 +11,7 @@ import axios from "axios";
 // import Cloud from "@/public/services/cloud.svg";
 // import avator from "@/public/services/avator.svg";
 // import Bussiness from "@/public/services/Business.svg";
-import  {backendUrl} from "../constants/constants";
+import { backendUrl } from "../../constants/constants";
 import { getLink } from "@/app/services/getLink";
 
 
