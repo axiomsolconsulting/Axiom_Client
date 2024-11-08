@@ -1,7 +1,7 @@
 // export const backendUrl = "http://localhost:5000";
 // Ateeq's backendUrl
-// export const backendUrl = "https://axiom-backend-two.vercel.app";
-export const backendUrl = "https://xc1t5tk1-5000.inc1.devtunnels.ms";
+export const backendUrl = "https://axiom-backend-two.vercel.app";
+// export const backendUrl = "https://xc1t5tk1-5000.inc1.devtunnels.ms";
 export const websiteUrl = "https://axiom-new.vercel.app";
 // Hammad backendUrl
 // export const backendUrl = "https://8rgvpdmw-5000.euw.devtunnels.ms";

@@ -169,7 +169,7 @@ export default function Page() {
 
             <section className="custom container mx-auto mb-20">
                 {/* Building Future + content  */}
-                <div className="grid md:grid-cols-2 py-20 gap-y-5">
+                <div className="grid md:grid-cols-2 py-20 gap-y-5 px-4">
                     <div className="left mb-5">
                         <h3 className=" mb-[50px] text-black text-[44px] font-semibold max-w-lg">
                             Building The Future Of <span className="text-[60px] font-bold">Web Together</span>
@@ -219,7 +219,7 @@ export default function Page() {
                         {benefits.map((benefit, index) => (
                             <div key={index} className="p-6 bg-white rounded-[20px] border border-[#E7EAF2] hover:shadow-2xl duration-200 transition-shadow">
                                 <div className="flex gap-4">
-                                    <div className="flex-shrink-0">{benefit.icon}</div>
+                                    <div className="flex-shrink-0 w-[70px] h-[70px]">{benefit.icon}</div>
                                     <div>
                                         <h3 className="text-2xl text-[#1C2539] font-semibold mb-5">{benefit.title}</h3>
                                         <p className="text-[#304874] text-lg">{benefit.description}</p>

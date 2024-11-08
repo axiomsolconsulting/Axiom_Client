@@ -111,7 +111,7 @@ const Navbar = () => {
                             onClick={() => {
                                 setIsMobileMenuOpen(!isMobileMenuOpen);
                             }}
-                            className="text-white lg:hidden transition duration-300">
+                            className= {` lg:hidden transition duration-300 ${Light ? 'text-white' : 'text-black'} `}>
                             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                         </button>
                     </div>

@@ -1,28 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { Facebook, Instagram, Linkedin, ChevronDown, Twitter } from "lucide-react";
+
+import { Facebook, Instagram, Linkedin,  Twitter } from "lucide-react";
 // import Email from "@/public/socialmedia/email.svg";
 // import Phone from "@/public/socialmedia/phone.svg";
 // import Location from "@/public/socialmedia/location.svg";
 import Image from "next/image";
+import Form from "./form";
 
 export default function Page() {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        help: "",
-        message: "",
-    });
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // Handle form submission
-        console.log(formData);
-    };
-
+    
     return (
         <>
             <section className="bg-[#010b1d] text-white pt-48 px-4">
@@ -84,7 +71,8 @@ export default function Page() {
 
                     {/* Right Column */}
                     <div className="space-y-8 order-1 lg:order-2">
-                        <div>
+                        <Form />
+                        {/* <div>
                             <h2 className="text-[44px] leading-[60px] font-semibold">
                                 We will be happy to tell you more about what <span className="text-[var(--Blue-Color)] italic">WE CAN DO</span> for you
                             </h2>
@@ -147,11 +135,11 @@ export default function Page() {
                                     Submit
                                 </button>
                             </div>
-                        </form>
+                        </form> */}
                     </div>
                 </div>
             </section>
-            
+
             {/* 2nd Section Map +  Calendar */}
             <section className="py-[120px]">
                 <div className="custom-container mx-auto grid lg:grid-cols-2 gap-12">

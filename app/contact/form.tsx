@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { backendUrl } from "../constants/constants";
+import { ChevronDown } from "lucide-react";
 
 const Form = () => {
     const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ const Form = () => {
     });
 
     // Handle input change
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
         setErrors({ ...errors, [name]: "" }); // Reset error for the field
@@ -79,28 +79,15 @@ const Form = () => {
         e.preventDefault(); // Prevent the default form submission behavior
 
         // Validate the form
-        if (!validate()) {
-            return;
-        }
-
-        console.log("Form Submitted : ", formData);
-        // setFormData({
-        //   quoteName: "",
-        //   quoteEmail: "",
-        //   quoteMobile: "",
-        //   quoteTechnology: "",
-        //   quoteDescription: "",
-        // });
+        if (!validate()) return;
 
         // Send the form data to the backend
         try {
             const response = await axios.post(`${backendUrl}/api/v1/quote`, formData);
 
-            //   // const result = await response.json();
-
             if (response.status === 201) {
                 alert("Form submitted successfully!");
-                // Optionally, reset the form fields after successful submission
+                // Reset the form after successful submission
                 setFormData({
                     quoteName: "",
                     quoteEmail: "",
@@ -119,37 +106,74 @@ const Form = () => {
 
     return (
         <>
-            <h2 className="text-2xl font-bold mb-6 text-gray-900">Make a Free Consulting</h2>
-            <form className="space-y-4" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-2 gap-4">
-                    <div>
-                        <input type="text" id="quoteName" name="quoteName" placeholder="Full Name" value={formData.quoteName} onChange={handleInputChange} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--Blue-Color)]" />
-                        {errors.quoteName && <p className="text-red-500">{errors.quoteName}</p>}
+            <div>
+                <h2 className="text-[44px] leading-[60px] font-semibold">
+                    We will be happy to tell you more about what <span className="text-[var(--Blue-Color)] italic">WE CAN DO</span> for you
+                </h2>
+                <p className="text-[#7B8CA3] text-lg max-w-xl mt-5">We&apos;d love to connect with you and learn more about what we can build together. Tell us a few details and we&apos;ll be in touch.</p>
+            </div>
+            {/* Contact Forn */}
+            <form onSubmit={handleSubmit} className="space-y-6 border border-b-0 pb-10 rounded-t-[20px] px-10 pt-10">
+                <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                        <label htmlFor="quoteName" className="text-sm">
+                            Your Name*
+                        </label>
+                        <input id="quoteName" name="quoteName" type="text" className="w-full px-3 py-2 bg-[#011330] border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value={formData.quoteName} onChange={handleInputChange} required />
+                        {errors.quoteName && <p className="text-red-500 text-sm">{errors.quoteName}</p>}
                     </div>
-                    <div>
-                        <input type="email" id="quoteEmail" name="quoteEmail" placeholder="Email" value={formData.quoteEmail} onChange={handleInputChange} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--Blue-Color)]" />
-                        {errors.quoteEmail && <p className="text-red-500">{errors.quoteEmail}</p>}
+
+                    {/* Email Field */}
+                    <div className="space-y-2">
+                        <label htmlFor="quoteEmail" className="text-sm">
+                            Email*
+                        </label>
+                        <input id="quoteEmail" name="quoteEmail" type="email" className="w-full px-3 py-2 bg-[#011330] border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value={formData.quoteEmail} onChange={handleInputChange} required />
+                        {errors.quoteEmail && <p className="text-red-500 text-sm">{errors.quoteEmail}</p>}
+                    </div>
+
+                    {/* Phone Field */}
+                    <div className="space-y-2">
+                        <label htmlFor="quoteMobile" className="text-sm">
+                            Phone*
+                        </label>
+                        <input id="quoteMobile" name="quoteMobile" type="tel" className="w-full px-3 py-2 bg-[#011330] border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value={formData.quoteMobile} onChange={handleInputChange} required />
+                        {errors.quoteMobile && <p className="text-red-500 text-sm">{errors.quoteMobile}</p>}
+                    </div>
+
+                    {/* Technology Field */}
+                    <div className="space-y-2">
+                        <label htmlFor="quoteTechnology" className="text-sm">
+                            How Can We Help*
+                        </label>
+                        <div className="relative">
+                            <select id="quoteTechnology" name="quoteTechnology" className="w-full px-3 py-2 bg-[#011330] border border-gray-700 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500" value={formData.quoteTechnology} onChange={handleInputChange} required>
+                                <option value="">Select a service</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Mobile Development">Mobile Development</option>
+                                <option value="Cloud Solutions">Cloud Solutions</option>
+                                <option value="Consulting">Consulting</option>
+                            </select>
+                            <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
+                        </div>
+                        {errors.quoteTechnology && <p className="text-red-500 text-sm">{errors.quoteTechnology}</p>}
                     </div>
                 </div>
 
-                <div>
-                    <input type="number" id="quoteMobile" name="quoteMobile" placeholder="Phone" value={formData.quoteMobile} onChange={handleInputChange} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--Blue-Color)]" />
-                    {errors.quoteMobile && <p className="text-red-500">{errors.quoteMobile}</p>}
+                {/* Description Field */}
+                <div className="space-y-2">
+                    <label htmlFor="quoteDescription" className="text-sm">
+                        Your Message*
+                    </label>
+                    <textarea id="quoteDescription" name="quoteDescription" className="w-full px-3 py-2 bg-[#011330] border border-gray-700 rounded-md min-h-[120px] focus:outline-none focus:ring-2 focus:ring-blue-500" value={formData.quoteDescription} onChange={handleInputChange} required></textarea>
+                    {errors.quoteDescription && <p className="text-red-500 text-sm">{errors.quoteDescription}</p>}
                 </div>
 
-                <div>
-                    <input type="text" id="quoteTechnology" name="quoteTechnology" placeholder="Interested In" value={formData.quoteTechnology} onChange={handleInputChange} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--Blue-Color)]" />
-                    {errors.quoteTechnology && <p className="text-red-500">{errors.quoteTechnology}</p>}
+                <div className="flex justify-end">
+                    <button type="submit" className="bg-[var(--Blue-Color)] text-lg text-white font-medium py-3 px-6 rounded-md hover:bg-white hover:text-black transition-colors duration-300">
+                        Submit
+                    </button>
                 </div>
-
-                <div>
-                    <textarea id="quoteDescription" name="quoteDescription" rows={4} placeholder="Message" value={formData.quoteDescription} onChange={handleInputChange} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--Blue-Color)]"></textarea>
-                    {errors.quoteDescription && <p className="text-red-500">{errors.quoteDescription}</p>}
-                </div>
-
-                <button type="submit" className="w-full bg-[var(--Blue-Color)] hover:bg-[var(--Dark-Blue-Color)] text-white font-bold py-2 px-4 rounded-md transition duration-300 ease-in-out">
-                    Submit
-                </button>
             </form>
         </>
     );
