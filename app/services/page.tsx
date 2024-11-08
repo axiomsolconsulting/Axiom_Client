@@ -123,11 +123,11 @@ export default async function Page() {
                     {/* <img className="max-h-[650px] w-full object-cover" src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="" /> */}
                     {/* <Image src={contactHero.src} alt="logo" width={120} height={400} layout="responsive" /> */}
                 </div>
-                <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center gap-y-5 items-center text-white px-3">
+                <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center gap-y-3 md:gap-y-5 items-center text-white px-3">
                     <h1 className="text-base font-medium text-center uppercase text-[var(--Blue-Color)]">SERVICES</h1>
                     <p className="text-center text-3xl md:text-6xl md:leading-[80px] font-medium max-w-[824px]">A One Stop Shop for Your Digital Products</p>
                     <p className="text-center text-lg md:text-xl md:leading-[32px] max-w-2xl"> Through our tailored solutions, we harness the power of technology to drive efficiency, innovation, and lasting success for your enterprise.</p>
-                    <div className="mt-5 flex justify-center">
+                    <div className="mt-2 md:mt-5 flex justify-center">
                         <Link href="/contact" className="bg-[var(--Blue-Color)] text-lg text-white font-medium py-3 px-6 rounded-md hover:bg-white hover:text-black hover:border-red-500 transition-colors duration-300">
                             Work With Us
                         </Link>
