@@ -7,6 +7,7 @@ import { Facebook, Instagram, Linkedin,  Twitter } from "lucide-react";
 // import Location from "@/public/socialmedia/location.svg";
 import Image from "next/image";
 import Form from "./form";
+import { socialMedia } from "../constants/constants";
 
 export default function Page() {
     
@@ -53,16 +54,16 @@ export default function Page() {
                         <div className="space-y-4 mt-20">
                             <p className="text-[#7B8CA3] font-semibold text-xl">Follow us on:</p>
                             <div className="flex space-x-4">
-                                <a href={"socialMedia.facebook"} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                                <a href={socialMedia.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                                     <Facebook className="text-gray-400 hover:text-[#1877F2] cursor-pointer" />
                                 </a>
-                                <a href={"socialMedia.twitter"} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                                <a href={socialMedia.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                                     <Twitter className="text-gray-400  hover:text-[#1C9BE9] cursor-pointer" />
                                 </a>
-                                <a href={"socialMedia.instagram"} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <a href={socialMedia.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                                     <Instagram className="text-gray-400  hover:text-[#B430D7] cursor-pointer" />
                                 </a>
-                                <a href={"socialMedia.linkedin"} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <a href={socialMedia.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                                     <Linkedin className="text-gray-400 hover:text-[#0270AD] cursor-pointer" />
                                 </a>
                             </div>
