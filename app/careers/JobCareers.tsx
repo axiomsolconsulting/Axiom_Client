@@ -45,12 +45,12 @@ const  JobCareer = async () => {
                         <div key={index} className=" hover:bg-white transition-colors duration-100 px-6 py-8 ">
                             {/* grid grid-cols-1 lg:grid-cols-3 */}
                             {/* flex justify-between gap-6 lg:gap-8 flex-wrap */}
-                            <div className="grid grid-cols-2 lg:grid-cols-3 ">
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-y-6">
                                 {/* Job Title */}
                                 <h3 className="text-2xl font-semibold text-[#000915] order-1 ">{job.title}</h3>
 
                                 {/* Location and Job Type */}
-                                <div className=" order-3 col-span-2 lg:col-span-1  flex flex-row items-center gap-4 xl:gap-8  mx-auto text-[#000915]">
+                                <div className=" order-3 col-span-2 md:col-span-1  flex flex-row items-center gap-4 xl:gap-8  mx-auto text-[#000915]">
                                     <div className="flex items-center gap-2">
                                         <MapPin className="w-5 h-5 text-[#000915]" />
                                         <span className="text-lg font-semibold">{job.location}</span>
@@ -62,7 +62,7 @@ const  JobCareer = async () => {
                                 </div>
 
                                 {/* Apply Now Button */}
-                                <Link href={`/careers/${job._id}`} className=" order-2 lg:order-3 flex items-center gap-1 text-[var(--Blue-Color)] font-semibold text-lg underline underline-offset-4 hover:text-blue-600 transition-colors justify-self-end">
+                                <Link href={`/careers/${job._id}`} className=" order-2 md:order-3 flex items-center gap-1 text-[var(--Blue-Color)] font-semibold text-lg underline underline-offset-4 hover:text-blue-600 transition-colors justify-self-end">
                                     Apply Now
                                     <Image src={RightArrow} alt="Right Arrow" className="w-4 h-4"></Image>
                                 </Link>
