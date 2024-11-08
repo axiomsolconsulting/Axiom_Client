@@ -85,7 +85,7 @@ export default async function  Page() {
                     <p className="text-[#454545] mt-3 mb-11 max-w-xl">Axiom Consulting launched in 2021 after the founding partners recognized a growing need for more effective management of large dispersed cross-functional teams to drive results for businesses and organizations. With Axiom by your side, you can feel confident in your ability to navigate any obstacle and come out on top.</p>
                     <div className="">
                         <Link href="/contact" className="bg-[var(--Blue-Color)] text-lg text-white font-medium  py-3 px-6 rounded-md hover:bg-[#011633] hover:text-white hover:border-red-500 transition-colors duration-300">
-                           View All Openings
+                           Work With Us
                         </Link>
                     </div>
                 </div>

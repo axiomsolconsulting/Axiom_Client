@@ -61,6 +61,7 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
             </div>
 
             {/* Feature Post */}
+            {currentPage === 1 && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-5 py-8">
                 <div className="left rounded-3xl overflow-hidden relative ">
                     <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730894813/1585b73b41a6996e086d5a4dbba08cbe_peigez.png" alt="" width={600} height={600} layout="responsive" ></Image>
@@ -80,7 +81,8 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
                         </span>
                     </div>
                 </div>
-            </div>
+            </div>)
+            }
 
             {/* grid grid-cols-3 gap-x-[30px] gap-y-12 pb-[140px] */}
             <div className="posts grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">

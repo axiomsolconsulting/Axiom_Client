@@ -55,7 +55,7 @@ export default function Page() {
                 </Accordion>
                 <div className="mt-[50px] flex justify-center">
                     <Link href="/contact" className="bg-[var(--Blue-Color)] text-lg text-white font-medium py-4 px-8 rounded-md hover:bg-[#011633] hover:text-white hover:border-red-500 transition-colors duration-300">
-                        Work With Us
+                        Load More
                     </Link>
                 </div>
             </div>
