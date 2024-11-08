@@ -57,7 +57,7 @@ const Jobs = async () => {
                     <img src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730727056/Vector_3_tepnz4.png" alt="" className="absolute right-0" />
                 </div>
                 <h3 className="text-[44px] font-semibold text-[#000915] text-center">This Could be Your Job</h3>
-                <p className="text-lg text-[#000915] text-center max-w-[946px] mx-auto mt-3">Creating solid teams is more than hiring skilled people. We believe it’s essential to develop a culture where everyone can feel heard, supported, and able to do their best, most innovative work.i</p>
+                <p className="text-lg text-[#000915] text-center max-w-[946px] mx-auto mt-3 px-4 md:px-0">Creating solid teams is more than hiring skilled people. We believe it’s essential to develop a culture where everyone can feel heard, supported, and able to do their best, most innovative work.i</p>
                 <div className=" lg:px-[124px] mt-14 divide-y-[1px] border-2">
                     {/* div className=" lg:px-[124px] mt-14 divide-y-[1px] border-2"> */}
                     {jobs ? (
