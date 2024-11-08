@@ -55,19 +55,19 @@ export default function Footer() {
                         </Link>
                         {/* Social Media Icons */}
                         <div className="flex space-x-4 mt-4 md:mt-0">
-                            <Link href={socialMedia.facebook} className="text-white hover:text-gray-200 transition-colors">
+                            <Link href={socialMedia.facebook} aria-label="Facebook" className="text-white hover:text-gray-200 transition-colors">
                                 <Facebook size={26} />
                             </Link>
-                            <Link href="" className="text-white hover:text-gray-200 transition-colors">
+                            <Link href={socialMedia.instagram} aria-label="Instagram" className="text-white hover:text-gray-200 transition-colors">
                                 <Instagram size={26} />
                             </Link>
-                            <Link href="" className="text-white hover:text-gray-200 transition-colors">
+                            <Link href={socialMedia.linkedin} aria-label="Linkedin" className="text-white hover:text-gray-200 transition-colors">
                                 <Linkedin size={26} />
                             </Link>
-                            <Link href="" className="text-white hover:text-gray-200 transition-colors">
+                            <Link href={socialMedia.youtube} aria-label="Youtube" className="text-white hover:text-gray-200 transition-colors">
                                 <Youtube size={26} />
                             </Link>
-                            <Link href="" className="text-white hover:text-gray-200 transition-colors">
+                            <Link href={socialMedia.facebook} aria-label="Dribbble" className="text-white hover:text-gray-200 transition-colors">
                                 <Dribbble size={26} />
                             </Link>
                         </div>

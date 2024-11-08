@@ -78,6 +78,7 @@ const Navbar = () => {
                             </Link>
                         </div>
                         <button
+                            aria-label="Mobile Menu"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                             className={`lg:hidden transition duration-300 ${Light ? 'text-white' : 'text-black'}`}>
                             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
