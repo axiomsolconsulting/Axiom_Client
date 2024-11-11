@@ -5,13 +5,14 @@
 :root {
   --Blue-Color: #1C85FF;
   --Gray-Color: #D1D1D1;
-  
+
 }
 
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  font-family: var(--font-red-hat-display), Arial, Helvetica, sans-serif;;
+  font-family: var(--font-red-hat-display), Arial, Helvetica, sans-serif;
+  ;
 }
 
 @keyframes scroll {
@@ -28,56 +29,62 @@ body {
   animation: scroll var(--animation-duration) linear infinite;
 }
 
-.custom-container{
-  @apply container mx-auto px-4 
+.custom-container {
+  @apply container mx-auto px-4
 }
 
 .container {
   width: 100%;
 }
+
 @media (min-width: 640px) {
   .container {
-      max-width: 640px;
+    max-width: 640px;
   }
 }
+
 @media (min-width: 768px) {
   .container {
-      max-width: 768px;
+    max-width: 768px;
   }
 }
+
 @media (min-width: 1024px) {
   .container {
-      max-width: 1024px;
+    max-width: 1024px;
   }
 }
+
 @media (min-width: 1280px) {
   .container {
-      max-width: 1280px;
+    max-width: 1280px;
   }
 }
+
 @media (min-width: 1440px) {
   .container {
-      max-width: 1440px;
+    max-width: 1440px;
   }
 }
 
 
-.bg-gradient{
+.bg-gradient {
   background: conic-gradient(from 230.85deg at 83.43% 95.28%, #000814 0deg, #06387A 180deg, #16253A 360deg);
 }
 
-.gray-gradient{
+.gray-gradient {
   background: linear-gradient(180deg, #E5EBF8 0%, #FFFFFF 100%);
 }
 
-.box-gradient{
+.box-gradient {
   background: conic-gradient(from 230.85deg at 83.43% 95.28%, #000814 0deg, #06387A 180deg, #16253A 360deg);
 }
 
-.service-gradient{
+.service-gradient {
   background: radial-gradient(at 50% 50%, #041424, transparent 80%), linear-gradient(45deg, #040c1c, #040c24, #04142c);
 }
-.service-scrollbar-gradient{
+
+.service-scrollbar-gradient {
   background: linear-gradient(270deg, #000814 -4.56%, #06387A 49.24%, #16253A 103.05%);
 }
 
@@ -101,32 +108,49 @@ body {
   border-image-slice: 1;
 }
 
-.bg-process{
+.bg-process {
   background: conic-gradient(from 235.46deg at 80% 106.37%, #000814 0deg, #06387A 180deg, #16253A 360deg);
 }
 
-.bg-CTA{
+.bg-CTA {
   background: linear-gradient(180deg, #E5EBF8 0%, #FFFFFF 100%);
 }
 
 
+.bg-blur {
+  z-index: 0;
+  left: -4%;
+  top: 0%;
+  border-radius: 50%;
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  -webkit-filter: blur(100px);
+  filter: blur(100px);
+  opacity: 20%;
+}
+
 .one1 {
-  border: 1px solid; border-image-source: linear-gradient(180deg, #1C85FF 0%, rgba(5, 15, 25, 0) 65.38%);
+  border: 1px solid;
+  border-image-source: linear-gradient(180deg, #1C85FF 0%, rgba(5, 15, 25, 0) 65.38%);
   box-shadow: 0px 0px 4.8px 0px #1C85FF;
 }
 
-.one2{
-  border: 1px solid; border-image-source: linear-gradient(270deg, #1C85FF 0%, rgba(5, 15, 25, 0) 50%);
+.one2 {
+  border: 1px solid;
+  border-image-source: linear-gradient(270deg, #1C85FF 0%, rgba(5, 15, 25, 0) 50%);
   box-shadow: 0px 0px 4.8px 0px #1C85FF;
 }
 
-.one3{
-  border: 1px solid; border-image-source: linear-gradient(90deg, #1C85FF 0%, rgba(5, 15, 25, 0) 50%);
+.one3 {
+  border: 1px solid;
+  border-image-source: linear-gradient(90deg, #1C85FF 0%, rgba(5, 15, 25, 0) 50%);
   box-shadow: 0px 0px 4.8px 0px #1C85FF;
 }
 
-.one4{
-  border: 1px solid; border-image-source: linear-gradient(360deg, #1C85FF 0%, rgba(5, 15, 25, 0) 34.62%);
+.one4 {
+  border: 1px solid;
+  border-image-source: linear-gradient(360deg, #1C85FF 0%, rgba(5, 15, 25, 0) 34.62%);
   box-shadow: 0px 0px 4.8px 0px #1C85FF;
 }
 
@@ -135,15 +159,19 @@ body {
   0% {
     border-image-source: linear-gradient(180deg, #1C85FF 0%, rgba(5, 15, 25, 0) 65.38%);
   }
+
   25% {
     border-image-source: linear-gradient(270deg, #1C85FF 0%, rgba(5, 15, 25, 0) 50%);
   }
+
   50% {
     border-image-source: linear-gradient(90deg, #1C85FF 0%, rgba(5, 15, 25, 0) 50%);
   }
+
   75% {
     border-image-source: linear-gradient(360deg, #1C85FF 0%, rgba(5, 15, 25, 0) 34.62%);
   }
+
   100% {
     border-image-source: linear-gradient(180deg, #1C85FF 0%, rgba(5, 15, 25, 0) 65.38%);
   }
@@ -160,12 +188,16 @@ body {
 @layer base {
   :root {
     --radius: 0.5rem;
-  
+
   }
-  
+
 }
 
 
-.faq-shadow{
+.faq-shadow {
   box-shadow: 0px 0px 0px 7px #E3F0FF;
+}
+
+.stats-grandient-line{
+  border: 1px solid; border-image-source: linear-gradient(90deg, #1C85FF 0%, #BCC5D9 44.5%, #1C85FF 100%);
 }

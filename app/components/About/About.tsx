@@ -69,8 +69,8 @@ const About = () => {
 
                     {/* Right side: Stats */}
                     {/* w-[450px] h-[300px] sm:w-[650px] sm:h-[400px] lg:w-[500px] lg:h-[400px] */}
-                    <div className="grid grid-cols-2  bg-[#E5EBF8]  p-6 rounded-3xl shadow-md gap-5">
-                        <div className="flex flex-col text-center justify-center   items-center">
+                    <div className="grid grid-cols-2  bg-[#E5EBF8]  p-6 rounded-3xl shadow-md gap-5 relative">
+                        <div className="flex flex-col text-center justify-center   items-center ">
                             <p className="text-4xl md:text-[56px] font-bold text-black">
                                 70K<span className="text-[var(--Blue-Color)]">+</span>
                             </p>
@@ -94,6 +94,14 @@ const About = () => {
                                 900M<span className="text-[var(--Blue-Color)]">+</span>
                             </p>
                             <p className=" text-base xl:text-lg text-black font-medium md:mt-2">Candidate Database</p>
+                        </div>
+                        <div className="absolute inset-0 flex justify-center ">
+                            <div className="w-[1px] h-full bg-gray-500 "></div>
+                        </div>
+
+                        {/* Horizontal divider */}
+                        <div className="absolute inset-0 flex items-center ">
+                            <div className="w-full h-[1px] bg-gray-500"></div>
                         </div>
                     </div>
                 </div>

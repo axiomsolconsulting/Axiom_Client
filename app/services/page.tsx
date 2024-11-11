@@ -201,10 +201,11 @@ export default async function Page() {
                         </div>
                     ))}
                 </div>
-                {/* <div className="">
-                    <div className="absolute top-0 left-0 bg-red-400 w-20 h-20"></div>
-                    <div className="absolute bottom-0 right-0 bg-red-400 w-20 h-20"></div>
-                </div> */}
+                <div className="">
+                    {/* <div className="bg-blur bg-[var(--Blue-Color)]"></div> */}
+                    <div className="absolute bottom-0 right-0  w-[500px] h-[500px] bg-[var(--Blue-Color)] rounded-[50%] opacity-20 blur-[100px]"></div>
+                    <div className="absolute top-0 left-0  w-[400px] h-[400px] bg-[var(--Blue-Color)] rounded-[50%] opacity-30 blur-[70px]"></div>
+                </div>
             </section>
 
             {/* Why Work With Us */}
