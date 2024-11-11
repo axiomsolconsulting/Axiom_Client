@@ -71,13 +71,13 @@ export default async function  Page() {
                 </div>
                 <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center gap-y-5 items-center text-white px-3">
                     <h1 className="text-base font-medium text-center uppercase text-[var(--Blue-Color)]">About Us</h1>
-                    <p className="text-center text-3xl md:text-6xl md:leading-[80px] font-medium max-w-[824px]">Your Partner in Technology and Innovation</p>
+                    <p className="text-center text-3xl md:text-5xl xl:text-6xl xl:leading-[80px] font-medium max-w-[824px]">Your Partner in Technology and Innovation</p>
                     <p className="text-center text-lg md:text-xl md:leading-[32px] max-w-2xl"> We are more than just a tech solutions provider we are your strategic partner in innovation.</p>
                 </div>
             </div>
 
             {/* Our Story */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[30px] gap-y-10 container mx-auto px-4 py-24">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[30px] gap-y-10 container mx-auto px-4 py-[60px] xl:py-24">
                 <div className="Left ">
                     <h3 className="text-[var(--Blue-Color)] uppercase font-medium ">Our Story</h3>
                     <h4 className="font-semibold text-[44px] text-[#1E1E1E] mt-1">Empowering Business Success</h4>
@@ -117,7 +117,7 @@ export default async function  Page() {
 
                                 {/* <Linkedin className="w-6 h-6 text-[#007EBB] mx-auto mt-2" /> */}
                             </div>
-                            <div className="space-y-2">
+                            <div className="space-y-2 overflow-hidden">
                                 <h3 className="text-[#1E1E1E] font-semibold text-[26px]">{member.teamMemberName}</h3>
                                 <p className="text-[#007EBB] text-lg">{member.teamMemberTitle}</p>
                             </div>

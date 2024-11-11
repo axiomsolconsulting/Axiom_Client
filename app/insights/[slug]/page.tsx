@@ -6,7 +6,8 @@ import { backendUrl } from "@/app/constants/constants";
 import Link from "next/link";
 import Image from "next/image";
 import PostCard from "@/app/components/Blog/Postcard";
-import {websiteUrl} from "@/app/constants/constants";
+import { websiteUrl } from "@/app/constants/constants";
+import hashtag from "@/public/hashtag.svg";
 
 interface Post {
     blogImage: string;
@@ -16,6 +17,8 @@ interface Post {
     blogData: string;
     metaDescription: string;
     createdAt: string;
+    blogCategory: string;
+    focusKeywords: string[];
 }
 
 export interface Params {
@@ -59,7 +62,7 @@ const PostView = async ({ params }: Params) => {
     return (
         <>
             {/* bg-slate-200 shadow */}
-            <main className="hero-section  container mx-auto py-5 px-5 mt-[167px]">
+            <main className="hero-section  container mx-auto py-5 px-5 mt-24 xl:mt-[167px]">
                 {/* Content */}
                 <div className="max-w-[950px] mx-auto">
                     {/* Back Button */}
@@ -105,7 +108,7 @@ const PostView = async ({ params }: Params) => {
                             <div className="bg-[#EDF3FF] p-10 rounded-3xl divide-y ">
                                 <div className="1 space-y-[6px] py-7">
                                     <h4 className=" font-bold text-sm text-black">CATEGORY</h4>
-                                    <p className="text-lg text-[#454545]"></p>
+                                    <p className="text-lg text-[#454545]">{post.blogCategory}</p>
                                 </div>
                                 <div className="3 space-y-[6px] py-7">
                                     <h4 className="font-bold text-sm text-black">DATE</h4>
@@ -132,15 +135,23 @@ const PostView = async ({ params }: Params) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="tag">
-                                <h4 className="font-bold text-sm text-black mt-6">TAGS</h4>
-
-                            </div>
+                            {post.focusKeywords.length > 1 && (
+                                <div className="tag">
+                                    <h4 className="font-bold text-sm text-black mt-6">TAGS</h4>
+                                    <div className="flex items-center gap-x-2 mt-2">
+                                        {post.focusKeywords.map((tag, index) => (
+                                            <span key={index} className="flex items-center gap-x-[5px] bg-[#EDF3FF] px-[18px] py-[6px] text-sm font-medium rounded-[30px] text-[#0A1B5C]">
+                                                <Image src={hashtag} alt="hastag"></Image> {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
                 {/* End Horizontal Line */}
-                <div className="relative w-full my-20">
+                <div className="relative w-full my-10 xl:my-20">
                     {/* Horizontal Line */}
                     <div className="absolute inset-0 flex items-center">
                         <div className="w-full border-t border-gray-200"></div>

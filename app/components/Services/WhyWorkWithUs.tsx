@@ -24,8 +24,8 @@ const WhyWorkWithUs = () => {
     ];
 
     return (
-        <section className="py-16 custom-container mx-auto">
-            <div className="grid lg:grid-cols-2 gap-[124px]">
+        <section className="py-[60px] xl:py-[120px] custom-container mx-auto">
+            <div className="grid lg:grid-cols-2 gap-y-[60px] gap-x-[124px]">
                 {/* Left Column */}
                 <div className="">
                     <div>

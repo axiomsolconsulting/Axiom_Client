@@ -26,10 +26,10 @@ export default async function Page() {
                     {/* <img className="max-h-[650px] w-full object-cover" src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="" /> */}
                     <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="About Picture" width={1920} height={650} className="min-h-[550px] max-h-[650px] w-full object-fill" />
                     {/* <Image src={contactHero.src} alt="logo" width={120} height={400} layout="responsive" /> */}
-                </div>
+                </div> 
                 <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-white px-3">
                     <h1 className="text-base font-medium text-center uppercase text-[var(--Blue-Color)]">Insights</h1>
-                    <p className="text-center text-2xl sm:text-3xl md:text-6xl md:leading-[80px] font-medium max-w-[824px] mt-2 lg:mt-5">Updates, Insights and Tips</p>
+                    <p className="text-center text-2xl sm:text-3xl md:text-5xl xl:text-6xl md:leading-[80px] font-medium max-w-[824px] mt-2 lg:mt-5">Updates, Insights and Tips</p>
                     <p className="text-center text-base sm:text-lg md:text-xl md:leading-[32px] max-w-2xl mt-3 lg:mt-7">Stay ahead with Axiom as we bring you the latest updates, insightful perspectives, and practical tips.</p>
                     <div className="border-2 border-[var(--Blue-Color)] w-12 my-3 lg:my-7"></div>
                     <p className="">Get started with one of these topics</p>

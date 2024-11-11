@@ -201,3 +201,10 @@ body {
 .stats-grandient-line{
   border: 1px solid; border-image-source: linear-gradient(90deg, #1C85FF 0%, #BCC5D9 44.5%, #1C85FF 100%);
 }
+
+.post-content h2{
+  @apply text-[36px] font-semibold text-[#1E1E1E];
+}
+.post-content p{
+  @apply text-lg  text-[#1E1E1E];
+}

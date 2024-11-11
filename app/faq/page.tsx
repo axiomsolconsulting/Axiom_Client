@@ -34,7 +34,6 @@ export default function Page() {
         <>
             {/* Hero Section */}
             <div className=" hero-section mt-[180px]">
-               
                 <div className=" top-0 left-0 w-full h-full flex flex-col justify-center  items-center text-white px-3">
                     <h1 className="text-base font-medium text-center uppercase text-[var(--Blue-Color)] mb-2">FAQs</h1>
                     <p className="text-center text-3xl md:text-6xl md:leading-[80px] font-semibold max-w-[824px] mb-10 text-[#000915]">
@@ -44,7 +43,7 @@ export default function Page() {
                 </div>
             </div>
 
-            <div className=" max-w-[950px] mx-auto pb-28 pt-5 mt-10">
+            <div className=" max-w-[950px] mx-auto pb-10 xl:pb-28 pt-5 mt-10">
                 <Accordion type="single" collapsible className="w-full space-y-4">
                     {faqs.map((faq, index) => (
                         <AccordionItem key={index} value={`item-${index}`} className="border rounded-[8px] px-7 hover:border-[#002FF5] hover:shadow-faq-shadow ">
@@ -53,7 +52,7 @@ export default function Page() {
                         </AccordionItem>
                     ))}
                 </Accordion>
-                <div className="mt-[50px] flex justify-center">
+                <div className="mt-10 xl:mt-[50px] flex justify-center">
                     <Link href="/contact" className="bg-[var(--Blue-Color)] text-lg text-white font-medium py-4 px-8 rounded-md hover:bg-[#011633] hover:text-white hover:border-red-500 transition-colors duration-300">
                         Load More
                     </Link>

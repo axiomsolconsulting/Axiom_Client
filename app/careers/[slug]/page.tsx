@@ -1,16 +1,17 @@
-import Link from 'next/link';
-import axios from 'axios';
-import Image from 'next/image';
-import { backendUrl } from '@/app/constants/constants';
-import location from '@/public/careers/job/location.svg'
-import time from '@/public/careers/job/time.svg'
+import Link from "next/link";
+import axios from "axios";
+import Image from "next/image";
+import { backendUrl } from "@/app/constants/constants";
+import location from "@/public/careers/job/location.svg";
+import time from "@/public/careers/job/time.svg";
+import ApplyBox from "./ApplyBox";
 
 interface Params {
     params: Promise<{
         slug: string;
     }>;
 }
-export default async function page({ params } : Params) {
+export default async function page({ params }: Params) {
     const { slug } = await params;
 
     // let post: Post | null = null;
@@ -18,6 +19,8 @@ export default async function page({ params } : Params) {
         title: string;
         location: string;
         type: string;
+        description: string;
+
     }
     let job: Job | null = null;
     try {
@@ -35,8 +38,8 @@ export default async function page({ params } : Params) {
         return <div className="mt[167px]">Loading</div>;
     }
     return (
-        <main className="container mx-auto py-5 px-5 mt-[167px]">
-            <div className="">
+        <main className="container mx-auto py-5 px-5 mt-[167px] grid grid-cols-[60%,40%] gap-8 ">
+            <div className="  ">
                 <Link href="/careers" className="text-[var(--Blue-Color)] flex items-center gap-x-2">
                     <span className="">
                         <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,13 +48,21 @@ export default async function page({ params } : Params) {
                     </span>
                     Back to Careers
                 </Link>
-                <h2 className="text-[#1E1E1E] text-[44px] leading-[60px] font-semibold my-5"> {job.title} </h2>
-                <div className="">
-                    <Image src={location} alt='hhy'></Image>
-                    <Image src={time} alt='hhy'></Image>
+                <h2 className="text-[#1E1E1E] text-[44px] leading-[60px] font-semibold mb-[15px] mt-[20px]"> {job.title} </h2>
+                <div className="flex gap-x-10 items-center text-lg font-semibold">
+                    <div className="flex items-center gap-x-[10px]">
+                        <Image src={location} alt="hhy"></Image>
+                        <span className="">{job.location} </span>
+                    </div>
+                    <div className="flex items-center gap-x-[10px]">
+                        <Image src={time} alt="hhy"></Image>
+                        <span className="">{job.type} </span>
+                    </div>
                 </div>
+                <div className="text-gray-500 mt-5 post-content" dangerouslySetInnerHTML={{ __html: job.description }}></div>
             </div>
-            <div className=""></div>
+           {/* <div className="bg-red-200">ggg</div> */}
+           <ApplyBox />
         </main>
     );
 }

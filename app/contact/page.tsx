@@ -25,7 +25,7 @@ export default function Page() {
 
     return (
         <>
-            <section className="bg-[#010b1d] text-white pt-48 px-4">
+            <section className="bg-[#010b1d] text-white pt-28 xl:pt-48 px-4">
                 {/* 1st Section Form + Details */}
                 <div className="custom-container  mx-auto grid lg:grid-cols-2 gap-x-12 xl:gap-x-[100px]  gap-y-10">
                     {/* Left Column */}
@@ -154,18 +154,18 @@ export default function Page() {
             </section>
 
             {/* 2nd Section Map +  Calendar */}
-            <section className="py-[120px]">
+            <section className="py-[60pxs] xl:py-[120px]">
                 <div className="custom-container mx-auto p-6 ">
                     {/* Wrapper for columns */}
-                    <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-10">
+                    <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-x-10 gap-y-5">
                         {/* Left Column */}
-                        <div className="space-y-6  p-6 max-w-lg">
+                        <div className="space-y-6   max-w-lg">
                             <h2 className="text-3xl md:text-4xl font-semibold leading-tight">Book Your Discovery Call Today</h2>
                             <p className="text-gray-700 text-base md:text-lg">Take the first step toward innovative, tailored tech solutions with Axiom. Schedule a discovery call with our team to discuss your business needs, goals, and challenges.</p>
                         </div>
 
                         {/* Right Column */}
-                        <div className="space-y-6 p-6 w-full max-w-lg">
+                        <div className="space-y-6 w-full max-w-lg">
                             <h3 className="text-2xl font-bold text-gray-900">Where to Find Us?</h3>
                             <div className="rounded-lg overflow-hidden bg-gray-100 border border-gray-300 h-64 w-full">
                                 {/* Embedded Google Map */}

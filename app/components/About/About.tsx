@@ -31,8 +31,8 @@ const people = [
 
 const About = () => {
     return (
-        <section className=" flex items-center  py-24">
-            <div className="container mx-auto px-4  ">
+        <section className=" flex items-center py-[60px] xl:py-[120px]">
+            <div className="container mx-auto px-4 ">
                 {/* Top title Desciption */}
                 <h2 className="text-xl md:text-3xl lg:text-[44px] lg:leading-[58px] font-medium leading-relaxed text-center">
                     At Axiom, we are a team
@@ -52,9 +52,9 @@ const About = () => {
                 {/* Picture + Stats */}
                 {/* flex flex-col lg:flex-row items-center justify-center mt-12 gap-5 */}
 
-                <div className=" grid grid-cols-1 lg:grid-cols-[60%_40%] gap-5 mt-8">
+                <div className="lg:flex gap-x-5 space-y-5 lg:space-y-0 mt-8">
                     {/* Left side: Image */}
-                    <div className="relative items-center justify-center">
+                    <div className="relative lg:w-[60%]">
                         <img src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730137269/it-expert-updating-ai-systems_mzifnq.png" alt="Tech Image" className="rounded-3xl w-full h-auto" />
                         <div className="absolute bottom-4 left-4 w-full max-w-xs sm:max-w-sm lg:max-w-md bg-white/80 border border-gray-300 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-lg text-black">
                             <h3 className="text-base sm:text-lg lg:text-xl font-semibold flex items-center gap-2">
@@ -69,39 +69,40 @@ const About = () => {
 
                     {/* Right side: Stats */}
                     {/* w-[450px] h-[300px] sm:w-[650px] sm:h-[400px] lg:w-[500px] lg:h-[400px] */}
-                    <div className="grid grid-cols-2  bg-[#E5EBF8]  p-6 rounded-3xl shadow-md gap-5 relative">
+                    <div className="grid grid-cols-2 lg:w-[40%] bg-[#E5EBF8]  py-6 px-1 rounded-3xl shadow-md gap-5 relative ">
                         <div className="flex flex-col text-center justify-center   items-center ">
-                            <p className="text-4xl md:text-[56px] font-bold text-black">
+                            <p className="text-4xl md:text-5xl xl:text-[56px] font-bold text-black">
                                 70K<span className="text-[var(--Blue-Color)]">+</span>
                             </p>
                             <p className="text-base xl:text-lg text-black font-medium md:mt-2">Years of Experience</p>
                         </div>
 
                         <div className="flex flex-col text-center justify-center  items-center ">
-                            <p className="text-4xl md:text-[56px]  font-bold text-black">
+                            <p className="text-4xl md:text-5xl xl:text-[56px]  font-bold text-black">
                                 140K<span className="text-[var(--Blue-Color)]">+</span>
                             </p>
                             <p className="text-base xl:text-lg text-black font-medium md:mt-2">Satisfied Clients</p>
                         </div>
                         <div className="flex flex-col text-center justify-center items-center">
-                            <p className="text-4xl md:text-[56px]  font-bold text-black">
+                            <p className="text-4xl md:text-5xl xl:text-[56px]  font-bold text-black">
                                 98.9<span className="text-[var(--Blue-Color)]">%</span>
                             </p>
                             <p className="text-base xl:text-lg text-black font-medium md:mt-2">Satisfaction Rate</p>
                         </div>
                         <div className="flex flex-col text-center justify-center  items-center ">
-                            <p className="text-4xl md:text-[56px] font-bold text-black">
+                            <p className="text-4xl md:text-5xl xl:text-[56px] font-bold text-black">
                                 900M<span className="text-[var(--Blue-Color)]">+</span>
                             </p>
                             <p className=" text-base xl:text-lg text-black font-medium md:mt-2">Candidate Database</p>
                         </div>
-                        <div className="absolute inset-0 flex justify-center ">
-                            <div className="w-[1px] h-full bg-gray-500 "></div>
+                        {/* Vertical divider */}
+                        <div className="absolute inset-0 flex justify-center py-4">
+                            <div className="w-[1px] h-full bg-gray-300 "></div>
                         </div>
 
                         {/* Horizontal divider */}
-                        <div className="absolute inset-0 flex items-center ">
-                            <div className="w-full h-[1px] bg-gray-500"></div>
+                        <div className="absolute inset-0 flex items-center px-4">
+                            <div className="w-full h-[1px] bg-gray-300"></div>
                         </div>
                     </div>
                 </div>

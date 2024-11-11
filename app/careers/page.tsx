@@ -51,14 +51,14 @@ export default function Page() {
                 </div>
                 <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-white px-3">
                     <h1 className="text-base font-medium text-center uppercase text-[var(--Blue-Color)]">Careers</h1>
-                    <p className="text-center text-3xl md:text-6xl md:leading-[80px] font-semibold max-w-[884px] mt-[10px] mb-[20px]">Advance Your Career and grow Alongside the Best Talent </p>
+                    <p className="text-center text-3xl md:text-5xl xl:text-6xl xl:leading-[80px] font-semibold max-w-[884px] mt-[10px] mb-[20px]">Advance Your Career and grow Alongside the Best Talent </p>
                     <p className="text-center text-lg md:text-xl md:leading-[32px] max-w-2xl"> We&apos;re committed to helping you expand your skills, achieve your goals, and unlock your full potential.</p>
                 </div>
             </div>
 
             {/* Starting Content */}
-            <div className=" text-center mt-[100px]">
-                <h3 className="text-6xl text-[#1E1E1E] ">Join a Team Who Loves What They Do</h3>
+            <div className=" text-center mt-[60px] xl:mt-[100px]">
+                <h3 className="text-4xl xl:text-6xl text-[#1E1E1E] ">Join a Team Who Loves What They Do</h3>
                 <p className="Text-[#454545] text-lg mt-[20px] mb-[50px] max-w-4xl mx-auto px-4">At Axiom, passion fuels our work. We&apos;re a team of thinkers creators and innovators who love what we do—and it shows. Here, you&apos;ll find a collaborative environment where creativity thrives, diverse perspectives are valued, and enthusiasm drives us forward.</p>
                 <Link href="/" className="bg-[var(--Blue-Color)] text-lg text-white font-medium py-5 px-6 rounded-md hover:bg-[#011633] transition-colors duration-300">
                     Explore Opportunities
@@ -66,13 +66,13 @@ export default function Page() {
             </div>
 
             {/* Pictures */}
-            <div className="mt-10 lg:mt-[120px]">
-                <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730967494/Frame_34714_1_vopxqv.png" alt="" width={2400} height={1200}></Image>
+            <div className="mt-[60px] lg:mt-[120px] ">
+                <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730967494/Frame_34714_1_vopxqv.png" alt="" width={2400} height={1200} className="mx-auto" ></Image>
             </div>
             {/* Offering */}
             <section className="py-16 px-4">
                 <div className="custom-container mx-auto">
-                    <h2 className="text-[44px] font-semibold text-center mb-12">Axiom: A Great Place to Grow</h2>
+                    <h2 className="text-4xl xl:text-[44px] font-semibold text-center mb-12">Axiom: A Great Place to Grow</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
                         {benefits.map((benefit, index) => (
                             <div key={index} className="p-6 bg-white rounded-[20px] border border-[#E7EAF2] hover:shadow-2xl duration-200 transition-shadow">

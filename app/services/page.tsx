@@ -125,7 +125,7 @@ export default async function Page() {
                 </div>
                 <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center gap-y-3 md:gap-y-5 items-center text-white px-3">
                     <h1 className="text-base font-medium text-center uppercase text-[var(--Blue-Color)]">SERVICES</h1>
-                    <p className="text-center text-3xl md:text-6xl md:leading-[80px] font-medium max-w-[824px]">A One Stop Shop for Your Digital Products</p>
+                    <p className="text-center text-3xl md:text-5xl xl:text-6xl xl:leading-[80px] font-medium max-w-[824px]">A One Stop Shop for Your Digital Products</p>
                     <p className="text-center text-lg md:text-xl md:leading-[32px] max-w-2xl"> Through our tailored solutions, we harness the power of technology to drive efficiency, innovation, and lasting success for your enterprise.</p>
                     <div className="mt-2 md:mt-5 flex justify-center">
                         <Link href="/contact" className="bg-[var(--Blue-Color)] text-lg text-white font-medium py-3 px-6 rounded-md hover:bg-white hover:text-black hover:border-red-500 transition-colors duration-300">
@@ -142,7 +142,7 @@ export default async function Page() {
                     {/* Stats Box - Positioned 50% above */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 custom-container">
                         <div className="bg-white rounded-xl shadow-xl p-8">
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:divide-x-2">
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 px-4 md:divide-x-2">
                                 {stats.map((stat) => {
                                     const mainValue = stat.value.replace(/[^0-9KkMm.]/g, ""); // Extract main value (e.g., "70K")
                                     const prefix = stat.value.replace(/[0-9KkMm.]/g, ""); // Extract prefix (e.g., "+")
@@ -186,7 +186,7 @@ export default async function Page() {
             <section className="bg-[#000409] relative">
                 <div className=" custom-container mx-auto divide-y-2 ">
                     {services.map((service, index) => (
-                        <div key={index} className="relative grid grid-cols-1 lg:grid-cols-2 gap-x-[180px] gap-y-10 items-center py-20 lg:py-[120px]">
+                        <div key={index} className="relative grid grid-cols-1 lg:grid-cols-2 gap-x-[180px] gap-y-10 items-center py-[60px] xl:py-[120px]">
                             <div className="">
                                 <h2 className="text-4xl font-bold text-white">{service.title}</h2>
                                 <p className="leading-relaxed text-[#D1D1D1] mt-5">{service.description}</p>
