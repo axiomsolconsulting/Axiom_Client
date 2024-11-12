@@ -5,6 +5,7 @@ import axios from "axios";
 import { backendUrl } from "@/app/constants/constants";
 import { useDropzone } from "react-dropzone";
 import { uploadSingleFile } from "@/app/constants/firebase";
+
 const ApplyBox = () => {
     const [formData, setFormData] = useState({
         quoteFirstName: "",
