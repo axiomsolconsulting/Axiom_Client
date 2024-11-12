@@ -33,9 +33,11 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
     const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE;
     let currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
 
-    if (!searchQuery && currentPage === 1 && currentPosts.length > 0) {
-        currentPosts = currentPosts.slice(1);
-    }
+    // Exclude the first post from the post list if it's the first page and there's no search query
+    // if (!searchQuery && currentPage === 1 && filteredPosts.length > 0) {
+    //     currentPosts = currentPosts.slice(1);
+    //     console.log("currentPosts on first Page after slice", currentPosts);
+    // }
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState("Category");
@@ -76,6 +78,7 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
             </div>
 
             {/* Featured Post - Show only on currentPage === 1 and during search show only post list */}
+
             {!searchQuery && currentPage === 1 && currentPosts.length > 0 && (
                 <Link href={`insights/${currentPosts[0].slug}`}>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-5 py-8">
@@ -102,11 +105,20 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
             )}
 
             {/* Post List - Exclude first post if currentPage !== 1 or during search */}
-            <div className="posts grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-                {currentPosts.map((iteams, index) => (
-                    <PostCard key={index} title={iteams.blogTitle} category={iteams.blogCategory ? iteams.blogCategory : "No Category"} imageURL={iteams.blogImage} slug={iteams.slug} authorName={iteams.authorName} />
-                ))}
-            </div>
+
+            {!searchQuery && currentPage === 1 && currentPosts.length > 0 ? (
+                <div className="posts grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+                    {currentPosts.slice(1).map((iteams, index) => (
+                        <PostCard key={index} title={iteams.blogTitle} category={iteams.blogCategory ? iteams.blogCategory : "No Category"} imageURL={iteams.blogImage} slug={iteams.slug} authorName={iteams.authorName} />
+                    ))}
+                </div>
+            ) : (
+                <div className="posts grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+                    {currentPosts.map((iteams, index) => (
+                        <PostCard key={index} title={iteams.blogTitle} category={iteams.blogCategory ? iteams.blogCategory : "No Category"} imageURL={iteams.blogImage} slug={iteams.slug} authorName={iteams.authorName} />
+                    ))}
+                </div>
+            )}
 
             {/* Pagination */}
             {filteredPosts.length > POSTS_PER_PAGE && (
