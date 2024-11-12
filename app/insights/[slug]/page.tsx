@@ -27,13 +27,18 @@ export interface Params {
     }>;
 }
 
+    
 const PostView = async ({ params }: Params) => {
     const { slug } = await params;
 
     //  For Current Blog Post from the backend
     let post: Post | null = null;
     try {
-        const response = await axios.get(`${backendUrl}/api/v1/web/blogs/${slug}`);
+        const response = await axios.get(`${backendUrl}/api/v1/web/blogs/${slug}`,{
+            headers: {
+                "Cache-Control": "public, max-age=10",  // 60*5=300 Second This sets a 5-minute cache time
+            },        
+        });
         if (response.data.data) {
             post = response.data.data;
         } else {

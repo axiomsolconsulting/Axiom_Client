@@ -19,9 +19,9 @@ interface Job {
 const JobCareer = async () => {
     let jobs: Job[] | null = null;
     try {
-        const response = await axios.get(`${backendUrl}/api/v1/jobs`,{
+        const response = await axios.get(`${backendUrl}/api/v1/jobs`, {
             headers: {
-                "Cache-Control": "public, max-age=300", // This sets a 5-minute cache time
+                "Cache-Control": "public, max-age=10", // 60*5=300 Second This sets a 5-minute cache time
             },
         });
         if (response.data.data) {
@@ -78,9 +78,10 @@ const JobCareer = async () => {
                 <div className="mt-[60px] text-center bg-gradient lg:mx-[124px] rounded-3xl space-y-5 pt-[75px] pb-[95px] mx-4 px-4 md:px-0 ">
                     <h3 className="text-white text-4xl font-semibold">Can&apos;t see a position that interests you?</h3>
                     <p className="text-lg text-white max-w-3xl mx-auto">
-                        Didn&apos;t see the right opening for you? Send your resume and cover letter to 
+                        Didn&apos;t see the right opening for you? Send your resume and cover letter to
                         <a href="mailto:careers@axiom.com" className="font-bold underline underline-offset-2">
-                             {" "}careers@axiom.com
+                            {" "}
+                            careers@axiom.com
                         </a>
                         and tell us what you&apos;re looking for.
                     </p>
