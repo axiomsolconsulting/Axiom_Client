@@ -30,7 +30,7 @@ export default function Page() {
                 <div className="custom-container  mx-auto grid lg:grid-cols-2 gap-x-12 xl:gap-x-[100px]  gap-y-10">
                     {/* Left Column */}
                     <div className="order-2 lg:order-1 mb-6 ">
-                        <h2 className=" text-[50px] lg:text-[70px] xl:text-[90px]  font-semibold mb-5">Lets Get in Touch</h2>
+                        <h2 className="text-4xl md:text-[50px] lg:text-[70px] xl:text-[90px]  font-semibold mb-5">Lets Get in Touch</h2>
                         {/* Contact Details */}
                         <div className="">
                             <p className="text-[#7B8CA3] text-xl font-semibold mb-5">Meanwhile you can contact us at:</p>

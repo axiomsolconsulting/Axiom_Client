@@ -38,7 +38,7 @@ export default async function page({ params }: Params) {
         return <div className="mt[167px]">Loading</div>;
     }
     return (
-        <main className="container mx-auto py-5 px-5 mt-[167px] grid grid-cols-[60%,40%] gap-8 ">
+        <main className="container mx-auto py-5 px-5 mt-[167px] grid lg:grid-cols-[60%,40%] gap-8 space-y-2 lg:space-y-0">
             <div className="  ">
                 <Link href="/careers" className="text-[var(--Blue-Color)] flex items-center gap-x-2">
                     <span className="">

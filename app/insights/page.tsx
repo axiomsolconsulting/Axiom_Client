@@ -6,7 +6,11 @@ import BlogPosts from "../insights/BlogPost";
 export default async function Page() {
     let post = null;
     try {
-        const response = await axios.get(`${backendUrl}/api/v1/blog`);
+        const response = await axios.get(`${backendUrl}/api/v1/blog`, {
+            headers: {
+                "Cache-Control": "public, max-age=300", // This sets a 5-minute cache time
+            },
+        });
         if (response.data.data) {
             post = response.data.data.reverse();
         } else {
@@ -26,7 +30,7 @@ export default async function Page() {
                     {/* <img className="max-h-[650px] w-full object-cover" src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="" /> */}
                     <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="About Picture" width={1920} height={650} className="min-h-[550px] max-h-[650px] w-full object-fill" />
                     {/* <Image src={contactHero.src} alt="logo" width={120} height={400} layout="responsive" /> */}
-                </div> 
+                </div>
                 <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-white px-3">
                     <h1 className="text-base font-medium text-center uppercase text-[var(--Blue-Color)]">Insights</h1>
                     <p className="text-center text-3xl md:text-5xl xl:text-6xl md:leading-[80px] font-medium max-w-[824px] mt-2 lg:mt-5">Updates, Insights and Tips</p>
@@ -41,8 +45,6 @@ export default async function Page() {
                     </div>
                 </div>
             </div>
-
-            
 
             {/* <section className="custom-container mx-auto grid grid-cols-3 gap-x-[30px] gap-y-12 pb-[140px]">
                 <PostCard title="A Software Maintenance Team — What does it do? Why is it important?" category="Web Insights" imageURL="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730884700/6c9f617cc777a22afc601c2cf9c65dfa_aegmyr.png" />

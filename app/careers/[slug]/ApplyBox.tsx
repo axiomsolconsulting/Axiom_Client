@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { backendUrl } from "@/app/constants/constants";
-
+import { useDropzone } from "react-dropzone";
+import { uploadSingleFile } from "@/app/constants/firebase";
 const ApplyBox = () => {
     const [formData, setFormData] = useState({
         quoteFirstName: "",
@@ -77,7 +78,7 @@ const ApplyBox = () => {
         // Send the form data to the backend
         try {
             setLoading(true);
-            const response = await axios.post(`${backendUrl}/api/v1/quote`, formData);
+            const response = await axios.post(`${backendUrl}/api/v1/jobApplications`, formData);
 
             if (response.status === 201) {
                 setLoading(false);
@@ -98,6 +99,34 @@ const ApplyBox = () => {
             setLoading(false);
         }
     };
+
+    const [resume, setResume] = useState<File | null>(null);
+
+    // Handle Dropzone file upload
+    const onDrop = (acceptedFiles: File[]) => {
+        const selectedFile = acceptedFiles[0];
+        setResume(selectedFile); // Save the first selected file
+    
+        // Check if the file exists, then upload with all necessary parameters
+        if (selectedFile) {
+            uploadSingleFile({
+                file: selectedFile,
+                folderName: "resumes", // Example folder name; adjust as needed
+                urlSetter: (url: string) => console.log("Uploaded file URL:", url), // Replace with actual URL setter
+                setProgress: (progress: number) => console.log("Upload progress:", progress), // Replace with actual progress setter
+            });
+        }
+    };
+    
+
+    const { getRootProps, getInputProps } = useDropzone({
+        onDrop,
+        accept: { "application/pdf": [".pdf"] }, // Accept PDF files only
+        maxFiles: 1, // Limit to one file
+    });
+
+
+
 
     return (
         <div className="bg-[#EDF3FF] rounded-3xl p-10 h-fit">
@@ -140,15 +169,13 @@ const ApplyBox = () => {
                         </label>
                         {errors.quoteMobile && <p className="text-red-500 text-sm mt-1">{errors.quoteMobile}</p>}
                     </div>
+
+                    {/* Resume Dropzone */}
+                    <div {...getRootProps()} className="border-2 border-dashed rounded-lg p-4 text-center">
+                        <input {...getInputProps()} />
+                        {resume ? <p className="text-green-500">Selected file: {resume.name}</p> : <p>Drag & drop your resume here, or click to select (PDF only)</p>}
+                    </div>
                 </div>
-                {/* <div {...getRootProps()} className="p-4 border-2 border-dashed rounded-lg cursor-pointer text-center">
-                    <input {...getInputProps()} />
-                    {pdfFile ? (
-                        <p className="text-sm text-blue-500">{pdfFile.name}</p>
-                    ) : (
-                        <p className="text-sm text-gray-500">Drag & drop a PDF file here, or click to select one</p>
-                    )}
-                </div> */}
                 {/* Submit Button */}
                 <button type="submit" className="bg-[var(--Blue-Color)] hover:bg-[#011633] w-full text-lg text-white font-medium py-3 px-6 rounded-md  hover:text-white transition-colors duration-300">
                     {!loading ? "Apply Now" : "Submitting..."}
