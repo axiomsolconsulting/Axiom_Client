@@ -1,6 +1,4 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from "firebase/storage";
 
 const firebaseConfig = {
@@ -16,26 +14,33 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
-// const analytics = getAnalytics(app);
 
-export const uploadSingleFile = ({ file, folderName, urlSetter, setProgress }) => {
-    folderName = folderName || "uploads";
-    if (!file) return;
-    const storageRef = ref(storage, `/${folderName}/${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
-    uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-            const prog = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-            setProgress(prog);
-        },
-        (err) => console.log(err),
-        () => {
-            getDownloadURL(uploadTask.snapshot.ref).then(
-                (url) => urlSetter(url)
-                // url fetched... store it
-                // handleChangeCategory({ name: "image", value: url })
-            );
-        }
-    );
+export const uploadSingleFile = ({ file, folderName = "uploads", setProgress }) => {
+    return new Promise((resolve, reject) => {
+        if (!file) return reject("No file provided");
+        
+        const storageRef = ref(storage, `/${folderName}/${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+                const prog = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                setProgress(prog);
+            },
+            (error) => {
+                console.log("Upload error:", error);
+                reject(error);
+            },
+            async () => {
+                try {
+                    const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+                    resolve(downloadURL); // Resolve the Promise with the URL
+                } catch (error) {
+                    console.log("Failed to get download URL:", error);
+                    reject(error);
+                }
+            }
+        );
+    });
 };

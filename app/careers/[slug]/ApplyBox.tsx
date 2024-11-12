@@ -8,17 +8,18 @@ import { uploadSingleFile } from "@/app/constants/firebase";
 
 const ApplyBox = () => {
     const [formData, setFormData] = useState({
-        quoteFirstName: "",
-        quoteLastName: "",
-        quoteEmail: "",
-        quoteMobile: "",
+        FirstName: "",
+        LastName: "",
+        email: "",
+        resume: "",
+        contactNumber: "",
     });
 
     const [errors, setErrors] = useState({
-        quoteFirstName: "",
-        quoteLastName: "",
-        quoteEmail: "",
-        quoteMobile: "",
+        FirstName: "",
+        LastName: "",
+        email: "",
+        contactNumber: "",
     });
 
     const [loading, setLoading] = useState(false);
@@ -36,32 +37,32 @@ const ApplyBox = () => {
         const newErrors = { ...errors };
 
         // First Name validation
-        if (!formData.quoteFirstName.trim()) {
-            newErrors.quoteFirstName = "First Name is required";
+        if (!formData.FirstName.trim()) {
+            newErrors.FirstName = "First Name is required";
             formValid = false;
         }
 
         // Last Name validation
-        if (!formData.quoteLastName.trim()) {
-            newErrors.quoteLastName = "Last Name is required";
+        if (!formData.LastName.trim()) {
+            newErrors.LastName = "Last Name is required";
             formValid = false;
         }
 
         // Email validation
-        if (!formData.quoteEmail.trim()) {
-            newErrors.quoteEmail = "Email is required";
+        if (!formData.email.trim()) {
+            newErrors.email = "Email is required";
             formValid = false;
-        } else if (!/\S+@\S+\.\S+/.test(formData.quoteEmail)) {
-            newErrors.quoteEmail = "Email format is invalid";
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            newErrors.email = "Email format is invalid";
             formValid = false;
         }
 
         // Phone number validation
-        if (!formData.quoteMobile.trim()) {
-            newErrors.quoteMobile = "Phone number is required";
+        if (!formData.contactNumber.trim()) {
+            newErrors.contactNumber = "Phone number is required";
             formValid = false;
-        } else if (!/^\d{11}$/.test(formData.quoteMobile)) {
-            newErrors.quoteMobile = "Phone number must be exactly 11 digits";
+        } else if (!/^\d{11}$/.test(formData.contactNumber)) {
+            newErrors.contactNumber = "Phone number must be exactly 11 digits";
             formValid = false;
         }
 
@@ -86,10 +87,11 @@ const ApplyBox = () => {
                 alert("Form submitted successfully!");
                 // Reset the form after successful submission
                 setFormData({
-                    quoteFirstName: "",
-                    quoteLastName: "",
-                    quoteEmail: "",
-                    quoteMobile: "",
+                    FirstName: "",
+                    LastName: "",
+                    email: "",
+                    resume: "",
+                    contactNumber: "",
                 });
             } else {
                 alert("Form submission failed. Please try again.");
@@ -103,18 +105,22 @@ const ApplyBox = () => {
 
     const [resume, setResume] = useState<File | null>(null);
 
-    // Handle Dropzone file upload
     const onDrop = (acceptedFiles: File[]) => {
         const selectedFile = acceptedFiles[0];
         setResume(selectedFile); // Save the first selected file
     
-        // Check if the file exists, then upload with all necessary parameters
         if (selectedFile) {
             uploadSingleFile({
                 file: selectedFile,
-                folderName: "resumes", // Example folder name; adjust as needed
-                urlSetter: (url: string) => console.log("Uploaded file URL:", url), // Replace with actual URL setter
-                setProgress: (progress: number) => console.log("Upload progress:", progress), // Replace with actual progress setter
+                folderName: "resumes",
+                setProgress: (progress: number) => console.log("Upload progress:", progress),
+            })
+            .then((url: string) => {
+                console.log("Uploaded file URL:", url);
+                setFormData((prev) => ({ ...prev, resume: url })); // Set the URL in the form data
+            })
+            .catch((error) => {
+                console.error("Failed to upload file:", error);
             });
         }
     };
@@ -126,59 +132,55 @@ const ApplyBox = () => {
         maxFiles: 1, // Limit to one file
     });
 
-
-
-
     return (
         <div className="bg-[#EDF3FF] rounded-3xl p-10 h-fit">
             <h3 className="font-semibold text-[26px] text-[#1E1E1E]">Apply for this Job</h3>
             {/* Contact Form */}
-            <form onSubmit={handleSubmit} className="space-y-6  pb-10   pt-10 ">
+            <form onSubmit={handleSubmit} className="space-y-6 pb-10 pt-10">
                 <div className="grid md:grid-cols-2 gap-6">
                     {/* First Name */}
                     <div className="relative w-full mb-4">
-                        <input id="quoteFirstName" name="quoteFirstName" type="text" className="w-full px-3 py-2 bg-transparent border-b border-[#305075] focus:outline-none peer" value={formData.quoteFirstName} onChange={handleInputChange} required />
-                        <label htmlFor="quoteFirstName" className={`absolute left-3 top-2 text-sm text-gray-400 transition-all duration-200 transform ${formData.quoteFirstName ? "-translate-y-6 scale-90 text-blue-500" : ""} peer-focus:-translate-y-6 peer-focus:scale-90 peer-focus:text-blue-500`}>
+                        <input id="FirstName" name="FirstName" type="text" className="w-full px-3 py-2 bg-transparent border-b border-[#305075] focus:outline-none peer" value={formData.FirstName} onChange={handleInputChange} required />
+                        <label htmlFor="FirstName" className={`absolute left-3 top-2 text-sm text-gray-400 transition-all duration-200 transform ${formData.FirstName ? "-translate-y-6 scale-90 text-blue-500" : ""} peer-focus:-translate-y-6 peer-focus:scale-90 peer-focus:text-blue-500`}>
                             First Name*
                         </label>
-                        {errors.quoteFirstName && <p className="text-red-500 text-sm mt-1">{errors.quoteFirstName}</p>}
+                        {errors.FirstName && <p className="text-red-500 text-sm mt-1">{errors.FirstName}</p>}
                     </div>
 
                     {/* Last Name */}
                     <div className="relative w-full mb-4">
-                        <input id="quoteLastName" name="quoteLastName" type="text" className="w-full px-3 py-2 bg-transparent border-b border-[#305075] focus:outline-none peer" value={formData.quoteLastName} onChange={handleInputChange} required />
-                        <label htmlFor="quoteLastName" className={`absolute left-3 top-2 text-sm text-gray-400 transition-all duration-200 transform ${formData.quoteLastName ? "-translate-y-6 scale-90 text-blue-500" : ""} peer-focus:-translate-y-6 peer-focus:scale-90 peer-focus:text-blue-500`}>
+                        <input id="LastName" name="LastName" type="text" className="w-full px-3 py-2 bg-transparent border-b border-[#305075] focus:outline-none peer" value={formData.LastName} onChange={handleInputChange} required />
+                        <label htmlFor="LastName" className={`absolute left-3 top-2 text-sm text-gray-400 transition-all duration-200 transform ${formData.LastName ? "-translate-y-6 scale-90 text-blue-500" : ""} peer-focus:-translate-y-6 peer-focus:scale-90 peer-focus:text-blue-500`}>
                             Last Name*
                         </label>
-                        {errors.quoteLastName && <p className="text-red-500 text-sm mt-1">{errors.quoteLastName}</p>}
+                        {errors.LastName && <p className="text-red-500 text-sm mt-1">{errors.LastName}</p>}
                     </div>
 
                     {/* Email Field */}
                     <div className="relative w-full mb-4">
-                        <input id="quoteEmail" name="quoteEmail" type="email" className="w-full px-3 py-2 bg-transparent border-b border-[#305075] focus:outline-none peer" value={formData.quoteEmail} onChange={handleInputChange} required />
-                        <label htmlFor="quoteEmail" className={`absolute left-3 top-2 text-sm text-gray-400 transition-all duration-200 transform ${formData.quoteEmail ? "-translate-y-6 scale-90 text-blue-500" : ""} peer-focus:-translate-y-6 peer-focus:scale-90 peer-focus:text-blue-500`}>
+                        <input id="email" name="email" type="email" className="w-full px-3 py-2 bg-transparent border-b border-[#305075] focus:outline-none peer" value={formData.email} onChange={handleInputChange} required />
+                        <label htmlFor="email" className={`absolute left-3 top-2 text-sm text-gray-400 transition-all duration-200 transform ${formData.email ? "-translate-y-6 scale-90 text-blue-500" : ""} peer-focus:-translate-y-6 peer-focus:scale-90 peer-focus:text-blue-500`}>
                             Email*
                         </label>
-                        {errors.quoteEmail && <p className="text-red-500 text-sm mt-1">{errors.quoteEmail}</p>}
+                        {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                     </div>
 
                     {/* Phone Field */}
                     <div className="relative w-full mb-4">
-                        <input id="quoteMobile" name="quoteMobile" type="tel" className="w-full px-3 py-2 bg-transparent border-b border-[#305075] focus:outline-none peer" value={formData.quoteMobile} onChange={handleInputChange} required />
-                        <label htmlFor="quoteMobile" className={`absolute left-3 top-2 text-sm text-gray-400 transition-all duration-200 transform ${formData.quoteMobile ? "-translate-y-6 scale-90 text-blue-500" : ""} peer-focus:-translate-y-6 peer-focus:scale-90 peer-focus:text-blue-500`}>
+                        <input id="contactNumber" name="contactNumber" type="tel" className="w-full px-3 py-2 bg-transparent border-b border-[#305075] focus:outline-none peer" value={formData.contactNumber} onChange={handleInputChange} required />
+                        <label htmlFor="contactNumber" className={`absolute left-3 top-2 text-sm text-gray-400 transition-all duration-200 transform ${formData.contactNumber ? "-translate-y-6 scale-90 text-blue-500" : ""} peer-focus:-translate-y-6 peer-focus:scale-90 peer-focus:text-blue-500`}>
                             Phone*
                         </label>
-                        {errors.quoteMobile && <p className="text-red-500 text-sm mt-1">{errors.quoteMobile}</p>}
-                    </div>
-
-                    {/* Resume Dropzone */}
-                    <div {...getRootProps()} className="border-2 border-dashed rounded-lg p-4 text-center">
-                        <input {...getInputProps()} />
-                        {resume ? <p className="text-green-500">Selected file: {resume.name}</p> : <p>Drag & drop your resume here, or click to select (PDF only)</p>}
+                        {errors.contactNumber && <p className="text-red-500 text-sm mt-1">{errors.contactNumber}</p>}
                     </div>
                 </div>
+                {/* Resume Dropzone */}
+                <div {...getRootProps()} className="border-2 border-dashed rounded-lg p-4 text-center">
+                    <input {...getInputProps()} />
+                    {resume ? <p className="text-green-500">Selected file: {resume.name}</p> : <p>Drag & drop your resume here, or click to select (PDF only)</p>}
+                </div>
                 {/* Submit Button */}
-                <button type="submit" className="bg-[var(--Blue-Color)] hover:bg-[#011633] w-full text-lg text-white font-medium py-3 px-6 rounded-md  hover:text-white transition-colors duration-300">
+                <button type="submit" className="bg-[var(--Blue-Color)] hover:bg-[#011633] w-full text-lg text-white font-medium py-3 px-6 rounded-md hover:text-white transition-colors duration-300">
                     {!loading ? "Apply Now" : "Submitting..."}
                 </button>
             </form>

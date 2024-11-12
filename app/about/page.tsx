@@ -22,7 +22,11 @@ export default async function  Page() {
 
     let teamMember: TeamMember[] | null = null
     try {
-        const response = await axios.get(`${backendUrl}/api/v1/teamMember`);
+        const response = await axios.get(`${backendUrl}/api/v1/teamMember`,{
+            headers: {
+                "Cache-Control": "public, max-age=300", // This sets a 5-minute cache time
+            },
+        });
         if (response.data.data) {
           teamMember = response.data.data
         }
