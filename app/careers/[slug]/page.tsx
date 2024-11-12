@@ -40,7 +40,7 @@ export default async function page({ params }: Params) {
     return (
         <main className="container mx-auto py-5 px-5 mt-[167px] grid lg:grid-cols-[60%,40%] gap-8 space-y-2 lg:space-y-0">
             <div className="  ">
-                <Link href="/careers" className="text-[var(--Blue-Color)] flex items-center gap-x-2">
+                <Link href="/careers" className="text-[var(--Blue-Color)] text-lg flex items-center gap-x-2">
                     <span className="">
                         <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8.3125 15.6208L2.73364 7.8104L8.3125 0L5.57886 4.77965e-07L1.36561e-06 7.8104L5.57886 15.6208L8.3125 15.6208Z" fill="#1C85FF" />

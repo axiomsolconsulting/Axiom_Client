@@ -71,7 +71,7 @@ const PostView = async ({ params }: Params) => {
                 {/* Content */}
                 <div className="max-w-[950px] mx-auto">
                     {/* Back Button */}
-                    <Link href="/insights" className="text-[var(--Blue-Color)] flex items-center gap-x-2">
+                    <Link href="/insights" className="text-[var(--Blue-Color)] text-lg flex items-center gap-x-2">
                         <span className="">
                             <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8.3125 15.6208L2.73364 7.8104L8.3125 0L5.57886 4.77965e-07L1.36561e-06 7.8104L5.57886 15.6208L8.3125 15.6208Z" fill="#1C85FF" />

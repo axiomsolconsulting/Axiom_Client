@@ -81,7 +81,7 @@ const JobCareer = async () => {
                         Didn&apos;t see the right opening for you? Send your resume and cover letter to
                         <a href="mailto:careers@axiom.com" className="font-bold underline underline-offset-2">
                             {" "}
-                            careers@axiom.com
+                            careers@axiom.com{" "}
                         </a>
                         and tell us what you&apos;re looking for.
                     </p>
