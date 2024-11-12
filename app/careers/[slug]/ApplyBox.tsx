@@ -141,6 +141,14 @@ const ApplyBox = () => {
                         {errors.quoteMobile && <p className="text-red-500 text-sm mt-1">{errors.quoteMobile}</p>}
                     </div>
                 </div>
+                {/* <div {...getRootProps()} className="p-4 border-2 border-dashed rounded-lg cursor-pointer text-center">
+                    <input {...getInputProps()} />
+                    {pdfFile ? (
+                        <p className="text-sm text-blue-500">{pdfFile.name}</p>
+                    ) : (
+                        <p className="text-sm text-gray-500">Drag & drop a PDF file here, or click to select one</p>
+                    )}
+                </div> */}
                 {/* Submit Button */}
                 <button type="submit" className="bg-[var(--Blue-Color)] hover:bg-[#011633] w-full text-lg text-white font-medium py-3 px-6 rounded-md  hover:text-white transition-colors duration-300">
                     {!loading ? "Apply Now" : "Submitting..."}

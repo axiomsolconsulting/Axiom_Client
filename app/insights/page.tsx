@@ -29,7 +29,7 @@ export default async function Page() {
                 </div> 
                 <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-white px-3">
                     <h1 className="text-base font-medium text-center uppercase text-[var(--Blue-Color)]">Insights</h1>
-                    <p className="text-center text-2xl sm:text-3xl md:text-5xl xl:text-6xl md:leading-[80px] font-medium max-w-[824px] mt-2 lg:mt-5">Updates, Insights and Tips</p>
+                    <p className="text-center text-3xl md:text-5xl xl:text-6xl md:leading-[80px] font-medium max-w-[824px] mt-2 lg:mt-5">Updates, Insights and Tips</p>
                     <p className="text-center text-base sm:text-lg md:text-xl md:leading-[32px] max-w-2xl mt-3 lg:mt-7">Stay ahead with Axiom as we bring you the latest updates, insightful perspectives, and practical tips.</p>
                     <div className="border-2 border-[var(--Blue-Color)] w-12 my-3 lg:my-7"></div>
                     <p className="">Get started with one of these topics</p>

@@ -30,7 +30,7 @@ export default function Page() {
                 <div className="custom-container  mx-auto grid lg:grid-cols-2 gap-x-12 xl:gap-x-[100px]  gap-y-10">
                     {/* Left Column */}
                     <div className="order-2 lg:order-1 mb-6 ">
-                        <h2 className="text-[50px] lg:text-[70px] xl:text-[90px]  font-semibold mb-5">
+                        <h2 className="text-4xl md:text-[50px] lg:text-[70px] lg:leading-[80px] xl:text-[90px] xl:leading-[100px]  font-semibold mb-5">
                             Lets Get in
                             <br />
                             Touch
