@@ -31,7 +31,7 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
     const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
     const indexOfLastPost = currentPage * POSTS_PER_PAGE;
     const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE;
-    let currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+    const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
 
     // Exclude the first post from the post list if it's the first page and there's no search query
     // if (!searchQuery && currentPage === 1 && filteredPosts.length > 0) {
