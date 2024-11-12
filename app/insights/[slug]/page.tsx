@@ -105,7 +105,7 @@ const PostView = async ({ params }: Params) => {
                                     })}
                                 </div>
                             </div>
-                            <div className="text-gray-500 mt-5" dangerouslySetInnerHTML={{ __html: post.blogData }}></div>
+                            <div className="text-gray-500 mt-5 post-content" dangerouslySetInnerHTML={{ __html: post.blogData }}></div>
                             {/* <>{parse( post.blogData)}</> */}
                         </div>
                         {/* Right Side */}

@@ -4,6 +4,7 @@ import PostCard from "../components/Blog/Postcard";
 import { Search, ChevronDown, ArrowRight } from "lucide-react";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Post {
     blogTitle: string;
@@ -30,7 +31,11 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
     const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
     const indexOfLastPost = currentPage * POSTS_PER_PAGE;
     const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE;
-    const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+    let currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+
+    if (!searchQuery && currentPage === 1 && currentPosts.length > 0) {
+        currentPosts = currentPosts.slice(1);
+    }
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState("Category");
@@ -72,26 +77,28 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
 
             {/* Featured Post - Show only on currentPage === 1 and during search show only post list */}
             {!searchQuery && currentPage === 1 && currentPosts.length > 0 && (
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-5 py-8">
-                    <div className="left rounded-3xl overflow-hidden relative">
-                        <Image src={currentPosts[0].blogImage} alt={currentPosts[0].blogTitle} width={600} height={300} layout="responsive" className="max-h-[400px] object-cover" />
-                        <span className="absolute top-6 left-6 bg-white py-[10px] px-[16px] rounded-[8px]">FEATURED</span>
-                    </div>
-                    <div className="right flex flex-col justify-center">
-                        <p className="text-sm text-black font-semibold">{currentPosts[0].categoryID?.categoryTitle}</p>
-                        <h3 className="text-[#1E1E1E] text-3xl font-semibold mt-3">{currentPosts[0].blogTitle}</h3>
-                        <p className="text-[#454545] text-lg mt-5">{currentPosts[0].blogTitle}</p>
-                        <div className="flex items-center text-[var(--Blue-Color)] gap-x-1 py-1 mt-10">
-                            <p className="Readmore font-semibold w-fit text-lg text-[var(--Blue-Color)] inline-block group">
-                                Read More
-                                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[var(--Blue-Color)]"></span>
-                            </p>
-                            <span className="">
-                                <ArrowRight size={15} />
-                            </span>
+                <Link href={`insights/${currentPosts[0].slug}`}>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-5 py-8">
+                        <div className="left rounded-3xl overflow-hidden relative">
+                            <Image src={currentPosts[0].blogImage} alt={currentPosts[0].blogTitle} width={600} height={300} layout="responsive" className="max-h-[400px] object-cover" />
+                            <span className="absolute top-6 left-6 bg-white py-[10px] px-[16px] rounded-[8px]">FEATURED</span>
+                        </div>
+                        <div className="right flex flex-col justify-center">
+                            <p className="text-sm text-black font-semibold">{currentPosts[0].categoryID?.categoryTitle}</p>
+                            <h3 className="text-[#1E1E1E] text-3xl font-semibold mt-3">{currentPosts[0].blogTitle}</h3>
+                            <p className="text-[#454545] text-lg mt-5">{currentPosts[0].blogTitle}</p>
+                            <div className="flex items-center text-[var(--Blue-Color)] gap-x-1 py-1 mt-10">
+                                <p className="Readmore font-semibold w-fit text-lg text-[var(--Blue-Color)] inline-block group">
+                                    Read More
+                                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[var(--Blue-Color)]"></span>
+                                </p>
+                                <span className="">
+                                    <ArrowRight size={15} />
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Link>
             )}
 
             {/* Post List - Exclude first post if currentPage !== 1 or during search */}

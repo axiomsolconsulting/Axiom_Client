@@ -8,7 +8,7 @@ export default async function Page() {
     try {
         const response = await axios.get(`${backendUrl}/api/v1/web/blogs`, {
             headers: {
-                "Cache-Control": "public, max-age=300", // This sets a 5-minute cache time
+                "Cache-Control": "public, max-age=10",  // 60*5=300 Second This sets a 5-minute cache time
             },
         });
         if (response.data.data) {
@@ -46,13 +46,6 @@ export default async function Page() {
                 </div>
             </div>
 
-            {/* <section className="custom-container mx-auto grid grid-cols-3 gap-x-[30px] gap-y-12 pb-[140px]">
-                <PostCard title="A Software Maintenance Team — What does it do? Why is it important?" category="Web Insights" imageURL="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730884700/6c9f617cc777a22afc601c2cf9c65dfa_aegmyr.png" />
-                <PostCard title="A Software Maintenance Team — What does it do? Why is it important?" category="Web Insights" imageURL="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730884700/6c9f617cc777a22afc601c2cf9c65dfa_aegmyr.png" />
-                <PostCard title="A Software Maintenance Team — What does it do? Why is it important?" category="Web Insights" imageURL="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730884700/6c9f617cc777a22afc601c2cf9c65dfa_aegmyr.png" /> <PostCard title="A Software Maintenance Team — What does it do? Why is it important?" category="Web Insights" imageURL="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730884700/6c9f617cc777a22afc601c2cf9c65dfa_aegmyr.png" />
-                <PostCard title="A Software Maintenance Team — What does it do? Why is it important?" category="Web Insights" imageURL="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730884700/6c9f617cc777a22afc601c2cf9c65dfa_aegmyr.png" />
-                <PostCard title="A Software Maintenance Team — What does it do? Why is it important?" category="Web Insights" imageURL="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730884700/6c9f617cc777a22afc601c2cf9c65dfa_aegmyr.png" />
-            </section> */}
             <BlogPosts post={post || []} />
         </>
     );

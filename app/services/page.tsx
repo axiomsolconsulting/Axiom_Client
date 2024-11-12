@@ -101,7 +101,7 @@ export default async function Page() {
     try {
         const response = await axios.get(`${backendUrl}/api/v1/web/services`, {
             headers: {
-                "Cache-Control": "public, max-age=300", // This sets a 5-minute cache time
+                "Cache-Control": "public, max-age=60", // This sets a 5-minute cache time
             },
         });
         if (response.data.data) {

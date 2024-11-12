@@ -26,7 +26,11 @@ interface Service {
 export default async function Services() {
     let services: Service[] | null = null;
     try {
-        const response = await axios.get(`${backendUrl}/api/v1/service`);
+        const response = await axios.get(`${backendUrl}/api/v1/service`,{
+            headers: {
+                "Cache-Control": "public, max-age=60", // This sets a 5-minute cache time
+            },
+        });
         if (response.data.data) {
             services = response.data.data;
         } else {
