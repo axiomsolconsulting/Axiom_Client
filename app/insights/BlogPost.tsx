@@ -12,7 +12,6 @@ interface Post {
     authorName: string;
     slug: string;
     blogCategory: string;
-    
 }
 
 interface BlogPostsProps {
@@ -25,9 +24,7 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
     const POSTS_PER_PAGE = 6;
 
     // Filtered posts based on the search query
-    const filteredPosts = post.filter(
-        (p) => p.blogTitle.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const filteredPosts = post.filter((p) => p.blogTitle.toLowerCase().includes(searchQuery.toLowerCase()));
 
     // Calculate total pages for pagination
     const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
@@ -46,24 +43,13 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <div className="relative flex-1">
                     <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                    <input
-                        type="text"
-                        placeholder="Search by Keywords"
-                        className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                    />
+                    <input type="text" placeholder="Search by Keywords" className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
                 </div>
 
                 <div className="relative">
-                    <button
-                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                        className="w-full sm:w-48 px-4 py-3 rounded-lg border border-gray-200 bg-white flex items-center justify-between"
-                    >
+                    <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="w-full sm:w-48 px-4 py-3 rounded-lg border border-gray-200 bg-white flex items-center justify-between">
                         <span className="text-gray-700">{selectedCategory}</span>
-                        <ChevronDown
-                            className={`w-5 h-5 text-gray-400 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
-                        />
+                        <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`} />
                     </button>
 
                     {isDropdownOpen && (
@@ -75,8 +61,7 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
                                         setSelectedCategory(category);
                                         setIsDropdownOpen(false);
                                     }}
-                                    className="w-full px-4 py-2 text-left hover:bg-gray-50 text-gray-700"
-                                >
+                                    className="w-full px-4 py-2 text-left hover:bg-gray-50 text-gray-700">
                                     {category}
                                 </button>
                             ))}
@@ -89,13 +74,7 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
             {!searchQuery && currentPage === 1 && currentPosts.length > 0 && (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-5 py-8">
                     <div className="left rounded-3xl overflow-hidden relative">
-                        <Image
-                            src={currentPosts[0].blogImage}
-                            alt={currentPosts[0].blogTitle}
-                            width={600}
-                            height={300}
-                            layout="responsive"
-                        />
+                        <Image src={currentPosts[0].blogImage} alt={currentPosts[0].blogTitle} width={600} height={300} layout="responsive" className="max-h-[400px] object-cover" />
                         <span className="absolute top-6 left-6 bg-white py-[10px] px-[16px] rounded-[8px]">FEATURED</span>
                     </div>
                     <div className="right flex flex-col justify-center">
@@ -118,14 +97,7 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
             {/* Post List - Exclude first post if currentPage !== 1 or during search */}
             <div className="posts grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
                 {currentPosts.map((iteams, index) => (
-                    <PostCard
-                        key={index}
-                        title={iteams.blogTitle}
-                        category={iteams.blogCategory ? iteams.blogCategory : "No Category"}
-                        imageURL={iteams.blogImage}
-                        slug={iteams.slug}
-                        authorName={iteams.authorName}
-                    />
+                    <PostCard key={index} title={iteams.blogTitle} category={iteams.blogCategory ? iteams.blogCategory : "No Category"} imageURL={iteams.blogImage} slug={iteams.slug} authorName={iteams.authorName} />
                 ))}
             </div>
 
@@ -151,8 +123,7 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
                                         e.preventDefault();
                                         setCurrentPage(i + 1);
                                     }}
-                                    isActive={currentPage === i + 1}
-                                >
+                                    isActive={currentPage === i + 1}>
                                     {i + 1}
                                 </PaginationLink>
                             </PaginationItem>
