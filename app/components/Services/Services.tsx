@@ -140,7 +140,7 @@ export default async function Services() {
                                 {/* absolute bottom-6 right-6  */}
 
                                 <div className="absolute bottom-6 right-6">
-                                    <img src={service.coverImage} alt={service.title} />
+                                    <img src={service.coverImage} alt={service.title} className="w-auto h-auto" />
                                     {/* <Image src={service.coverImage} alt={service.title} className="absolute object-contain bottom-6 right-6 pl-12 sm:pl-0" /> */}
                                     {/* <Image src={service.coverImage} alt={service.title} className=" "   /> */}
                                    {/* <Image src={service.coverImage} alt={service.title} width={600} height={600} objectFit="contain" /> */}
