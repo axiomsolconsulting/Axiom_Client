@@ -167,9 +167,9 @@ export default function Page() {
                 </div>
             </div>
 
-            <section className="custom container mx-auto mb-20">
+            <section className="custom-container mx-auto mb-20">
                 {/* Building Future + content  */}
-                <div className="grid md:grid-cols-2 py-20 gap-5 px-4">
+                <div className="grid md:grid-cols-2 py-20 gap-5 ">
                 <div className="left mb-5">
                         <h3 className=" mb-[50px] text-black text-3xl md:text-5xl !leading-tight font-semibold lg:max-w-lg">
                             Building The Future Of <span className="text-4xl md:text-6xl  font-bold">Web Together</span>
@@ -184,7 +184,7 @@ export default function Page() {
                     </div>
                 </div>
                 {/* Big Image */}
-                <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730975614/f02e1e2cac76233d131d0ecf40027ab5_flomoi.jpg" alt="Web Development Service Image" width={2400} height={1200} className=" max-h-[640px] object-cover rounded-3xl"></Image>
+                <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730975614/f02e1e2cac76233d131d0ecf40027ab5_flomoi.jpg" alt="Web Development Service Image" width={2400} height={1200} className="max-h-[640px] object-cover rounded-3xl"></Image>
             </section>
 
             <section className="bg-[#EDF3FF] py-16 px-4">

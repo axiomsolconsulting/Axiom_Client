@@ -5,7 +5,8 @@ import axios from "axios";
 import { backendUrl } from "@/app/constants/constants";
 import { useDropzone } from "react-dropzone";
 import { uploadSingleFile } from "@/app/constants/firebase";
-
+import upload from "@/public/upload.svg";
+import Image from "next/image";
 const ApplyBox = () => {
     const [formData, setFormData] = useState({
         FirstName: "",
@@ -69,6 +70,34 @@ const ApplyBox = () => {
         setErrors(newErrors);
         return formValid;
     };
+    const [resume, setResume] = useState<File | null>(null);
+
+    const onDrop = (acceptedFiles: File[]) => {
+        const selectedFile = acceptedFiles[0];
+        setResume(selectedFile); // Save the first selected file
+
+        if (selectedFile) {
+            uploadSingleFile({
+                file: selectedFile,
+                folderName: "resumes",
+                setProgress: (progress: number) => console.log("Upload progress:", progress),
+            })
+                .then((url: string) => {
+                    console.log("Uploaded file URL:", url);
+                    setFormData((prev) => ({ ...prev, resume: url })); // Set the URL in the form data
+                })
+                .catch((error) => {
+                    console.error("Failed to upload file:", error);
+                });
+        }
+    };
+
+    const { getRootProps, getInputProps } = useDropzone({
+        onDrop,
+        accept: { "application/pdf": [".pdf"] }, // Accept PDF files only
+        maxFiles: 1, // Limit to one file
+    });
+
 
     // Handle form submission
     const handleSubmit = async (e: React.FormEvent) => {
@@ -81,20 +110,22 @@ const ApplyBox = () => {
         try {
             setLoading(true);
             const response = await axios.post(`${backendUrl}/api/v1/jobApplications`, formData);
-
-            if (response.status === 201) {
-                setLoading(false);
-                alert("Form submitted successfully!");
-                // Reset the form after successful submission
-                setFormData({
-                    FirstName: "",
-                    LastName: "",
-                    email: "",
-                    resume: "",
-                    contactNumber: "",
-                });
-            } else {
-                alert("Form submission failed. Please try again.");
+            if(formData.resume){
+                if (response.status === 201) {
+                    setLoading(false);
+                    alert("Form submitted successfully!");
+                    // Reset the form after successful submission
+                    setFormData({
+                        FirstName: "",
+                        LastName: "",
+                        email: "",
+                        resume: "",
+                        contactNumber: "",
+                    });
+                    setResume(null);
+                } else {
+                    alert("Form submission failed. Please try again.");
+                }
             }
         } catch (error) {
             console.error("Error submitting the form:", error);
@@ -103,40 +134,36 @@ const ApplyBox = () => {
         }
     };
 
-    const [resume, setResume] = useState<File | null>(null);
 
-    const onDrop = (acceptedFiles: File[]) => {
-        const selectedFile = acceptedFiles[0];
-        setResume(selectedFile); // Save the first selected file
-    
-        if (selectedFile) {
-            uploadSingleFile({
-                file: selectedFile,
-                folderName: "resumes",
-                setProgress: (progress: number) => console.log("Upload progress:", progress),
-            })
-            .then((url: string) => {
-                console.log("Uploaded file URL:", url);
-                setFormData((prev) => ({ ...prev, resume: url })); // Set the URL in the form data
-            })
-            .catch((error) => {
-                console.error("Failed to upload file:", error);
-            });
-        }
-    };
-    
-
-    const { getRootProps, getInputProps } = useDropzone({
-        onDrop,
-        accept: { "application/pdf": [".pdf"] }, // Accept PDF files only
-        maxFiles: 1, // Limit to one file
-    });
 
     return (
         <div className="bg-[#EDF3FF] rounded-3xl p-10 h-fit">
-            <h3 className="font-semibold text-[26px] text-[#1E1E1E]">Apply for this Job</h3>
+            
             {/* Contact Form */}
-            <form onSubmit={handleSubmit} className="space-y-6 pb-10 pt-10">
+            <form onSubmit={handleSubmit} className="space-y-6">
+            <h3 className="font-semibold text-[26px] text-[#1E1E1E]">Apply for this Job</h3>
+                {/* Resume Dropzone */}
+                <div {...getRootProps()} className="border-2 border-dashed border-[#B7BFD0] rounded-lg px-4 py-5 text-center bg-[#DEE6F6]">
+                    <input {...getInputProps()} />
+                    {resume ? (
+                        <p className="text-green-500">Selected file: {resume.name}</p>
+                    ) : (
+                        <div className=" space-y-[10px]">
+                            <p className="underline underline-offset-4 flex justify-center gap-x-2 font-semibold text-[var(--Blue-Color)]">
+                                {/* <span className="">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.33398 10V16.6667C3.33398 17.1087 3.50958 17.5326 3.82214 17.8452C4.1347 18.1577 4.55862 18.3333 5.00065 18.3333H15.0007C15.4427 18.3333 15.8666 18.1577 16.1792 17.8452C16.4917 17.5326 16.6673 17.1087 16.6673 16.6667V10" stroke="#1C85FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M13.3327 5.00008L9.99935 1.66675L6.66602 5.00008" stroke="#1C85FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M10 1.66675V12.5001" stroke="#1C85FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </span>{" "} */}
+                                <Image src={upload} alt="upload"  ></Image>
+                                Upload resume
+                            </p>
+                            <p>10mb max file size (Allowed file types are .doc, .pdf, .docx,)</p>
+                        </div>
+                    )}
+                </div>
                 <div className="grid md:grid-cols-2 gap-6">
                     {/* First Name */}
                     <div className="relative w-full mb-4">
@@ -174,11 +201,7 @@ const ApplyBox = () => {
                         {errors.contactNumber && <p className="text-red-500 text-sm mt-1">{errors.contactNumber}</p>}
                     </div>
                 </div>
-                {/* Resume Dropzone */}
-                <div {...getRootProps()} className="border-2 border-dashed rounded-lg p-4 text-center">
-                    <input {...getInputProps()} />
-                    {resume ? <p className="text-green-500">Selected file: {resume.name}</p> : <p>Drag & drop your resume here, or click to select (PDF only)</p>}
-                </div>
+
                 {/* Submit Button */}
                 <button type="submit" className="bg-[var(--Blue-Color)] hover:bg-[#011633] w-full text-lg text-white font-medium py-3 px-6 rounded-md hover:text-white transition-colors duration-300">
                     {!loading ? "Apply Now" : "Submitting..."}

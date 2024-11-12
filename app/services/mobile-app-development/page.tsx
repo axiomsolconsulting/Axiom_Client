@@ -167,9 +167,9 @@ export default function Page() {
                 </div>
             </div>
 
-            <section className="custom container mx-auto mb-20">
+            <section className="custom-container mx-auto mb-20">
                 {/* Building Future + content  */}
-                <div className="grid md:grid-cols-2 py-20 gap-y-5 px-4">
+                <div className="grid md:grid-cols-2 py-20 gap-y-5 ">
                 <div className="left mb-5">
                         <h3 className=" mb-[50px] text-black text-3xl md:text-5xl !leading-tight  font-semibold lg:max-w-lg">
                             Building The Future Of <span className="text-4xl md:text-6xl font-bold">Mobile App Together</span>

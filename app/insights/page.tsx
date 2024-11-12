@@ -6,7 +6,7 @@ import BlogPosts from "../insights/BlogPost";
 export default async function Page() {
     let post = null;
     try {
-        const response = await axios.get(`${backendUrl}/api/v1/blog`, {
+        const response = await axios.get(`${backendUrl}/api/v1/web/blogs`, {
             headers: {
                 "Cache-Control": "public, max-age=300", // This sets a 5-minute cache time
             },

@@ -99,7 +99,7 @@ interface Service {
 export default async function Page() {
     let services: Service[] | null = null;
     try {
-        const response = await axios.get(`${backendUrl}/api/v1/service`, {
+        const response = await axios.get(`${backendUrl}/api/v1/web/services`, {
             headers: {
                 "Cache-Control": "public, max-age=300", // This sets a 5-minute cache time
             },
