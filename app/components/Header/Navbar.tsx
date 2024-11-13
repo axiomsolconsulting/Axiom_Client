@@ -2,8 +2,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation"; // Import usePathname
+import { getLink } from "@/app/services/getLink";
 
 const Navbar = () => {
     const navRef = useRef<HTMLDivElement>(null);
@@ -28,7 +29,7 @@ const Navbar = () => {
     const Light = allowedRoutes.includes(pathname) || pathname.startsWith("/services");
 
     const Navbar = [
-        { name: "Services", link: "/services" },
+        { name: "Services", link: "/services", subNavbar: ["Digital Solutions","Web Development", "Mobile App Development", "DevOps Solution", "Game Development (AR & VR)"] },
         { name: "About", link: "/about" },
         { name: "Careers", link: "/careers" },
         { name: "Insights", link: "/insights" },
@@ -48,6 +49,12 @@ const Navbar = () => {
         };
     }, []);
 
+    const [openSubMenuIndex, setOpenSubMenuIndex] = useState<number | null>(null);
+
+
+    const toggleSubMenu = (index : number  ) => {
+        setOpenSubMenuIndex(openSubMenuIndex === index ? null : index);
+    };
     return (
         <>
             {/* Desktop Navbar */}
@@ -79,24 +86,43 @@ const Navbar = () => {
             </nav>
 
             {/* Mobile Navbar */}
-            {
-                isMobileMenuOpen && (
-                    <div ref={navRef} className={`lg:hidden flex flex-col justify-between ${Light ? "bg-white" : "bg-gradient" }  absolute top-20 left-0 right-0 overflow-hidden transition-all duration-300 ease-in-out z-20 ${isMobileMenuOpen ? "screen-minus-80 opacity-100 visible" : "h-0 opacity-0 invisible"}`}>
-                <nav className={`container  mx-auto px-5 py-4 flex flex-col ${Light ? "text-black" : "text-white"} divide-y-[1px]`}>
-                    {Navbar.map((item, index) => (
-                        <Link key={index} href={item.link} onClick={() => setIsMobileMenuOpen(false)} className="hover:text-gray-300 py-4 text-xl font-medium">
-                            {item.name}
+            {isMobileMenuOpen && (
+                <div ref={navRef} className={`lg:hidden flex flex-col justify-between ${Light ? "bg-white" : "bg-gradient"} absolute top-20 left-0 right-0 overflow-hidden transition-all duration-300 ease-in-out z-20 ${isMobileMenuOpen ? "screen-minus-80 opacity-100 visible" : "h-0 opacity-0 invisible"}`}>
+                    <nav className={`container mx-auto  py-4 flex flex-col ${Light ? "text-black" : "text-white"} divide-y-[1px]`}>
+                        {Navbar.map((item, index) => (
+                            <div key={index}>
+                                <Link
+                                    href={item.link}
+                                    onClick={() => {
+                                        if (item.subNavbar) {
+                                            toggleSubMenu(index);
+                                        } else {
+                                            setIsMobileMenuOpen(false);
+                                        }
+                                    }}
+                                    className="hover:bg-gray-100 py-4 text-xl font-medium flex justify-between items-center px-5">
+                                    {item.name}
+                                    {item.subNavbar && <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${openSubMenuIndex === index ? "rotate-180" : ""}`} />}
+                                </Link>
+                                {item.subNavbar && openSubMenuIndex === index && (
+                                    <div className="w-full  hover:text-gray-300 pb-4 text-base  ">
+                                        {item.subNavbar.map((subItem, subIndex) => (
+                                            <Link href={getLink(subItem)} key={subIndex} onClick={() => setIsMobileMenuOpen(false)} className="inline-block   w-full pl-8 pr-4 py-4 text-left hover:bg-gray-100 text-gray-700">
+                                                {subItem}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </nav>
+                    <div className="flex items-center px-4 justify-between py-4 border-t">
+                        <Link onClick={() => setIsMobileMenuOpen(false)} href="/contact" className={`w-full text-xl font-medium text-center px-6 py-5 ${Light ? "rounded-lg hover:bg-[#011633] bg-[var(--Blue-Color)] text-white" : "rounded-lg text-black bg-white hover:bg-[var(--Blue-Color)] hover:text-white"} hover:border border transition-colors duration-300`}>
+                            Contact Us
                         </Link>
-                    ))}
-                </nav>
-                <div className="flex items-center px-4 justify-between py-4 border-t ">
-                    <Link onClick={() => setIsMobileMenuOpen(false)} href="/contact" className={`w-full text-xl font-medium text-center   px-6 py-5  ${Light ? "rounded-lg  hover:bg-[#011633]  bg-[var(--Blue-Color)] text-white": "rounded-lg text-black bg-white  hover:bg-[var(--Blue-Color)] hover:text-white" } hover:border border transition-colors duration-300`}>
-                        Contact Us
-                    </Link>
+                    </div>
                 </div>
-            </div>
-                )
-            }
+            )}
         </>
     );
 };
