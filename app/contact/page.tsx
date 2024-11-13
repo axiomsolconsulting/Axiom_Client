@@ -1,151 +1,98 @@
 "use client";
-
+import React, { useState, useEffect } from "react";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
-// import Email from "@/public/socialmedia/email.svg";
-// import Phone from "@/public/socialmedia/phone.svg";
-// import Location from "@/public/socialmedia/location.svg";
 import Image from "next/image";
+import Link from "next/link";
 import Form from "./form";
 import { socialMedia } from "../constants/constants";
-import { useEffect } from "react";
+import Thanks from "@/public/Thanks.svg";
 
-export default function Page() {
+const Page = () => {
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
     useEffect(() => {
-        // Load the Calendly script dynamically only on the client side
         const script = document.createElement("script");
         script.src = "https://assets.calendly.com/assets/external/widget.js";
         script.async = true;
         document.body.appendChild(script);
 
-        // Cleanup script when the component is unmounted
         return () => {
             document.body.removeChild(script);
         };
     }, []);
 
+    const handleFormSuccess = () => {
+        setIsSubmitted(true);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
     return (
         <>
             <section className="bg-[#010b1d] text-white pt-28 xl:pt-48 px-4">
-                {/* 1st Section Form + Details */}
-                <div className="custom-container  mx-auto grid lg:grid-cols-2 gap-x-12 xl:gap-x-[100px]  gap-y-10">
-                    {/* Left Column */}
-                    <div className="order-2 lg:order-1 mb-6 ">
-                        <h2 className="text-4xl md:text-[50px] lg:text-[70px] xl:text-[90px] leading-tight  font-semibold mb-5">Lets Get in Touch</h2>
-                        {/* Contact Details */}
-                        <div className="">
-                            <p className="text-[#7B8CA3] text-xl font-semibold mb-5">Meanwhile you can contact us at:</p>
-                            <div className="space-y-10">
-                                <a href="mailto:connect@axiomsolic.com" className="flex items-center gap-x-[20px] text-2xl font-medium text-white hover:text-blue-300 transition-colors">
-                                    {/* <Mail className="w-5 h-5" /> */}
-                                    <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730818630/Email_xqv6jt.svg" width={24} height={24} alt="Email Icon"></Image>
-                                    connect@axiomsolic.com
-                                </a>
-
-                                <a href="tel:+19095598113" className="flex items-center gap-x-[20px] text-2xl font-medium text-white hover:text-blue-300 transition-colors">
-                                    {/* <Phone className="w-5 h-5" /> */}
-                                    <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730818630/Phone_gvqxiq.svg" width={24} height={24} alt="Phone Icon"></Image>
-                                    +1 (909) 559-8113
-                                </a>
-
-                                <div className="flex items-center gap-x-[20px] text-2xl font-medium text-white hover:text-blue-300">
-                                    {/* <MapPin className="w-5 h-5 flex-shrink-0" /> */}
-                                    <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730818630/Location_dnix0g.svg" width={24} height={24} alt="Location"></Image>
-                                    <span>
-                                        2372 Morse Ave#968
-                                        <br />
-                                        Irvine, CA 92614
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        {/* Social Icons */}
-                        <div className="space-y-4 mt-20">
-                            <p className="text-[#7B8CA3] font-semibold text-xl">Follow us on:</p>
-                            <div className="flex space-x-4">
-                                <a href={socialMedia.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                                    <Facebook className="text-gray-400 hover:text-[#1877F2] cursor-pointer" />
-                                </a>
-                                <a href={socialMedia.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                                    <Twitter className="text-gray-400  hover:text-[#1C9BE9] cursor-pointer" />
-                                </a>
-                                <a href={socialMedia.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                                    <Instagram className="text-gray-400  hover:text-[#B430D7] cursor-pointer" />
-                                </a>
-                                <a href={socialMedia.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                                    <Linkedin className="text-gray-400 hover:text-[#0270AD] cursor-pointer" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Column */}
-                    <div className="space-y-8 order-1 lg:order-2">
-                        <Form />
-                        {/* <div>
-                            <h2 className="text-[44px] leading-[60px] font-semibold">
-                                We will be happy to tell you more about what <span className="text-[var(--Blue-Color)] italic">WE CAN DO</span> for you
+                <div className="custom-container mx-auto grid lg:grid-cols-2 gap-x-12 xl:gap-x-[100px] gap-y-10">
+                    {isSubmitted ? (
+                        <div className="custom-container flex flex-col items-center text-center col-span-2 mb-10">
+                         <Image src={Thanks} alt="Thanks" className="w-1/2 xl:w-auto"></Image>
+                            <h2 className="text-6xl md:text-8xl xl:text-[150px] leading-none font-bold">
+                                Thank You<span className="text-[var(--Blue-Color)]">.</span>
                             </h2>
-                            <p className="text-[#7B8CA3] text-lg max-w-xl mt-5">We&apos;d love to connect with you and learn more about what we can build together. Tell us a few details and we&apos;ll be in touch.</p>
+                            <h3 className="text-2xl md:text-3xl xl:text-[44px] xl:leading-[58px] font-semibold">We&apos;ve got your request.</h3>
+                            <p className="text-base md:text-lg mb-4">Thanks for contacting us. Our team will reach out to you as soon as possible.</p>
+                            <Link  href="/" className="bg-blue-500 text-white font-semibold py-4 px-8 rounded-md hover:bg-black hover:text-white transition-colors duration-300">
+                                Back to Homepage
+                            </Link>
                         </div>
-
-                        <form onSubmit={handleSubmit} className="space-y-6 border rounded-t-[20px] px-10 pt-10">
-                            <div className="grid md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label htmlFor="name" className="text-sm">
-                                        Your Name*
-                                    </label>
-                                    <input id="name" type="text" className="w-full px-3 py-2 bg-[#011330] border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required />
+                    ) : (
+                        <>
+                            {/* Left Column */}
+                            <div className="order-2 lg:order-1 mb-6">
+                                <h2 className="text-4xl md:text-[50px] lg:text-[70px] xl:text-[90px] leading-tight font-semibold mb-5">Lets Get in Touch</h2>
+                                <div className="">
+                                    <p className="text-[#7B8CA3] text-xl font-semibold mb-5">Meanwhile you can contact us at:</p>
+                                    <div className="space-y-10">
+                                        <a href="mailto:connect@axiomsolic.com" className="flex items-center gap-x-[20px] text-2xl font-medium text-white hover:text-blue-300 transition-colors">
+                                            <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730818630/Email_xqv6jt.svg" width={24} height={24} alt="Email Icon" />
+                                            connect@axiomsolic.com
+                                        </a>
+                                        <a href="tel:+19095598113" className="flex items-center gap-x-[20px] text-2xl font-medium text-white hover:text-blue-300 transition-colors">
+                                            <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730818630/Phone_gvqxiq.svg" width={24} height={24} alt="Phone Icon" />
+                                            +1 (909) 559-8113
+                                        </a>
+                                        <div className="flex items-center gap-x-[20px] text-2xl font-medium text-white hover:text-blue-300">
+                                            <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730818630/Location_dnix0g.svg" width={24} height={24} alt="Location" />
+                                            <span>
+                                                2372 Morse Ave#968
+                                                <br />
+                                                Irvine, CA 92614
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="space-y-2">
-                                    <label htmlFor="email" className="text-sm">
-                                        Email*
-                                    </label>
-                                    <input id="email" type="email" className="w-full px-3 py-2 bg-[#011330] border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
-                                </div>
-                                <div className="space-y-2">
-                                    <label htmlFor="phone" className="text-sm">
-                                        Phone*
-                                    </label>
-                                    <input id="phone" type="tel" className="w-full px-3 py-2 bg-[#011330] border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} required />
-                                </div>
-                                <div className="space-y-2">
-                                    <label htmlFor="company" className="text-sm">
-                                        Company
-                                    </label>
-                                    <input id="company" type="text" className="w-full px-3 py-2 bg-[#011330] border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} />
+                                <div className="space-y-4 mt-20">
+                                    <p className="text-[#7B8CA3] font-semibold text-xl">Follow us on:</p>
+                                    <div className="flex space-x-4">
+                                        <a href={socialMedia.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                                            <Facebook className="text-gray-400 hover:text-[#1877F2] cursor-pointer" />
+                                        </a>
+                                        <a href={socialMedia.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                                            <Twitter className="text-gray-400 hover:text-[#1C9BE9] cursor-pointer" />
+                                        </a>
+                                        <a href={socialMedia.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                            <Instagram className="text-gray-400 hover:text-[#B430D7] cursor-pointer" />
+                                        </a>
+                                        <a href={socialMedia.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                            <Linkedin className="text-gray-400 hover:text-[#0270AD] cursor-pointer" />
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="space-y-2">
-                                <label htmlFor="help" className="text-sm">
-                                    How Can we Help
-                                </label>
-                                <div className="relative">
-                                    <select id="help" className="w-full px-3 py-2 bg-[#011330] border border-gray-700 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500" value={formData.help} onChange={(e) => setFormData({ ...formData, help: e.target.value })}>
-                                        <option value="">Select a service</option>
-                                        <option value="web">Web Development</option>
-                                        <option value="mobile">Mobile Development</option>
-                                        <option value="cloud">Cloud Solutions</option>
-                                        <option value="consulting">Consulting</option>
-                                    </select>
-                                    <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                                </div>
+                            {/* Right Column */}
+                            <div className="space-y-8 order-1 lg:order-2">
+                                <Form onFormSuccess={handleFormSuccess} />
                             </div>
-
-                            <div className="space-y-2">
-                                <label htmlFor="message" className="text-sm">
-                                    Your Message
-                                </label>
-                                <textarea id="message" className="w-full px-3 py-2 bg-[#011330] border border-gray-700 rounded-md min-h-[120px] focus:outline-none focus:ring-2 focus:ring-blue-500" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}></textarea>
-                            </div>
-
-                            <div className="flex justify-end">
-                                <button type="submit" className="bg-[var(--Blue-Color)] text-lg text-white font-medium py-3 px-6 rounded-md hover:bg-white hover:text-black hover:border-red-500 transition-colors duration-300">
-                                    Submit
-                                </button>
-                            </div>
-                        </form> */}
-                    </div>
+                        </>
+                    )}
                 </div>
             </section>
 
@@ -177,4 +124,6 @@ export default function Page() {
             </section>
         </>
     );
-}
+};
+
+export default Page;

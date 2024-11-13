@@ -5,7 +5,11 @@ import axios from "axios";
 import { backendUrl } from "../constants/constants";
 import { ChevronDown } from "lucide-react";
 
-const Form = () => {
+type FormProps = {
+    onFormSuccess?: () => void; // Define onFormSuccess as an optional function
+  };
+  
+  const Form: React.FC<FormProps> = ({ onFormSuccess }) => {
     const [formData, setFormData] = useState({
         quoteName: "",
         quoteEmail: "",
@@ -80,20 +84,21 @@ const Form = () => {
 
     // Handle form submission
     const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault(); // Prevent the default form submission behavior
+        e.preventDefault();
 
-        // Validate the form
         if (!validate()) return;
 
-        // Send the form data to the backend
         try {
             setLoading(true);
             const response = await axios.post(`${backendUrl}/api/v1/quote`, formData);
 
             if (response.status === 201) {
                 setLoading(false);
-                alert("Form submitted successfully!");
-                // Reset the form after successful submission
+                // Call the success callback instead of showing alert
+                if (onFormSuccess) {
+                    onFormSuccess();
+                }
+                // Reset the form
                 setFormData({
                     quoteName: "",
                     quoteEmail: "",
