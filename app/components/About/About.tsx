@@ -96,7 +96,7 @@ const About = () => {
                             <p className=" text-base xl:text-lg text-black font-medium md:mt-2">Candidate Database</p>
                         </div>
                         {/* Vertical divider */}
-                        <div className="absolute inset-0 flex justify-center py-4">
+                        <div className="absolute inset-0 flex justify-center py-8">
                             <div className="w-[1px] h-full stats-grandient-line "></div>
                         </div>
 
