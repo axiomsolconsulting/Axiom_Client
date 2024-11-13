@@ -6,12 +6,12 @@ export const getLink = (data: string) => {
       return "services/digital-solutions";
     } else if (title.includes("mobile")) {
       return "services/mobile-app-development";
-    // } else if (title.includes("graphic")) {
-    //   return "services/graphics-designing";
-    // } else if (title.includes("erp")) {
-    //   return "services/erp";
-    // } else if (title.includes("ar")) {
-    //   return "services/ar-vr";
+    } else if (title.includes("cloud")) {
+      return "services/cloud-services";
+    } else if (title.includes("enterprise")) {
+      return "services/custom-enterprise-solutions";
+    } else if (title.includes("staff")) {
+      return "services/staff-augmentation";
     } else if (title.includes("game")) {
       return "services/game-development";
     } else if (title.includes("devops")) {

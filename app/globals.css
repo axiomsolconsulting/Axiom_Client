@@ -214,7 +214,7 @@ html {
 }
 
 .post-content p{
-  @apply text-lg  text-[#1E1E1E];
+  @apply text-lg text-[#1E1E1E];
 }
 
 .post-content ul{
