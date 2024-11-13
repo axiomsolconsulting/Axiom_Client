@@ -18,19 +18,17 @@ interface TeamMember {
     teamMemberEmail: string;
 }
 
-export default async function  Page() {
-
-    let teamMember: TeamMember[] | null = null
+export default async function Page() {
+    let teamMember: TeamMember[] | null = null;
     try {
-        const response = await axios.get(`${backendUrl}/api/v1/web/teamMembers`,{
+        const response = await axios.get(`${backendUrl}/api/v1/web/teamMembers`, {
             headers: {
-                "Cache-Control": "public, max-age=10",  // 60*5=300 Second This sets a 5-minute cache time
+                "Cache-Control": "public, max-age=10", // 60*5=300 Second This sets a 5-minute cache time
             },
         });
         if (response.data.data) {
-          teamMember = response.data.data
-        }
-        else{
+            teamMember = response.data.data;
+        } else {
             console.error("Failed to fetch team Members data:", response.statusText);
         }
     } catch (error) {
@@ -89,12 +87,12 @@ export default async function  Page() {
                     <p className="text-[#454545] mt-3 mb-11 max-w-xl">Axiom Consulting launched in 2021 after the founding partners recognized a growing need for more effective management of large dispersed cross-functional teams to drive results for businesses and organizations. With Axiom by your side, you can feel confident in your ability to navigate any obstacle and come out on top.</p>
                     <div className="">
                         <Link href="/contact" className="bg-[var(--Blue-Color)] text-lg text-white font-medium  py-3 px-6 rounded-md hover:bg-[#011633] hover:text-white hover:border-red-500 transition-colors duration-300">
-                           Work With Us
+                            Work With Us
                         </Link>
                     </div>
                 </div>
                 <div className="Right w-full flex items-center ">
-                  <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730787467/About_Us_dzqwdx.png" alt="storyImage" width={600} height={600}  className="mx-auto rounded-3xl border-[3px] border-white  "></Image>
+                    <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730787467/About_Us_dzqwdx.png" alt="storyImage" width={600} height={600} className="mx-auto rounded-3xl border-[3px] border-white  "></Image>
                     {/* <img className=" object-cover rounded-3xl border-[3px] border-white" src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730787467/About_Us_dzqwdx.png" alt="storyImage" /> */}
                 </div>
             </div>
@@ -110,25 +108,27 @@ export default async function  Page() {
                 <h2 className="text-center text-[44px] font-semibold text-[#1E1E1E]">Meet Our Team</h2>
                 <p className="text-center text-lg">Alone we can do so little, together we can do so much.</p>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-[30px] mt-[50px] mb-16">
-                    {teamMember ? teamMember.map((member, index) => (
-                        <div key={index} className="space-y-[30px]">
-                            <div className="relative h-[300px] md:h-[350px] lg:[400px] xl:h-[432px]">
-                                {/* <img src={member.image} alt={member.name} className="rounded-3xl" /> */}
-                                <Image src={member.teamMemberImage} alt={member.teamMemberName}  objectFit="cover"  layout="fill"  className="rounded-3xl " />
-                                <Link href={member.teamMemberTwitterLink} className="absolute bottom-4 right-4">
-                                    <Image src={Linkedin} alt="Right Arrow" className=""></Image>
-                                </Link>
+                    {teamMember ? (
+                        teamMember.map((member, index) => (
+                            <div key={index} className="space-y-[30px]">
+                                <div className="relative h-[300px] md:h-[350px] lg:[400px] xl:h-[432px]">
+                                    {/* <img src={member.image} alt={member.name} className="rounded-3xl" /> */}
+                                    <Image src={member.teamMemberImage} alt={member.teamMemberName} objectFit="cover" layout="fill" className="rounded-3xl " />
+                                    <Link href={member.teamMemberLinkedInLink.includes("https://") ? member.teamMemberLinkedInLink : `https://${member.teamMemberLinkedInLink}`} target="_blank" rel="noopener noreferrer" className="absolute bottom-4 right-4">
+                                        <Image src={Linkedin} alt="Right Arrow" className="" />
+                                    </Link>
 
-                                {/* <Linkedin className="w-6 h-6 text-[#007EBB] mx-auto mt-2" /> */}
+                                    {/* <Linkedin className="w-6 h-6 text-[#007EBB] mx-auto mt-2" /> */}
+                                </div>
+                                <div className="space-y-2 overflow-hidden">
+                                    <h3 className="text-[#1E1E1E] font-semibold text-[26px]">{member.teamMemberName}</h3>
+                                    <p className="text-[#007EBB] text-lg">{member.teamMemberTitle}</p>
+                                </div>
                             </div>
-                            <div className="space-y-2 overflow-hidden">
-                                <h3 className="text-[#1E1E1E] font-semibold text-[26px]">{member.teamMemberName}</h3>
-                                <p className="text-[#007EBB] text-lg">{member.teamMemberTitle}</p>
-                            </div>
-                        </div>
-                    ))
-                    : <p className="">No Team Member Found!</p>
-                    }
+                        ))
+                    ) : (
+                        <p className="">No Team Member Found!</p>
+                    )}
                 </div>
                 <Jobs />
             </section>
