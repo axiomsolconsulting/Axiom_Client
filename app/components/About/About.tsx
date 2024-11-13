@@ -11,19 +11,19 @@ import bulb from "../../../public/bulb.png";
 const people = [
     {
         id: 1,
-        name: "John Doe",
+        name: "Sal Mahmood",
         designation: "",
         image: image1,
     },
     {
         id: 2,
-        name: "Robert Johnson",
+        name: "Ammara Chaudhry",
         designation: "",
         image: image2,
     },
     {
         id: 3,
-        name: "Jane Smith",
+        name: "Akmal Ahmed",
         designation: "",
         image: image3,
     },

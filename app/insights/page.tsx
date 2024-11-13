@@ -4,6 +4,7 @@ import { backendUrl } from "../constants/constants";
 import BlogPosts from "../insights/BlogPost";
 
 export default async function Page() {
+    // Blog post Data Fatching
     let post = null;
     try {
         const response = await axios.get(`${backendUrl}/api/v1/web/blogs`, {
@@ -19,6 +20,26 @@ export default async function Page() {
     } catch (error) {
         console.log("Error fetching blog data:", error);
     }
+    // Category Fatching
+    let category = null;
+    try {
+        const response = await axios.get(`${backendUrl}/api/v1/web/services`, {
+            headers: {
+                "Cache-Control": "public, max-age=10",  // 60*5=300 Second This sets a 5-minute cache time
+            },
+        });
+        if (response.data.data) {
+            interface CategoryItem {
+                title: string;  // Add other properties if needed
+            }
+            category = response.data.data.map((item : CategoryItem) => item.title)
+        } else {
+            console.error("Failed to fetch category data:", response.statusText);
+        }
+    } catch (error) {
+        console.log("Error fetching category data:", error);
+    }
+
     if (!post) {
         return <div className="text-center text-white text-2xl py-10">Loading...</div>;
     }
@@ -46,7 +67,7 @@ export default async function Page() {
                 </div>
             </div>
 
-            <BlogPosts post={post || []} />
+            <BlogPosts post={post || []}  category={category} />
         </>
     );
 }

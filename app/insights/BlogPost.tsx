@@ -17,15 +17,23 @@ interface Post {
 
 interface BlogPostsProps {
     post: Post[];
+    category: string[];
 }
 
-const BlogPosts = ({ post }: BlogPostsProps) => {
+const BlogPosts = ({ post, category }: BlogPostsProps) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState("");
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState("All Categories");
     const POSTS_PER_PAGE = 6;
 
-    // Filtered posts based on the search query
-    const filteredPosts = post.filter((p) => p.blogTitle.toLowerCase().includes(searchQuery.toLowerCase()));
+    // Combined filtering for both search query and category
+    const filteredPosts = post.filter((p) => {
+        const matchesSearch = p.blogTitle.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesCategory = selectedCategory === "All Categories" || p.blogCategory === selectedCategory || p.categoryID?.categoryTitle === selectedCategory;
+
+        return matchesSearch && matchesCategory;
+    });
 
     // Calculate total pages for pagination
     const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
@@ -33,16 +41,17 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
     const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE;
     const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
 
-    // Exclude the first post from the post list if it's the first page and there's no search query
-    // if (!searchQuery && currentPage === 1 && filteredPosts.length > 0) {
-    //     currentPosts = currentPosts.slice(1);
-    //     console.log("currentPosts on first Page after slice", currentPosts);
-    // }
+    // Reset to first page when filters change
+    const handleCategoryChange = (newCategory: string) => {
+        setSelectedCategory(newCategory);
+        setIsDropdownOpen(false);
+        setCurrentPage(1);
+    };
 
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [selectedCategory, setSelectedCategory] = useState("Category");
-
-    const categories = ["All Categories", "AI & ML", "Web Development", "Mobile Development", "Cloud Computing", "DevOps"];
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchQuery(e.target.value);
+        setCurrentPage(1);
+    };
 
     return (
         <section className="custom-container mx-auto py-20">
@@ -50,26 +59,23 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <div className="relative flex-1">
                     <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                    <input type="text" placeholder="Search by Keywords" className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+                    <input type="text" placeholder="Search by Keywords" className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" value={searchQuery} onChange={handleSearchChange} />
                 </div>
 
                 <div className="relative">
-                    <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="w-full sm:w-48 px-4 py-3 rounded-lg border border-gray-200 bg-white flex items-center justify-between">
+                    <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="w-full sm:w-fit px-4 py-3 rounded-lg border border-gray-200 bg-white flex items-center justify-between">
                         <span className="text-gray-700">{selectedCategory}</span>
                         <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`} />
                     </button>
 
                     {isDropdownOpen && (
                         <div className="absolute z-10 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg">
-                            {categories.map((category) => (
-                                <button
-                                    key={category}
-                                    onClick={() => {
-                                        setSelectedCategory(category);
-                                        setIsDropdownOpen(false);
-                                    }}
-                                    className="w-full px-4 py-2 text-left hover:bg-gray-50 text-gray-700">
-                                    {category}
+                            <button key="all-categories" onClick={() => handleCategoryChange("All Categories")} className="w-full px-4 py-2 text-left hover:bg-gray-50 text-gray-700">
+                                All Categories
+                            </button>
+                            {category.map((cat) => (
+                                <button key={cat} onClick={() => handleCategoryChange(cat)} className="w-full px-4 py-2 text-left hover:bg-gray-50 text-gray-700">
+                                    {cat}
                                 </button>
                             ))}
                         </div>
@@ -77,9 +83,8 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
                 </div>
             </div>
 
-            {/* Featured Post - Show only on currentPage === 1 and during search show only post list */}
-
-            {!searchQuery && currentPage === 1 && currentPosts.length > 0 && (
+            {/* Featured Post */}
+            {!searchQuery && selectedCategory === "All Categories" && currentPage === 1 && currentPosts.length > 0 && (
                 <Link href={`insights/${currentPosts[0].slug}`}>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-5 py-8">
                         <div className="left rounded-3xl overflow-hidden relative">
@@ -104,18 +109,17 @@ const BlogPosts = ({ post }: BlogPostsProps) => {
                 </Link>
             )}
 
-            {/* Post List - Exclude first post if currentPage !== 1 or during search */}
-
-            {!searchQuery && currentPage === 1 && currentPosts.length > 0 ? (
+            {/* Post List */}
+            {!searchQuery && selectedCategory === "All Categories" && currentPage === 1 && currentPosts.length > 0 ? (
                 <div className="posts grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-                    {currentPosts.slice(1).map((iteams, index) => (
-                        <PostCard key={index} title={iteams.blogTitle} category={iteams.blogCategory ? iteams.blogCategory : "No Category"} imageURL={iteams.blogImage} slug={iteams.slug} authorName={iteams.authorName} />
+                    {currentPosts.slice(1).map((items, index) => (
+                        <PostCard key={index} title={items.blogTitle} category={items.blogCategory || items.categoryID?.categoryTitle || "No Category"} imageURL={items.blogImage} slug={items.slug} authorName={items.authorName} />
                     ))}
                 </div>
             ) : (
                 <div className="posts grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-                    {currentPosts.map((iteams, index) => (
-                        <PostCard key={index} title={iteams.blogTitle} category={iteams.blogCategory ? iteams.blogCategory : "No Category"} imageURL={iteams.blogImage} slug={iteams.slug} authorName={iteams.authorName} />
+                    {currentPosts.map((items, index) => (
+                        <PostCard key={index} title={items.blogTitle} category={items.blogCategory || items.categoryID?.categoryTitle || "No Category"} imageURL={items.blogImage} slug={items.slug} authorName={items.authorName} />
                     ))}
                 </div>
             )}
