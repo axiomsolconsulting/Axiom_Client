@@ -8,8 +8,10 @@ import { uploadSingleFile } from "@/app/constants/firebase";
 import upload from "@/public/upload.svg";
 import Image from "next/image";
 import { X } from "lucide-react";
+import Link from "next/link";
 
 const ApplyBox = () => {
+    const [isSubmitted, setIsSubmitted] = useState(false);
     const [formData, setFormData] = useState({
         FirstName: "",
         LastName: "",
@@ -33,7 +35,7 @@ const ApplyBox = () => {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-        setErrors({ ...errors, [name]: "" }); // Reset error for the field
+        setErrors({ ...errors, [name]: "" });
     };
 
     // Validate form inputs
@@ -41,19 +43,16 @@ const ApplyBox = () => {
         let formValid = true;
         const newErrors = { ...errors };
 
-        // First Name validation
         if (!formData.FirstName.trim()) {
             newErrors.FirstName = "First Name is required";
             formValid = false;
         }
 
-        // Last Name validation
         if (!formData.LastName.trim()) {
             newErrors.LastName = "Last Name is required";
             formValid = false;
         }
 
-        // Email validation
         if (!formData.email.trim()) {
             newErrors.email = "Email is required";
             formValid = false;
@@ -62,7 +61,6 @@ const ApplyBox = () => {
             formValid = false;
         }
 
-        // Phone number validation
         if (!formData.contactNumber.trim()) {
             newErrors.contactNumber = "Phone number is required";
             formValid = false;
@@ -71,7 +69,6 @@ const ApplyBox = () => {
             formValid = false;
         }
 
-        // Resume validation
         if (!resume || !formData.resume) {
             newErrors.resume = "Resume is required";
             formValid = false;
@@ -118,24 +115,21 @@ const ApplyBox = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Check if resume is still uploading
         if (uploadingResume) {
             alert("Please wait for resume upload to complete");
             return;
         }
 
-        // Validate the form
         if (!validate()) return;
 
-        // Send the form data to the backend
         try {
             setLoading(true);
             const response = await axios.post(`${backendUrl}/api/v1/jobApplications`, formData);
             
             if (response.status === 201) {
                 setLoading(false);
-                alert("Form submitted successfully!");
-                // Reset the form after successful submission
+                setIsSubmitted(true); // Show thank you message
+                // Reset form state
                 setFormData({
                     FirstName: "",
                     LastName: "",
@@ -154,6 +148,28 @@ const ApplyBox = () => {
             setLoading(false);
         }
     };
+
+    if (isSubmitted) {
+        return (
+            <div className=" flex flex-col items-center text-center py-10 bg-[#EDF3FF] rounded-3xl p-10 h-fit">
+                <h2 className="text-6xl  leading-none font-bold">
+                    Thank You<span className="text-[var(--Blue-Color)]">.</span>
+                </h2>
+                <h3 className="text-2xl  font-semibold mt-6">
+                    We&apos;ve got your Application.
+                </h3>
+                <p className="text-[#454545] text-lg mb-6 mt-4">
+                    Thanks for Applied. Our team will reach out to you as soon as possible.
+                </p>
+                <Link
+                    href="/careers"
+                    className="bg-[var(--Blue-Color)] text-white font-semibold py-4 px-8 rounded-md hover:bg-black transition-colors duration-300"
+                >
+                    Back to Careers
+                </Link>
+            </div>
+        );
+    }
 
     return (
         <div className="bg-[#EDF3FF] rounded-3xl p-10 h-fit">
@@ -190,7 +206,7 @@ const ApplyBox = () => {
                         </div>
                     )}
                 </div>
-                {/* Rest of the form fields remain the same */}
+                {/* Form fields */}
                 <div className="grid md:grid-cols-2 gap-6">
                     {/* First Name */}
                     <div className="relative w-full mb-4">
