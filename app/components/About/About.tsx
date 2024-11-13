@@ -97,12 +97,12 @@ const About = () => {
                         </div>
                         {/* Vertical divider */}
                         <div className="absolute inset-0 flex justify-center py-4">
-                            <div className="w-[1px] h-full bg-gray-300 "></div>
+                            <div className="w-[1px] h-full stats-grandient-line "></div>
                         </div>
 
                         {/* Horizontal divider */}
                         <div className="absolute inset-0 flex items-center px-4">
-                            <div className="w-full h-[1px] bg-gray-300"></div>
+                            <div className="w-full h-[1px] stats-grandient-line"></div>
                         </div>
                     </div>
                 </div>

@@ -201,9 +201,11 @@ html {
 }
 
 .stats-grandient-line{
-  border: 1px solid; border-image-source: linear-gradient(90deg, #1C85FF 0%, #BCC5D9 44.5%, #1C85FF 100%);
+  /* border: 1px solid; border-image-source: linear-gradient(90deg, #1C85FF 0%, #BCC5D9 44.5%, #1C85FF 100%); */
+  /* background: linear-gradient(90deg, #1C85FF 0%, #BCC5D9 44.5%, #1C85FF 100%); */
+  background: linear-gradient(90deg, #E5EBF8 0%, #BCC5D9 44.5%, #E5EBF8 100%);
+  
 }
-
 .post-content h2{
   @apply text-[36px] font-semibold text-[#1E1E1E];
 }

@@ -9,7 +9,7 @@ export default async function Page() {
     try {
         const response = await axios.get(`${backendUrl}/api/v1/web/blogs`, {
             headers: {
-                "Cache-Control": "public, max-age=10",  // 60*5=300 Second This sets a 5-minute cache time
+                "Cache-Control": "public, max-age=10", // 60*5=300 Second This sets a 5-minute cache time
             },
         });
         if (response.data.data) {
@@ -25,14 +25,14 @@ export default async function Page() {
     try {
         const response = await axios.get(`${backendUrl}/api/v1/web/services`, {
             headers: {
-                "Cache-Control": "public, max-age=10",  // 60*5=300 Second This sets a 5-minute cache time
+                "Cache-Control": "public, max-age=10", // 60*5=300 Second This sets a 5-minute cache time
             },
         });
         if (response.data.data) {
             interface CategoryItem {
-                title: string;  // Add other properties if needed
+                title: string; // Add other properties if needed
             }
-            category = response.data.data.map((item : CategoryItem) => item.title)
+            category = response.data.data.map((item: CategoryItem) => item.title);
         } else {
             console.error("Failed to fetch category data:", response.statusText);
         }
@@ -56,18 +56,23 @@ export default async function Page() {
                     <h1 className="text-base font-medium text-center uppercase text-[var(--Blue-Color)]">Insights</h1>
                     <p className="text-center text-3xl md:text-5xl xl:text-6xl md:leading-[80px] font-medium max-w-[824px] mt-2 lg:mt-5">Updates, Insights and Tips</p>
                     <p className="text-center text-base sm:text-lg md:text-xl md:leading-[32px] max-w-2xl mt-3 lg:mt-7">Stay ahead with Axiom as we bring you the latest updates, insightful perspectives, and practical tips.</p>
-                    <div className="border-2 border-[var(--Blue-Color)] w-12 my-3 lg:my-7"></div>
+                    {/* <div className="border-2 border-[var(--Blue-Color)] w-12 my-3 lg:my-7"></div>
                     <p className="">Get started with one of these topics</p>
-                    <div className=" space-x-3 mt-2 lg:mt-7">
-                        <button className="bg-[#193352] hover:bg-[var(--Blue-Color)] duration-300 text-white text-lg font-semibold px-[20px] py-[10px] rounded-md mt-4">Web Insights</button>
-                        <button className="bg-[#193352] hover:bg-[var(--Blue-Color)] duration-300 text-white text-lg font-semibold px-[20px] py-[10px] rounded-md mt-4">Digital Marketing</button>
-                        <button className="bg-[#193352] hover:bg-[var(--Blue-Color)] duration-300 text-white text-lg font-semibold px-[20px] py-[10px] rounded-md mt-4">Gaming</button>
+                    <div className=" space-x-3 mt-2 lg:mt-7 mx-auto  flex justify-center flex-wrap">
+                        {category &&
+                            category.slice(0, 3).map((cat: string) => (
+                                <button key={cat} className="bg-[#193352] hover:bg-[var(--Blue-Color)] duration-300 text-white text-lg font-semibold px-[20px] py-[10px] rounded-md mt-4">
+                                    {cat}
+                                </button>
+                            ))}
+                    </div> */}
+                        {/* <button className="bg-[#193352] hover:bg-[var(--Blue-Color)] duration-300 text-white text-lg font-semibold px-[20px] py-[10px] rounded-md mt-4">Digital Marketing</button> */}
+                        {/* <button className="bg-[#193352] hover:bg-[var(--Blue-Color)] duration-300 text-white text-lg font-semibold px-[20px] py-[10px] rounded-md mt-4">Gaming</button> */}
                         {/* <button className="bg-[#193352] hover:bg-[var(--Blue-Color)] duration-300 text-white text-lg font-semibold px-[20px] py-[10px] rounded-md mt-4">Cloud Services</button> */}
-                    </div>
                 </div>
             </div>
 
-            <BlogPosts post={post || []}  category={category} />
+            <BlogPosts post={post || []} category={category} />
         </>
     );
 }
