@@ -214,3 +214,8 @@ html {
 .post-content ul{
   @apply text-lg list-disc ml-10 space-x-[6px]  text-[#1E1E1E];
 }
+
+
+.screen-minus-80{
+  height: calc(100vh - 80px);
+}
