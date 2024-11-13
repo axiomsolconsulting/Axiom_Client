@@ -79,7 +79,7 @@ const PostView = async ({ params }: Params) => {
                         </span>
                         Back to Blogs
                     </Link>
-                    <h2 className="text-[#1E1E1E] text-[44px] leading-[60px] font-semibold my-5"> {post.blogTitle} </h2>
+                    <h2 className="text-[#1E1E1E] text-3xl xl:text-[44px] xl:leading-[60px] font-semibold my-5"> {post.blogTitle} </h2>
                     <p className="pb-5">{post.metaDescription}</p>
                     {/* bg-white overflow-hidden rounded-md shadow-lg border */}
                     <Image className="w-full aspect-video max-h-[450px] object-cover rounded-3xl" src={post.blogImage} width={1200} height={1200} alt=""></Image>

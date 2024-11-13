@@ -207,8 +207,12 @@ html {
   
 }
 .post-content h2{
-  @apply text-[36px] font-semibold text-[#1E1E1E];
+  @apply text-3xl xl:text-[36px] font-semibold text-[#1E1E1E];
 }
+.post-content h3{
+  @apply text-2xl xl:text-3xl font-semibold text-[#1E1E1E];
+}
+
 .post-content p{
   @apply text-lg  text-[#1E1E1E];
 }
