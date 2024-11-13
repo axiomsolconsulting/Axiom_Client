@@ -31,7 +31,7 @@ const people = [
 
 const About = () => {
     return (
-        <section className=" flex items-center py-[60px] xl:py-[120px]">
+        <section id="About" className=" flex items-center py-[60px] xl:py-[120px]">
             <div className="container mx-auto px-4 ">
                 {/* Top title Desciption */}
                 <h2 className="text-xl md:text-3xl lg:text-[44px] lg:leading-[58px] font-medium leading-relaxed text-center">
