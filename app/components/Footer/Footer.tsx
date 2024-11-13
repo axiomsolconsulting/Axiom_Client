@@ -89,9 +89,9 @@ export default function Footer() {
                                 { label: "Terms", link: "/terms-and-conditions" },
                                 { label: "Privacy Policy", link: "/privacy-policy" },
                             ].map((item, index) => (
-                                <a key={index} href={item.link} className="ml-6 mb-2 hover:underline">
+                                <Link key={index} href={item.link} className="ml-6 mb-2 hover:underline">
                                     {item.label}
-                                </a>
+                                </Link>
                             ))}
                         </div>
                     </div>
