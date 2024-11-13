@@ -34,7 +34,7 @@ const ServicesSrollBar = () => {
                     <div ref={scrollContainerRef} className="flex-1 overflow-hidden">
                         <div className="flex gap-8 transition-transform duration-300" >
                             {services.map((service, index) => (
-                                <Link key={service} href={getLink(service)}  className={`text-white text-lg font-semibold  whitespace-nowrap px-4 py-2 rounded-md transition-colors `}>
+                                <Link key={index} href={getLink(service)}  className={`text-white text-lg font-semibold  whitespace-nowrap px-4 py-2 rounded-md transition-colors `}>
                                     {service}
                                 </Link>
                             ))}
