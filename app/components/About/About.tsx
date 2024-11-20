@@ -55,7 +55,7 @@ const About = () => {
                 <div className="lg:flex gap-x-5 space-y-5 lg:space-y-0 mt-8">
                     {/* Left side: Image */}
                     <div className="relative lg:w-[60%]">
-                        <img src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730137269/it-expert-updating-ai-systems_mzifnq.png" alt="Tech Image" className="rounded-3xl w-full h-auto" />
+                        <img src="/Hero/about.png" alt="Tech Image" className="rounded-3xl w-full h-auto" />
                         <div className="absolute bottom-4 left-4 w-full max-w-xs sm:max-w-sm lg:max-w-md bg-white/80 border border-gray-300 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-lg text-black">
                             <h3 className="text-base sm:text-lg lg:text-xl font-semibold flex items-center gap-2">
                                 <span className="w-3 h-3 bg-blue-600 rounded-full"></span>

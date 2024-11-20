@@ -4,14 +4,14 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const industries = [
-    { name: "Healthcare", icon: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730201821/Frame_1_uvdfjy.png" },
-    { name: "Finance", icon: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730201818/Frame_wuebn2.png" },
-    { name: "Restaurant", icon: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730201820/Frame_2_k20t6a.png" },
-    { name: "Ecommerce", icon: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730201823/Frame_3_j3il3p.png" },
-    { name: "Logistic", icon: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730201824/Frame_4_rc4pjk.png" },
-    { name: "Game & Sport", icon: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730201835/Frame_5_qgwd50.png" },
-    { name: "Travel", icon: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730201820/Frame_2_k20t6a.png" },
-    { name: "Real Estate", icon: "https://res.cloudinary.com/ddmanxpsb/image/upload/v1730201821/Frame_1_uvdfjy.png" },
+    { name: "Healthcare", icon: "/industries/star.png" },
+    { name: "Finance", icon: "/industries/startic.png" },
+    { name: "Restaurant", icon: "/industries/Frame_2.png" },
+    { name: "Ecommerce", icon: "/industries/Frame_3.png" },
+    { name: "Logistic", icon: "/industries/Frame_4.png" },
+    { name: "Game & Sport", icon: "/industries/Frame_5.png" },
+    { name: "Travel", icon: "/industries/Frame_6.png" },
+    { name: "Real Estate", icon: "/industries/Frame_7.png" },
 ];
 
 export default function Industries() {

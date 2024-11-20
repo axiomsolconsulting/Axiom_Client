@@ -51,7 +51,7 @@ export default function Footer() {
                     <div className="flex flex-col md:flex-row justify-between items-center mb-24">
                         {/* Logo */}
                         <Link href="/" className="text-2xl font-bold">
-                            <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730128712/axiom-logo-white_2_1_y8ykgw.png" width={191} height={56} alt="Axiom White Logo"></Image>
+                            <Image src="/Logo/FooterLogo.png" width={191} height={56} alt="Axiom White Logo"></Image>
                         </Link>
                         {/* Social Media Icons */}
                         <div className="flex space-x-4 mt-4 md:mt-0">
