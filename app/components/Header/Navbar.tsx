@@ -61,7 +61,7 @@ const Navbar = () => {
             <nav className="absolute top-0 left-0 right-0 bg-transparent text-white z-10">
                 <div className="flex items-center justify-between container px-5 mx-auto h-20">
                     <Link href="/" className="text-2xl font-bold">
-                        <Image src={Light ? "https://res.cloudinary.com/ddmanxpsb/image/upload/v1731071967/Group_1018_1_aee90q.png" : "https://res.cloudinary.com/ddmanxpsb/image/upload/v1731071968/Group_1018_1_1_trvhrh.png"} width={155} height={38} alt="Axiom Logo" />
+                        <Image src={Light ? "/Logo/whitetextlogo.png" : "/Logo/blacktextlogo.png"} width={155} height={38} alt="Axiom Logo" />
                     </Link>
                     <ul className={`lg:flex items-center justify-between gap-x-7 hidden text-lg font-medium ${Light ? "text-white" : "text-black"}`}>
                         {Navbar.map((item, index) => (
