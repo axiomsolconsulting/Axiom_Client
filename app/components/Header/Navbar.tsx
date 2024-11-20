@@ -14,7 +14,7 @@ const Navbar = () => {
 
     // Define allowed routes, including the '/services' base route
     const allowedRoutes = [
-        "/services",
+        // "/services",
         "/about",
         "/careers",
         "/insights",

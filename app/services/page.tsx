@@ -6,6 +6,7 @@ import axios from "axios";
 import RightArrow from "@/public/RightArrow.svg";
 import WhyWorkWithUs from "../components/Services/WhyWorkWithUs";
 import { getLink } from "./getLink";
+import Loading from "../loading";
 const stats = [
     { value: "70K+", label: "Years of Experience" },
     { value: "140K+", label: "Satisfied Clients" },
@@ -114,7 +115,7 @@ export default async function Page() {
     }
 
     if (!services) {
-        return <div className="text-center text-white text-2xl py-10 bg-red-300">Loading...</div>;
+        return <Loading />;
     }
 
     return (
@@ -122,10 +123,7 @@ export default async function Page() {
             {/* Hero Section */}
             <div className="relative ">
                 <div className="bg-black">
-                    {/* <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-transparent opacity-50"></div> */}
                     <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="About Picture" width={1920} height={650} className="min-h-[650px] md:in-h-[650px] max-h-[752px] w-full object-fill" />
-                    {/* <img className="max-h-[650px] w-full object-cover" src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="" /> */}
-                    {/* <Image src={contactHero.src} alt="logo" width={120} height={400} layout="responsive" /> */}
                 </div>
                 <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center gap-y-3 md:gap-y-5 items-center text-white px-3">
                     <h1 className="text-base font-medium text-center uppercase text-[var(--Blue-Color)]">SERVICES</h1>
@@ -190,7 +188,7 @@ export default async function Page() {
             <section className="bg-[#000409] relative">
                 <div className=" custom-container mx-auto divide-y-2 ">
                     {services.map((service, index) => (
-                        <div key={index} className="relative grid grid-cols-1 lg:grid-cols-2 gap-x-[180px] gap-y-10 items-center py-[60px] xl:py-[120px]">
+                        <div key={index} className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-x-[180px] gap-y-10 items-center py-[60px] xl:py-[120px]">
                             <div className="">
                                 <h2 className="text-4xl font-bold text-white">{service.title}</h2>
                                 <p className="leading-relaxed text-[#D1D1D1] mt-5">{service.description}</p>

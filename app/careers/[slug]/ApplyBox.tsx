@@ -196,7 +196,7 @@ const ApplyBox = () => {
                             </button>
                         </div>
                     ) : (
-                        <div className="space-y-[10px]">
+                        <div className="space-y-[10px] cursor-pointer">
                             <p className="underline underline-offset-4 flex justify-center gap-x-2 font-semibold text-[var(--Blue-Color)]">
                                 <Image src={upload} alt="upload"></Image>
                                 Upload resume

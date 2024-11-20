@@ -156,9 +156,7 @@ export default function Page() {
             {/* Hero Section */}
             <div className="relative ">
                 <div className="bg-black ">
-                    {/* <img className="max-h-[650px] w-full object-cover" src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="" /> */}
                     <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730768650/Rectangle_27_1_gekqzm.png" alt="About Picture" width={1920} height={650} className="min-h-[450px] md:in-h-[650px] max-h-[650px] w-full object-fill" />
-                    {/* <Image src={contactHero.src} alt="logo" width={120} height={400} layout="responsive" /> */}
                 </div>
                 <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-white px-3">
                     <h1 className="text-base font-medium text-center uppercase text-[var(--Blue-Color)]">Digital Solutions</h1>
@@ -200,7 +198,7 @@ export default function Page() {
                                 <div className="mb-[30px]">{service.icon}</div>
                                 <h3 className="text-[32px] font-semibold mb-[20px] text-black">{service.title}</h3>
                                 <p className="text-lg mb-[40px] text-[#454545]">{service.description}</p>
-                                <Link href={service.link} className="inline-flex items-center text-blue-500 hover:text-blue-600 transition-colors">
+                                <Link href="/contact" className="inline-flex items-center text-blue-500 hover:text-blue-600 transition-colors">
                                     Book a Call
                                     <ArrowRight className="ml-2 w-4 h-4" />
                                 </Link>

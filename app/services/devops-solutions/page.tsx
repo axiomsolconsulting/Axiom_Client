@@ -200,7 +200,7 @@ export default function Page() {
                                 <div className="mb-[30px]">{service.icon}</div>
                                 <h3 className="text-[32px] font-semibold mb-[20px] text-black">{service.title}</h3>
                                 <p className="text-lg mb-[40px] text-[#454545]">{service.description}</p>
-                                <Link href={service.link} className="inline-flex items-center text-blue-500 hover:text-blue-600 transition-colors">
+                                <Link href="/contact" className="inline-flex items-center text-blue-500 hover:text-blue-600 transition-colors">
                                     Book a Call
                                     <ArrowRight className="ml-2 w-4 h-4" />
                                 </Link>

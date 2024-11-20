@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { backendUrl } from "../constants/constants";
+import Loading from "../loading";
 
 const page = async () => {
     interface Post {
@@ -25,7 +26,7 @@ const page = async () => {
         console.log("Error fetching Services Data:", error);
     }
     if (!post) {
-        return <div className="mt-[167]">Loading</div>;
+        return <Loading/> ;
     }
 
     // Format the updated date

@@ -2,6 +2,7 @@ import Image from "next/image";
 import axios from "axios";
 import { backendUrl } from "../constants/constants";
 import BlogPosts from "../insights/BlogPost";
+import Loading from "../loading";
 
 export default async function Page() {
     // Blog post Data Fatching
@@ -41,7 +42,7 @@ export default async function Page() {
     }
 
     if (!post) {
-        return <div className="text-center text-white text-2xl py-10">Loading...</div>;
+        return <Loading />;
     }
     return (
         <>

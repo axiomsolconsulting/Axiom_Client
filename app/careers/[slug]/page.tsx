@@ -5,6 +5,7 @@ import { backendUrl } from "@/app/constants/constants";
 import location from "@/public/careers/job/location.svg";
 import time from "@/public/careers/job/time.svg";
 import ApplyBox from "./ApplyBox";
+import Loading from "@/app/loading";
 
 interface Params {
     params: Promise<{
@@ -35,7 +36,7 @@ export default async function page({ params }: Params) {
     }
 
     if (!job) {
-        return <div className="mt[167px]">Loading</div>;
+        return <Loading />;
     }
     return (
         <main className="container mx-auto py-5 px-5 mt-[167px] grid lg:grid-cols-[60%,40%] gap-8 space-y-2 lg:space-y-0">

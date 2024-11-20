@@ -1,6 +1,7 @@
 import Partner from '@/public/services/Partner.svg';
 import Scale from '@/public/services/Scale.svg';
 import Transparency from '@/public/services/Tranparency.svg';
+import Link from 'next/link';
 
 
 const WhyWorkWithUs = () => {
@@ -33,10 +34,10 @@ const WhyWorkWithUs = () => {
                         <p className="text-[#454545] text-lg">Choosing Axiom as your strategic partner means embracing a collaborative approach to technology solutions that prioritize your business success. Here&apos;s why you should work with us:</p>
                     </div>
 
-                    <div className="bg-[#EDF3FF] rounded-3xl p-8 space-y-4 mt-10 border md:mr-[17px] border-[var(--Blue-Color)]">
-                        <h3 className="text-2xl font-bold text-black">Book a discovery call to discuss your needs.</h3>
-                        <p className="text-gray-600">Ready to take the next step? Let&apos;s connect! We invites you to book a discovery call.</p>
-                        <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md transition-colors">Book a Call</button>
+                    <div className="bg-[#EDF3FF] rounded-3xl p-8 pb-12  mt-10 border md:mr-[17px] border-[var(--Blue-Color)]">
+                        <h3 className="text-2xl font-bold text-black mb-5">Book a discovery call to discuss your needs.</h3>
+                        <p className="text-gray-600 mb-10">Ready to take the next step? Let&apos;s connect! We invites you to book a discovery call.</p>
+                        <Link href="/contact" className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-5 rounded-md transition-colors text-lg font-medium">Book a Call</Link>
                     </div>
                 </div>
 
