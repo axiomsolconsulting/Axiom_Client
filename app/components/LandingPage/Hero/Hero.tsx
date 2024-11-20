@@ -8,12 +8,12 @@ const Hero = () => {
         <section className="relative min-h-[650px] h-svh flex items-center justify-center overflow-hidden ">
             {/* Particle effect background */}
             <div className="absolute top-0 left-0 w-full h-full ">
-                <video src="https://res.cloudinary.com/ddmanxpsb/video/upload/v1730133449/covervideo_mxojrk.mov" loop autoPlay muted className="w-full h-full object-cover"></video>
+                <video src="/Hero/Cover_Video.mov" loop autoPlay muted className="w-full h-full object-cover"></video>
             </div>
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-transparent opacity-85"></div>
             {/* Content */}
             <div className="relative z-10 text-center px-4">
-                <h1 className="text-4xl sm:text-5xl md:text-[86px] md:leading-[92px] font-semibold text-white mb-10 ">
+                <h1 className="text-3xl sm:text-5xl md:text-[86px] md:leading-[92px] font-semibold text-white mb-10 ">
                     Revolutionize Your
                     <br />
                     Operations with Axiom
