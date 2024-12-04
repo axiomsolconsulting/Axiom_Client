@@ -6,6 +6,9 @@ import Link from "next/link";
 import Form from "./form";
 import { socialMedia } from "../constants/constants";
 import Thanks from "@/public/Thanks.svg";
+import Email from "@/public/contact/Email.svg";
+import Phone from "@/public/contact/Phone.svg";
+import Location from "@/public/contact/Location.svg";
 
 const Page = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -51,15 +54,15 @@ const Page = () => {
                                     <p className="text-[#7B8CA3] text-xl font-semibold mb-5">Meanwhile you can contact us at:</p>
                                     <div className="space-y-10">
                                         <a href="mailto:connect@axiomsolic.com" className="flex items-center gap-x-[20px] text-2xl font-medium text-white hover:text-blue-300 transition-colors">
-                                            <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730818630/Email_xqv6jt.svg" width={24} height={24} alt="Email Icon" />
+                                            <Image src={Email} width={24} height={24} alt="Email Icon" />
                                             connect@axiomsolic.com
                                         </a>
                                         <a href="tel:+19095598113" className="flex items-center gap-x-[20px] text-2xl font-medium text-white hover:text-blue-300 transition-colors">
-                                            <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730818630/Phone_gvqxiq.svg" width={24} height={24} alt="Phone Icon" />
+                                            <Image src={Phone} width={24} height={24} alt="Phone Icon" />
                                             +1 (909) 559-8113
                                         </a>
                                         <div className="flex items-center gap-x-[20px] text-2xl font-medium text-white hover:text-blue-300">
-                                            <Image src="https://res.cloudinary.com/ddmanxpsb/image/upload/v1730818630/Location_dnix0g.svg" width={24} height={24} alt="Location" />
+                                            <Image src={Location} width={24} height={24} alt="Location" />
                                             <span>
                                                 2372 Morse Ave#968
                                                 <br />
