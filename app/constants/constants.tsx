@@ -4,7 +4,7 @@
 // Ateeq's backendUrl
 export const backendUrl = "https://axiom-backend-two.vercel.app";
 // export const backendUrl = "https://xc1t5tk1-5000.inc1.devtunnels.ms";
-export const websiteUrl = "https://axiom-new.vercel.app";
+export const websiteUrl = "https://axiomsolinc.com";
 // Hammad backendUrl
 // export const backendUrl = "https://8rgvpdmw-5000.euw.devtunnels.ms";
 
